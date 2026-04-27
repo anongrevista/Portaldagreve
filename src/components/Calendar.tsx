@@ -3,6 +3,20 @@
 import { Calendar as CalendarIcon, Clock, MapPin, Info } from "lucide-react";
 import { cn } from "@/lib/utils";
 
+interface EventData {
+  date: string;
+  title: string;
+  time: string;
+  location: string;
+  category: string;
+  priority: string;
+}
+
+interface CalendarEvent extends EventData {
+  eventDate: Date;
+}
+
+
 export const EVENTS = [
   {
     date: "2026-04-27",
@@ -105,7 +119,7 @@ export const EVENTS = [
 import { useEffect, useState } from "react";
 
 export function Calendar({ limit }: { limit?: number }) {
-  const [upcomingEvents, setUpcomingEvents] = useState<typeof EVENTS>([]);
+  const [upcomingEvents, setUpcomingEvents] = useState<CalendarEvent[]>([]);
   const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
