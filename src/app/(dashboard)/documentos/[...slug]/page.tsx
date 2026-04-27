@@ -2,6 +2,7 @@ import { TopBar } from "@/components/TopBar";
 import { notFound } from "next/navigation";
 import { Reference } from "@/components/ReferenceTooltip";
 import { FileCheck, Calendar, Users, PenTool, Link as LinkIcon } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 /**
  * Dados estruturados do documento "Informações sobre a greve"
@@ -108,6 +109,16 @@ function CategoryBadge({ children }: { children: React.ReactNode }) {
   );
 }
 
+function Marked({ color, children }: { color: 'yellow' | 'red' | 'gray'; children: React.ReactNode }) {
+  const bgClass = {
+    yellow: 'bg-yellow-400/20 border-b border-yellow-400/40 text-yellow-100',
+    red: 'bg-red-500/20 border-b border-red-500/40 text-red-100',
+    gray: 'bg-gray-500/20 border-b border-gray-500/40 text-gray-100',
+  }[color];
+  
+  return <span className={cn("px-1.5 py-0.5 rounded-sm transition-colors", bgClass)}>{children}</span>;
+}
+
 function BulletItem({ children }: { children: React.ReactNode }) {
   return (
     <li className="flex gap-3 items-start">
@@ -154,6 +165,30 @@ function InformacoesGreveContent() {
             </a>
           ))}
         </nav>
+      </div>
+
+      {/* Legenda de Cores */}
+      <div className="bg-gray-800/20 border border-gray-700/30 rounded-xl p-5 mb-10">
+        <h3 className="text-[10px] font-black text-gray-500 uppercase tracking-[0.2em] mb-4 flex items-center gap-2">
+          <svg className="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+          Significado das Marcações
+        </h3>
+        <div className="space-y-3">
+          <div className="flex items-center gap-3">
+            <Marked color="gray">Marcação Cinza</Marked>
+            <span className="text-sm text-gray-400">— Futuramente terão referências a outros documentos detalhados.</span>
+          </div>
+          <div className="flex items-center gap-3">
+            <Marked color="yellow">Marcação Amarela</Marked>
+            <span className="text-sm text-gray-400">— Pautas que ainda precisam de maior explicação e detalhamento.</span>
+          </div>
+          <div className="flex items-center gap-3">
+            <Marked color="red">Marcação Vermelha</Marked>
+            <span className="text-sm text-gray-400">— Pautas que ainda estão sendo avaliadas para ver se é possível incluir.</span>
+          </div>
+        </div>
       </div>
 
       {/* 1. Greves anteriores */}
@@ -207,7 +242,7 @@ function InformacoesGreveContent() {
       {/* 2.2 Pautas da greve */}
       <SubSectionTitle id="pautas-da-greve">2.2 Pautas da greve</SubSectionTitle>
       <p className="text-gray-300 leading-relaxed mb-6">
-        As pautas foram divididas em 4 eixos, sendo eles o de permanência, espaços de vivência, acesso e orçamento. As mesmas já compõe a <Reference index={1} id="OF.DIR.042/2024" title="Diretrizes sobre o Calendário Acadêmico em período de mobilização." date="15/04/2024" url="#">carta de reivindicações do IFUSP</Reference> e foram enviadas ao DCE para que tenha um debate analisando as cartas de cada instituto e suas pautas e compor a pauta geral da USP como um todo.
+        As pautas foram divididas em 4 eixos, sendo eles o de permanência, espaços de vivência, acesso e orçamento. As mesmas já compõe a carta de reivindicações do IFUSP e foram enviadas ao DCE para que tenha um debate analisando as cartas de cada instituto e suas pautas e compor a pauta geral da USP como um todo.
       </p>
 
       {/* Pautas USP Geral */}
@@ -224,15 +259,16 @@ function InformacoesGreveContent() {
         <BulletItem>Desprivatização dos bandejões e equipe sem terceirizados</BulletItem>
         <BulletItem>Café da manhã em todos os bandecos das 6h as 9h</BulletItem>
         <BulletItem>Vigilância sanitária constante</BulletItem>
-        <BulletItem>Jantar no domingo e funcionar nos feriados</BulletItem>
-        <BulletItem>Dois pães na prefeitura e na química</BulletItem>
+        <BulletItem><Marked color="yellow">Jantar no domingo</Marked></BulletItem>
+        <BulletItem><Marked color="yellow">Funcionar nos feriados</Marked></BulletItem>
+        <BulletItem><Marked color="yellow">Dois pães na prefeitura e na química</Marked></BulletItem>
       </ul>
 
       <p className="text-sm font-semibold text-white mt-3 mb-2">2. Por melhoras e garantias para os funcionários:</p>
       <ul className="list-disc list-inside space-y-1.5 ml-4 mb-4">
         <BulletItem>BUSP para o funcionário terceirizado</BulletItem>
         <BulletItem>Intérprete de libras para os alunos que precisam (atualmente são funcionários temporários contratos de um ano ou semestre, quando o funcionário acaba o professor(a) fica impedido de dar aulas ou o aluno de entender)</BulletItem>
-        <BulletItem>Contratação de pessoal estatizado para o HU</BulletItem>
+        <BulletItem><Marked color="yellow">Contratação de pessoal estatizado para o HU</Marked></BulletItem>
       </ul>
 
       <p className="text-sm font-semibold text-white mt-3 mb-2">3. Políticas de permanência efetivas:</p>
@@ -246,8 +282,8 @@ function InformacoesGreveContent() {
         <BulletItem>Mais roteadores na USP</BulletItem>
         <BulletItem>USP aceitar medidas protetivas</BulletItem>
         <BulletItem>Maior oferecimento da disciplina de libras e ser de um semestre para cada curso</BulletItem>
-        <BulletItem>Bolsa de suporte a pessoas com deficiência (profissionais e não bolsistas)</BulletItem>
-        <BulletItem>Aumento da frequência dos circulares no fim de semana</BulletItem>
+        <BulletItem><Marked color="yellow">Bolsa de suporte a pessoas com deficiência (profissionais e não bolsistas)</Marked></BulletItem>
+        <BulletItem><Marked color="yellow">Aumento da frequência dos circulares no fim de semana</Marked></BulletItem>
       </ul>
 
       {/* Espaços */}
@@ -288,53 +324,53 @@ function InformacoesGreveContent() {
         <BulletItem>Efetivação do Física Acolhe para que a equipe de psicólogos seja contratada e não paga pelo dinheiro do Show da Física</BulletItem>
         <BulletItem>GT anti assédio (psicológico, professores, alunos e funcionários) ter treinamento da PRIP</BulletItem>
         <BulletItem>Discussão dos PPPs por um GT (ênfase na LIC e refazer o projeto pedagógico defasado)</BulletItem>
-        <BulletItem>Física 0 e bases matemáticas</BulletItem>
-        <BulletItem>Ar condicionado nas salas</BulletItem>
+        <BulletItem><Marked color="yellow">Física 0 e bases matemáticas</Marked></BulletItem>
+        <BulletItem><Marked color="yellow">Ar condicionado nas salas</Marked></BulletItem>
       </ul>
 
       <CategoryBadge>Espaços - Eixo 2</CategoryBadge>
       <ul className="list-disc list-inside space-y-1.5 ml-4 mb-4 mt-2">
         <BulletItem>Abertura da biblioteca e espaços de estudo (Méson Pi)</BulletItem>
         <BulletItem>Conforto térmico no instituto</BulletItem>
-        <BulletItem>Reabertura do bosque da física</BulletItem>
-        <BulletItem>Pisos táteis e políticas de inclusão e segurança (elevadores, incêndio, sala de descompressão)</BulletItem>
-        <BulletItem>HU ser capaz de realizar pronto atendimentos</BulletItem>
-        <BulletItem>Restabelecimento/revitalização da oca e vincular ela a creche oeste</BulletItem>
+        <BulletItem><Marked color="red">Reabertura do bosque da física</Marked></BulletItem>
+        <BulletItem><Marked color="yellow">Pisos táteis e políticas de inclusão e segurança (elevadores, incêndio, sala de descompressão)</Marked></BulletItem>
+        <BulletItem><Marked color="yellow">HU ser capaz de realizar pronto atendimentos</Marked></BulletItem>
+        <BulletItem><Marked color="yellow">Restabelecimento/revitalização da oca e vincular ela a creche oeste</Marked></BulletItem>
       </ul>
 
       <CategoryBadge>Orçamento - Eixo 4</CategoryBadge>
       <ul className="list-disc list-inside space-y-1.5 ml-4 mb-4 mt-2">
         <BulletItem>GT de dados fiscalizar dados de renda/PAPFE, mapear o que é permanência</BulletItem>
-        <BulletItem>GT de dados ver os fundos de investimento e se tem corrupção</BulletItem>
+        <BulletItem><Marked color="yellow">GT de dados ver os fundos de investimento e se tem corrupção</Marked></BulletItem>
       </ul>
 
       <SectionDivider />
 
       {/* 2.3 Informações úteis */}
-      <SubSectionTitle id="informacoes-uteis">2.3 Informações úteis</SubSectionTitle>
+      <SectionTitle id="informacoes-uteis">2.3 <Marked color="gray">Informações úteis</Marked></SectionTitle>
       <div className="space-y-3 mb-8">
         <div className="flex items-start gap-3 bg-[#1a1f2e] rounded-lg p-4 border border-gray-700/40">
           <span className="text-secondary text-lg mt-0.5">⚠</span>
           <p className="text-gray-300 text-sm leading-relaxed">
-            Aulas online não podem ser ministradas segundo as normas da própria USP (lei da reitoria) (para pós até 20%);
+            <Marked color="gray">Aulas online não podem ser ministradas segundo as normas da própria USP (lei da reitoria) (para pós até 20%);</Marked>
           </p>
         </div>
         <div className="flex items-start gap-3 bg-[#1a1f2e] rounded-lg p-4 border border-gray-700/40">
           <span className="text-secondary text-lg mt-0.5">⚠</span>
           <p className="text-gray-300 text-sm leading-relaxed">
-            Avaliação não pode ser aplicada durante piquetes;
+            <Marked color="gray">Avaliação não pode ser aplicada durante piquetes;</Marked>
           </p>
         </div>
         <div className="flex items-start gap-3 bg-[#1a1f2e] rounded-lg p-4 border border-gray-700/40">
           <span className="text-primary text-lg mt-0.5">✓</span>
           <p className="text-gray-300 text-sm leading-relaxed">
-            Professores em sua maioria apoiam a greve e entendem que não é adequado dar aulas;
+            <Marked color="gray">Professores em sua maioria apoiam a greve e entendem que não é adequado dar aulas;</Marked>
           </p>
         </div>
         <div className="flex items-start gap-3 bg-secondary/10 rounded-lg p-4 border border-secondary/30">
           <span className="text-secondary text-lg mt-0.5">ℹ</span>
           <p className="text-gray-300 text-sm leading-relaxed">
-            O calendário pode ser estendido, já está sendo debatido isso em outros institutos e já ocorreu em greves passadas;
+            <Marked color="gray">O calendário pode ser estendido, já está sendo debatido isso em outros institutos e já ocorreu em greves passadas;</Marked>
           </p>
         </div>
       </div>
@@ -363,7 +399,7 @@ function InformacoesGreveContent() {
         <BulletItem>Ocupando o espaço, e não ficando em casa</BulletItem>
         <BulletItem>Participando das atividades de greve divulgadas</BulletItem>
         <BulletItem>Ajudar nos cartazes e na exposição que pretendemos fazer</BulletItem>
-        <BulletItem>Não engajar com pessoas que aparecem para fazer vídeos sensacionalistas</BulletItem>
+        <BulletItem><Marked color="gray">Não engajar com pessoas que aparecem para fazer vídeos sensacionalistas</Marked></BulletItem>
       </ul>
 
       <SectionDivider />
@@ -372,16 +408,16 @@ function InformacoesGreveContent() {
       <SubSectionTitle id="reunioes-atividades">2.6 Reuniões e atividades até agora</SubSectionTitle>
       <ul className="space-y-4 mb-10">
         <ActivityItem date="Dia 17">
-          Assembleia geral do IFUSP, onde foi votado e aprovado a greve. E também eleito o comando de greve do IFUSP.
+          <Marked color="gray">Assembleia geral do IFUSP, onde foi votado e aprovado a greve. E também eleito o comando de greve do IFUSP.</Marked>
         </ActivityItem>
         <ActivityItem date="Dia 17">
-          Trancamento de todas as salas do IFUSP e ordens aos funcionários para que elas não fossem abertas e suas cadeiras usadas para piquetes, impedindo as aulas.
+          <Marked color="gray">Trancamento de todas as salas do IFUSP e ordens aos funcionários para que elas não fossem abertas e suas cadeiras usadas para piquetes, impedindo as aulas.</Marked>
         </ActivityItem>
         <ActivityItem date="Semana 20-24">
-          Piquetes elaborados e manutenção da mobilização no instituto.
+          <Marked color="gray">Piquetes elaborados e manutenção da mobilização no instituto.</Marked>
         </ActivityItem>
         <ActivityItem date="Dia 24">
-          Reunião dos comandos de greve da USP e reuniões com a direção do IFUSP.
+          <Marked color="gray">Reunião dos comandos de greve da USP e reuniões com a direção do IFUSP.</Marked>
         </ActivityItem>
       </ul>
     </>
@@ -510,7 +546,7 @@ function ApresentacaoHubContent() {
 
       <SectionTitle id="conclusao">10. Conclusão</SectionTitle>
       <p className="text-gray-300 leading-relaxed mb-6">
-        O HUB da Greve representa um marco na organização <Reference index={1} id="org-digital" title="Documentação sobre Governança Digital em movimentos sociais." date="20/04/2024" url="#">digital</Reference> dos movimentos universitários. Ao unir tecnologia de ponta com pautas sociais, ele consolida a infraestrutura necessária para uma mobilização <Reference index={2} id="mob-moderna" title="Artigo sobre novas tecnologias e mobilização estudantil." date="22/04/2024" url="#">moderna</Reference>, inclusiva e tecnicamente <Reference index={3} id="robusta" title="Especificações técnicas e arquitetura do HUB da Greve." date="24/04/2024" url="#">robusta</Reference>.
+        O HUB da Greve representa um marco na organização digital dos movimentos universitários. Ao unir tecnologia de ponta com pautas sociais, ele consolida a infraestrutura necessária para uma mobilização moderna, inclusiva e tecnicamente robusta.
       </p>
     </>
   );
@@ -521,47 +557,22 @@ function OQueEComandoContent() {
     <>
       <SectionTitle id="definicao">O que é o Comando de Greve?</SectionTitle>
       <p className="text-gray-300 leading-relaxed mb-6">
-        O Comando de Greve é o organismo político e operacional responsável por conduzir as atividades cotidianas da mobilização em cada instituto. Ele não é um órgão deliberativo isolado, mas sim um facilitador da vontade dos estudantes expressa em assembleia.
+        O comando de greve é votado em assembleia e nela cada instituto/faculdade tem direito a 1 representante em seu comando a cada 15 alunos presentes na assembleia. 
       </p>
-
-      <SubSectionTitle id="composicao">Composição Plural</SubSectionTitle>
+      
       <p className="text-gray-300 leading-relaxed mb-4">
-        Para garantir que todos os interesses sejam representados, o comando atual do IFUSP é formado por representantes de diversas frentes:
+        Seu papel é além de <Marked color="yellow">representar os estudantes</Marked> daquele espaço no período de greve também comandar a mesma das seguintes formas:
       </p>
+
       <ul className="list-disc list-inside space-y-2 ml-4 mb-8">
-        <BulletItem>Integrantes do Cefisma (Centro Acadêmico)</BulletItem>
-        <BulletItem>Membros da Atlética da Física</BulletItem>
-        <BulletItem>Representantes do HS e coletivos do instituto</BulletItem>
-        <BulletItem>Estudantes do CRUSP e delegados do DCE</BulletItem>
-        <BulletItem>Alunos independentes (não vinculados a entidades)</BulletItem>
+        <BulletItem>Organizar</BulletItem>
+        <BulletItem>Dirigir o processo</BulletItem>
+        <BulletItem>Mobilizar</BulletItem>
+        <BulletItem>Negociar as pautas</BulletItem>
+        <BulletItem>Construir um calendário</BulletItem>
+        <BulletItem>Puxar assembleias</BulletItem>
+        <BulletItem>Compor um comando de greve geral da USP (formado por todos os comandos que compõem a universidade)</BulletItem>
       </ul>
-
-      <SubSectionTitle id="atribuicoes">Papéis e Atribuições</SubSectionTitle>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10">
-        <div className="bg-[#1a1f2e] p-5 rounded-xl border border-gray-800">
-          <h4 className="text-primary font-bold mb-2">Comunicação</h4>
-          <p className="text-sm text-gray-400">Organiza o repasse de informações das reuniões gerais e coordena as redes oficiais.</p>
-        </div>
-        <div className="bg-[#1a1f2e] p-5 rounded-xl border border-gray-800">
-          <h4 className="text-primary font-bold mb-2">Infraestrutura</h4>
-          <p className="text-sm text-gray-400">Garante a manutenção dos piquetes, alimentação e segurança dos espaços ocupados.</p>
-        </div>
-        <div className="bg-[#1a1f2e] p-5 rounded-xl border border-gray-800">
-          <h4 className="text-primary font-bold mb-2">Articulação</h4>
-          <p className="text-sm text-gray-400">Mantém contato constante com comandos de outros institutos e com a APUSP/ADUSP.</p>
-        </div>
-        <div className="bg-[#1a1f2e] p-5 rounded-xl border border-gray-800">
-          <h4 className="text-primary font-bold mb-2">Atividades</h4>
-          <p className="text-sm text-gray-400">Planeja o calendário de debates, aulas públicas e manifestações culturais.</p>
-        </div>
-      </div>
-
-      <SectionDivider />
-
-      <SubSectionTitle id="deliberacao">O Poder da Assembleia</SubSectionTitle>
-      <p className="text-gray-300 leading-relaxed mb-6">
-        É fundamental destacar: <strong className="text-white">o comando não decide nada sozinho</strong>. Todas as pautas chaves, continuidade ou fim da greve, e aprovação de cartas oficiais devem passar pela aprovação soberana da Assembleia Geral dos Estudantes.
-      </p>
     </>
   );
 }
@@ -570,47 +581,32 @@ function LidarInfluencersContent() {
   return (
     <>
       <SectionTitle id="introducao-influencers">Protocolo de Conduta</SectionTitle>
-      <div className="bg-red-900/20 border border-red-500/30 rounded-xl p-6 mb-10">
-        <h3 className="text-red-400 font-bold flex items-center gap-2 mb-3">
-          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
-          </svg>
-          Regra de Ouro: NÃO ENGAJAR
-        </h3>
-        <p className="text-gray-300 text-sm leading-relaxed">
-          Influencers de direita e canais sensacionalistas visitam os piquetes com um objetivo único: conseguir imagens de conflito ou respostas "atropeladas" para editar e descredibilizar o movimento.
-        </p>
-      </div>
-
-      <SubSectionTitle id="por-que-ignorar">Por que o silêncio é a melhor arma?</SubSectionTitle>
       <p className="text-gray-300 leading-relaxed mb-6">
-        O algoritmo desses canais se alimenta de engajamento. Ao responder, mesmo que de forma educada ou lógica, você está fornecendo o material bruto que eles precisam para realizar edições maliciosas. O objetivo deles não é o debate de ideias, mas o entretenimento político baseado na ridicularização.
+        Com a infeliz realidade recente do aparecimento, cada vez mais comum, de políticos e &quot;influencers&quot; da extrema-direita nos espaços estudantis, cresce a necessidade de medidas comuns. A postura tem que ser <strong className="text-white">&quot;não dar palco para maluco&quot;</strong>.
       </p>
 
-      <SubSectionTitle id="como-agir">Como agir em situações de abordagem?</SubSectionTitle>
+      <p className="text-gray-300 leading-relaxed mb-6">
+        Fica claro que o conflito é o desejo deles. Dessa forma, é importante não só estarmos anteriormente munidos de argumentos para a tentativa de diálogo, mas também de artifícios para impossibilitar os desejos de conflito.
+      </p>
+
+      <SubSectionTitle id="medidas">Medidas a serem tomadas</SubSectionTitle>
       <div className="space-y-4 mb-10">
         <div className="flex gap-4 bg-[#1a1f2e] p-4 rounded-lg border border-gray-800">
           <div className="w-8 h-8 rounded-full bg-secondary/20 flex items-center justify-center text-secondary font-bold shrink-0">1</div>
-          <p className="text-gray-300 text-sm">Mantenha a calma absoluta. Eles buscam reações emocionais.</p>
+          <p className="text-gray-300 text-sm"><strong>Som Alto e Copyright:</strong> O uso de sons altos que impossibilitem a produção de conteúdo midiático dessas pessoas, com músicas com copyright (ex: músicas da Disney).</p>
         </div>
         <div className="flex gap-4 bg-[#1a1f2e] p-4 rounded-lg border border-gray-800">
           <div className="w-8 h-8 rounded-full bg-secondary/20 flex items-center justify-center text-secondary font-bold shrink-0">2</div>
-          <p className="text-gray-300 text-sm">Indique as notas oficiais. Diga apenas: &quot;Todas as nossas pautas estão publicadas em nossos canais oficiais&quot;.</p>
+          <p className="text-gray-300 text-sm"><strong>Minimizar Interações:</strong> Tentar ao máximo minimizar interações e diálogos posteriores que já tomem posturas agressivas.</p>
         </div>
         <div className="flex gap-4 bg-[#1a1f2e] p-4 rounded-lg border border-gray-800">
           <div className="w-8 h-8 rounded-full bg-secondary/20 flex items-center justify-center text-secondary font-bold shrink-0">3</div>
-          <p className="text-gray-300 text-sm">Continue suas atividades normalmente. Se houver insistência ou assédio, avise a comissão de segurança do Comando de Greve.</p>
+          <p className="text-gray-300 text-sm"><strong>Piquete Humano:</strong> Caso seja necessário, realizar um piquete humano, formado por uma &quot;corrente&quot; de pessoas para impedir a passagem, especialmente ao espaço do piquete.</p>
         </div>
-        <div className="flex gap-4 bg-[#1a1f2e] p-4 rounded-lg border border-gray-800">
-          <div className="w-8 h-8 rounded-full bg-secondary/20 flex items-center justify-center text-secondary font-bold shrink-0">4</div>
-          <p className="text-gray-300 text-sm">Não tente impedir a gravação fisicamente; isso gera imagens que serão usadas contra você judicialmente ou midiaticamente.</p>
+        <div className="flex gap-4 bg-[#1a1f2e] p-4 rounded-lg border border-gray-800 border-red-500/30 bg-red-900/10">
+          <div className="w-8 h-8 rounded-full bg-red-500/20 flex items-center justify-center text-red-500 font-bold shrink-0">!</div>
+          <p className="text-gray-300 text-sm"><strong>Seguranças Armados:</strong> É comum eles terem a companhia de seguranças armados, não sejam agressivos. Vamos evitar uma tragédia maior que a pura presença deles no piquete.</p>
         </div>
-      </div>
-
-      <div className="bg-primary/10 border border-primary/30 rounded-xl p-6">
-        <p className="text-gray-300 text-sm italic">
-          &quot;Nossa força está na organização e na clareza das nossas pautas, não em discussões de calçada que servem apenas para gerar visualizações para quem ataca a universidade pública.&quot;
-        </p>
       </div>
     </>
   );
@@ -665,48 +661,11 @@ export default function DocumentoPage({ params }: { params: { slug: string[] } }
           <div className="mt-20 pt-10 border-t border-gray-800">
             <h3 className="text-lg font-bold text-white mb-6 flex items-center gap-2">
               <FileCheck size={20} className="text-primary" />
-              Fontes e Referências Oficiais
+              Documentação Oficial
             </h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {entry.key === "informacoes-sobre-a-greve" && (
-                <>
-                  <ReferenceItem 
-                    index={1}
-                    id="OF.DIR.042/2024" 
-                    title="Diretrizes sobre o Calendário Acadêmico em período de mobilização."
-                    url="#"
-                  />
-                  <ReferenceItem 
-                    index={2}
-                    id="ATA.CEU.2023" 
-                    title="Ata da reunião do Conselho de Graduação sobre contratações."
-                    url="#"
-                  />
-                </>
-              )}
-              {entry.key === "apresentacao-do-hub" && (
-                <>
-                  <ReferenceItem 
-                    index={1}
-                    id="org-digital" 
-                    title="Documentação sobre Governança Digital em movimentos sociais."
-                    url="#"
-                  />
-                  <ReferenceItem 
-                    index={2}
-                    id="mob-moderna" 
-                    title="Artigo sobre novas tecnologias e mobilização estudantil."
-                    url="#"
-                  />
-                  <ReferenceItem 
-                    index={3}
-                    id="robusta" 
-                    title="Especificações técnicas e arquitetura do HUB da Greve."
-                    url="#"
-                  />
-                </>
-              )}
-            </div>
+            <p className="text-sm text-gray-500 italic mb-4">
+              Consulte os documentos oficiais e atas de assembleia para informações detalhadas e segurança jurídica.
+            </p>
           </div>
         </div>
       </div>
@@ -797,7 +756,7 @@ function AssinaturaKalineContent() {
 function ReuniaoDirecaoIfuspContent() {
   return (
     <>
-      <SectionTitle>Informações sobre a reunião com a direção do IFUSP</SectionTitle>
+      <SectionTitle id="reuniao-direcao">Informações sobre a reunião com a direção do IFUSP</SectionTitle>
       <div className="bg-[#1a1f2e] border border-gray-700/50 rounded-xl p-8 mb-8">
         <h3 className="text-xl font-bold text-white mb-6">Pontos principais discutidos:</h3>
         <ul className="space-y-4 list-disc pl-5">
@@ -824,7 +783,7 @@ function ReuniaoDirecaoIfuspContent() {
 function ReuniaoTodosComandosContent() {
   return (
     <>
-      <SectionTitle>Informações sobre a reunião com todos os comandos de greve</SectionTitle>
+      <SectionTitle id="reuniao-comandos">Informações sobre a reunião com todos os comandos de greve</SectionTitle>
       <div className="bg-[#1a1f2e] border border-gray-700/50 rounded-xl p-8 mb-8 flex flex-col items-center justify-center py-20 text-center">
         <div className="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center mb-6">
           <svg className="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">

@@ -108,7 +108,7 @@ export function InteractiveDirectory() {
         </h2>
         <div className="grid grid-cols-1 gap-4">
           <Link
-            href="/documentos/apresentacao-do-hub-da-greve"
+            href="/documentos/ifusp/comando-de-greve/informacoes-sobre-a-greve"
             className="group flex items-center justify-between p-5 rounded-xl bg-gradient-to-r from-[#1a1f2e] to-[#121212] border border-primary/30 hover:border-primary transition-all hover:shadow-[0_0_20px_rgba(15,102,136,0.15)]"
           >
             <div className="flex items-center gap-4">
@@ -117,9 +117,9 @@ export function InteractiveDirectory() {
               </div>
               <div>
                 <span className="font-bold text-gray-100 group-hover:text-white transition-colors block">
-                  Apresentação do HUB da Greve
+                  Informações sobre a greve
                 </span>
-                <span className="text-xs text-gray-500">Documento oficial do Comando de Greve</span>
+                <span className="text-xs text-gray-500">Documento oficial do Comando de Greve — IFUSP</span>
               </div>
             </div>
             <div className="flex items-center gap-2 text-primary font-bold text-sm opacity-0 group-hover:opacity-100 transition-all transform translate-x-2 group-hover:translate-x-0">
