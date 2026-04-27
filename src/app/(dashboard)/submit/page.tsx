@@ -1,12 +1,11 @@
-import { TopBar } from "@/components/TopBar";
 import { Mail, ArrowRight, FileUp, Link as LinkIcon } from "lucide-react";
 
 export default function SubmitPage() {
   const email = "hubgreve@gmail.com";
-  const subject = encodeURIComponent("Submissão de documento ao HUB");
+  const subject = encodeURIComponent("Submissão de documento à Central");
   const body = encodeURIComponent(`Oi, sou o xxxxx, tudo bem?
 
-Estou enviando o link de um documento para o HUB, o documento é para xxxxxxxxxx.
+Estou enviando o link de um documento para a Central, o documento é para xxxxxxxxxx.
 
 link para o documento:
 [ ]
@@ -18,7 +17,6 @@ xxxx`);
 
   return (
     <div className="flex flex-col min-h-screen bg-[#09090b]">
-      <TopBar />
       
       <div className="flex-1 overflow-y-auto px-8 pt-16 pb-32 max-w-4xl mx-auto w-full">
         <div className="mb-12">
@@ -29,7 +27,7 @@ xxxx`);
             Submeter Documento
           </h1>
           <p className="text-lg text-gray-400 leading-relaxed">
-            Para garantir a organização e a padronização visual da plataforma, todos os documentos são higienizados antes de serem publicados no HUB. Envie o link do seu arquivo e nós cuidamos do resto.
+            Para garantir a organização e a padronização visual da plataforma, todos os documentos são higienizados antes de serem publicados na Central. Envie o link do seu arquivo e nós cuidamos do resto.
           </p>
         </div>
 
@@ -58,7 +56,7 @@ xxxx`);
               <div className="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center font-bold text-primary shrink-0">3</div>
               <div>
                 <h3 className="font-semibold text-gray-200 mb-1">Processamento</h3>
-                <p className="text-sm text-gray-400">Nossa equipe receberá o arquivo, fará a conversão para o nosso layout interativo (Dark Mode, tipografia, sumário) e o publicará no HUB.</p>
+                <p className="text-sm text-gray-400">Nossa equipe receberá o arquivo, fará a conversão para o nosso layout interativo (Dark Mode, tipografia, sumário) e o publicará na Central.</p>
               </div>
             </div>
           </div>

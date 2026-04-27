@@ -1,16 +1,16 @@
-# Proposta de Arquitetura e Integração: hub-Lab-Div V1.0
+# Proposta de Arquitetura e Integração: Central da Greve (CG) V1.0
 
 ter tambem os documentos de reunioes comando e kakline e tambem o documento que kaline teve de assinar
-A evolução do hub-Lab-Div deve priorizar a centralização da informação e a rastreabilidade acadêmica, transformando a plataforma em uma central de documentação e comunicação científica robusta e de alta performance.
+A evolução da Central da Greve (CG) deve priorizar a centralização da informação e a rastreabilidade acadêmica, transformando a plataforma em uma central de documentação e comunicação científica robusta e de alta performance.
 
 ## 1. Módulo de Calendário Acadêmico e Eventos
-A implementação de uma seção de calendário permitirá a visualização temporal de atividades, prazos burocráticos (como editais PUB/AEX) e eventos do LabDiv.
+A implementação de uma seção de calendário permitirá a visualização temporal de atividades, prazos burocráticos (como editais PUB/AEX) e eventos.
 
 * **Localização:** Uma nova rota `/calendario` ou um componente *Sticky* na Dashboard principal.
 * **Integração:** Sincronização via API para que as atualizações reflitam automaticamente na interface sem necessidade de *hardcode*.
 
 ## 2. Sistema de Referenciamento e Gestão de Ofícios
-Para garantir o rigor técnico na comunicação da GREVE, o HUB implementará um sistema de hiperlinks cruzados entre documentos explicativos e documentos oficiais normativos.
+Para garantir o rigor técnico na comunicação da GREVE, a Central implementará um sistema de hiperlinks cruzados entre documentos explicativos e documentos oficiais normativos.
 
 | Recurso | Descrição Técnica | Implementação |
 | :--- | :--- | :--- |
@@ -32,7 +32,7 @@ A fim de aumentar o engajamento de divulgação científica sem comprometer o *C
 A hierarquia de informação e rotas da plataforma operará sob a seguinte matriz estrutural:
 
 $$
-\text{HUB} \rightarrow 
+\text{Central (CG)} \rightarrow 
 \begin{cases} 
 \text{Dashboard} & \rightarrow \text{Calendário Dinâmico} \\
 \text{Documentação} & \rightarrow \text{Textos Explicativos} \xrightarrow{\text{ref}} \text{Ofícios (Drive)} \\

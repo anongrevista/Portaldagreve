@@ -1,10 +1,8 @@
-import { TopBar } from "@/components/TopBar";
 import { Calendar } from "@/components/Calendar";
 
 export default function CalendarioPage() {
   return (
     <div className="flex flex-col min-h-screen">
-      <TopBar />
       
       <main className="flex-1 overflow-hidden px-8 max-w-5xl mx-auto w-full pt-12 pb-32">
         <header className="mb-12">

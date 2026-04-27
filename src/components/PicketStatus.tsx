@@ -103,7 +103,7 @@ export function PicketStatus() {
       <div className="flex items-center justify-between mb-6">
         <h2 className="text-xl font-bold text-white uppercase tracking-wider text-sm text-gray-500 flex items-center gap-2">
           <Clock className="text-primary" size={18} />
-          Status do Piquete
+          Status da Greve
         </h2>
         <div className="flex gap-2">
           <button 

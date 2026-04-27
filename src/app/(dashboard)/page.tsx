@@ -1,15 +1,14 @@
-import { TopBar } from "@/components/TopBar";
 import { InteractiveDirectory } from "@/components/InteractiveDirectory";
 import Link from "next/link";
 import { ArrowRight, MessageSquare } from "lucide-react";
 import { SocialFeed } from "@/components/SocialFeed";
 import { Calendar } from "@/components/Calendar";
 import { PicketStatus } from "@/components/PicketStatus";
+import { PicketSituation } from "@/components/PicketSituation";
 
 export default function DashboardHome() {
   return (
     <div className="flex flex-col min-h-screen">
-      <TopBar />
       
       <div className="flex flex-1 overflow-hidden px-8 max-w-5xl mx-auto w-full pt-12">
         <div className="flex-1 overflow-y-auto pr-8 pb-32">
@@ -17,9 +16,10 @@ export default function DashboardHome() {
           <div className="mb-12 space-y-8">
             <div>
               <h1 className="text-4xl font-black tracking-tight mb-4 text-white">
-                <span className="text-primary">HUB</span>
+                <span className="text-primary">Central</span>
                 <span className="text-gray-400 font-medium text-3xl"> da </span>
                 <span className="text-secondary">Greve</span>
+                <span className="text-gray-500 ml-2 text-2xl font-bold">(CG)</span>
               </h1>
               <p className="text-lg text-gray-400 max-w-2xl leading-relaxed">
                 Bem-vindo ao portal interativo de documentação.
@@ -51,7 +51,7 @@ export default function DashboardHome() {
                   href="/documentos/apresentacao-do-hub-da-greve"
                   className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-primary to-secondary text-white font-bold hover:shadow-[0_0_20px_rgba(15,102,136,0.4)] transition-all transform hover:-translate-y-0.5 active:scale-95 group"
                 >
-                  Ver Apresentação do HUB
+                  Ver Apresentação da Central
                   <ArrowRight size={18} className="transition-transform group-hover:translate-x-1" />
                 </Link>
 
@@ -81,6 +81,7 @@ export default function DashboardHome() {
           </section>
 
           <PicketStatus />
+          <PicketSituation />
 
           <h2 className="text-xl font-bold text-white mb-6 uppercase tracking-wider text-sm text-gray-500">
             Documentos em destaque

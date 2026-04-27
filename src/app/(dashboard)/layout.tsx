@@ -1,6 +1,7 @@
 import { Sidebar } from "@/components/Sidebar";
 import { BottomNavigation } from "@/components/BottomNavigation";
 import { NavRail } from "@/components/NavRail";
+import { TopBar } from "@/components/TopBar";
 
 export default function DashboardLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -10,6 +11,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
       <div className="flex flex-1 md:pl-16">
         <Sidebar />
         <main className="flex-1 overflow-y-auto pb-16 md:pb-0 bg-[#09090b]">
+          <TopBar />
           {children}
         </main>
       </div>

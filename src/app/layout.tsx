@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "HUB da Greve",
+  title: "Central da Greve (CG)",
   description: "Portal interativo de documentação da greve",
 };
 

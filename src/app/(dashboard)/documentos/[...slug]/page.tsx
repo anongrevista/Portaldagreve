@@ -1,4 +1,3 @@
-import { TopBar } from "@/components/TopBar";
 import { notFound } from "next/navigation";
 import { Reference } from "@/components/ReferenceTooltip";
 import { FileCheck, Calendar, Users, PenTool, Link as LinkIcon, AlertTriangle } from "lucide-react";
@@ -6,7 +5,7 @@ import { cn } from "@/lib/utils";
 
 /**
  * Dados estruturados do documento "Informações sobre a greve"
- * Extraídos do .txt original completo para renderização nativa com o design do HUB.
+ * Extraídos do .txt original completo para renderização nativa com o design da Central.
  */
 const INFORMACOES_GREVE = {
   title: "Informações sobre a greve",
@@ -25,8 +24,8 @@ const INFORMACOES_GREVE = {
   ],
 };
 
-const APRESENTACAO_HUB = {
-  title: "Apresentação do HUB da Greve",
+const APRESENTACAO_CENTRAL = {
+  title: "Apresentação da Central da Greve (CG)",
   sumario: [
     { label: "O projeto em poucas palavras", anchor: "projeto-resumo" },
     { label: "1. Introdução", anchor: "introducao" },
@@ -35,7 +34,7 @@ const APRESENTACAO_HUB = {
     { label: "4. Objetivos e Como", anchor: "objetivos" },
     { label: "5. Estrutura de Abas", anchor: "estrutura-abas" },
     { label: "6. Organização e Layout", anchor: "organizacao-layout" },
-    { label: "7. Por que o HUB é necessário?", anchor: "necessidade" },
+    { label: "7. Por que a Central é necessária?", anchor: "necessidade" },
     { label: "9. Parte Técnica", anchor: "parte-tecnica" },
     { label: "10. Conclusão", anchor: "conclusao" },
   ],
@@ -52,7 +51,7 @@ const DOCUMENT_MAP: Record<string, { key: string; title: string }> = {
   },
   "apresentacao-do-hub-da-greve": {
     key: "apresentacao-do-hub",
-    title: "Apresentação do HUB da Greve",
+    title: "Apresentação da Central da Greve (CG)",
   },
   "ifusp/comando-de-greve/reuniao-direcao-ifusp": {
     key: "reuniao-direcao-ifusp",
@@ -489,14 +488,14 @@ function InformacoesGreveContent() {
   );
 }
 
-function ApresentacaoHubContent() {
+function ApresentacaoCentralContent() {
   return (
     <>
       {/* Imagem de Capa */}
       <div className="relative w-full aspect-video md:aspect-[21/9] mb-8 rounded-2xl overflow-hidden border border-gray-800 bg-[#09090b] flex items-center justify-center">
         <img 
           src="/assets/apresentacao-hub.jpg" 
-          alt="Apresentação HUB" 
+          alt="Apresentação Central" 
           className="object-contain w-full h-full p-4"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-[#09090b]/80 to-transparent pointer-events-none" />
@@ -516,7 +515,7 @@ function ApresentacaoHubContent() {
           Sumário
         </h2>
         <nav className="space-y-1.5">
-          {APRESENTACAO_HUB.sumario.map((item) => (
+          {APRESENTACAO_CENTRAL.sumario.map((item) => (
             <a
               key={item.anchor}
               href={`#${item.anchor}`}
@@ -530,19 +529,19 @@ function ApresentacaoHubContent() {
 
       <SectionTitle id="projeto-resumo">O projeto em poucas palavras</SectionTitle>
       <p className="text-gray-300 leading-relaxed mb-6">
-        O HUB da Greve é uma plataforma digital, um aplicativo que roda direto no navegador, construído para melhorar a comunicação e a organização durante o período de mobilização. O projeto segue a filosofia de software livre (open source) e foi projetado para ser uma ferramenta centralizadora de informações, pautas e suporte à comunidade acadêmica em greve, com todo o código-fonte disponível publicamente.
+        A Central da Greve (CG) é uma plataforma digital, um aplicativo que roda direto no navegador, construído para melhorar a comunicação e a organização durante o período de mobilização. O projeto segue a filosofia de software livre (open source) e foi projetado para ser uma ferramenta centralizadora de informações, pautas e suporte à comunidade acadêmica em greve, com todo o código-fonte disponível publicamente.
       </p>
 
       <SectionDivider />
 
       <SectionTitle id="introducao">1. Introdução</SectionTitle>
       <p className="text-gray-300 leading-relaxed mb-6">
-        O HUB da Greve é uma frente tecnológica do movimento de mobilização do IFUSP. Seu objetivo é transformar a forma como a comunicação da greve é realizada, tanto internamente (na relação entre alunos e comando) quanto na relação entre a universidade e a sociedade, buscando dar transparência e agilidade às pautas e ações do movimento.
+        A Central da Greve (CG) é uma frente tecnológica do movimento de mobilização do IFUSP. Seu objetivo é transformar a forma como a comunicação da greve é realizada, tanto internamente (na relação entre alunos e comando) quanto na relação entre a universidade e a sociedade, buscando dar transparência e agilidade às pautas e ações do movimento.
       </p>
 
       <SectionTitle id="o-que-e">2. O que é</SectionTitle>
       <p className="text-gray-300 leading-relaxed mb-4">
-        O HUB da Greve é uma plataforma digital do tipo WebApp. Ele não se limita a ser uma rede social de notícias, mas uma ferramenta de organização política e acadêmica. Trata-se de uma plataforma que estende o alcance das assembleias para o ambiente digital, incentivando a participação ativa e o entendimento profundo das causas defendidas.
+        A Central da Greve (CG) é uma plataforma digital do tipo WebApp. Ele não se limita a ser uma rede social de notícias, mas uma ferramenta de organização política e acadêmica. Trata-se de uma plataforma que estende o alcance das assembleias para o ambiente digital, incentivando a participação ativa e o entendimento profundo das causas defendidas.
       </p>
       <p className="text-gray-300 leading-relaxed mb-6">
         A plataforma oferece ferramentas específicas: acompanhamento de pautas, calendários de mobilização, manuais de greve e suporte para que alunos não percam o vínculo com o instituto.
@@ -592,9 +591,9 @@ function ApresentacaoHubContent() {
         O design prioriza a rapidez na entrega da informação e a facilidade de navegação, com uma arquitetura moderna e responsiva adaptada para dispositivos móveis.
       </p>
 
-      <SectionTitle id="necessidade">7. Por que o HUB é necessário?</SectionTitle>
+      <SectionTitle id="necessidade">7. Por que a Central é necessária?</SectionTitle>
       <p className="text-gray-300 leading-relaxed mb-4">
-        A comunicação em tempos de greve costuma ser caótica e espalhada. O HUB responde a três necessidades urgentes:
+        A comunicação em tempos de greve costuma ser caótica e espalhada. A Central responde a três necessidades urgentes:
       </p>
       <ul className="list-disc list-inside space-y-2 ml-4 mb-6">
         <BulletItem><strong>Combate à Desinformação:</strong> Centralização de fontes oficiais.</BulletItem>
@@ -611,7 +610,7 @@ function ApresentacaoHubContent() {
 
       <SectionTitle id="conclusao">10. Conclusão</SectionTitle>
       <p className="text-gray-300 leading-relaxed mb-6">
-        O HUB da Greve representa um marco na organização digital dos movimentos universitários. Ao unir tecnologia de ponta com pautas sociais, ele consolida a infraestrutura necessária para uma mobilização moderna, inclusiva e tecnicamente robusta.
+        A Central da Greve (CG) representa um marco na organização digital dos movimentos universitários. Ao unir tecnologia de ponta com pautas sociais, ela consolida a infraestrutura necessária para uma mobilização moderna, inclusiva e tecnicamente robusta.
       </p>
     </>
   );
@@ -689,13 +688,12 @@ export default function DocumentoPage({ params }: { params: { slug: string[] } }
 
   return (
     <div className="flex flex-col min-h-screen">
-      <TopBar />
 
       <div className="flex flex-1 overflow-hidden px-4 sm:px-8 max-w-7xl mx-auto w-full">
         <div className="flex-1 overflow-y-auto pr-4 sm:pr-8 pb-32 pt-4 max-w-4xl">
           {/* Breadcrumb */}
           <div className="mb-4 text-xs font-semibold text-gray-500 tracking-wider">
-            DOCUMENTOS DO HUB &gt; {context}
+            DOCUMENTOS DA CENTRAL &gt; {context}
           </div>
 
           {/* Título do documento */}
@@ -724,7 +722,7 @@ export default function DocumentoPage({ params }: { params: { slug: string[] } }
 
           {/* Conteúdo do documento */}
           {entry.key === "informacoes-sobre-a-greve" && <InformacoesGreveContent />}
-          {entry.key === "apresentacao-do-hub" && <ApresentacaoHubContent />}
+          {entry.key === "apresentacao-do-hub" && <ApresentacaoCentralContent />}
           {entry.key === "reuniao-direcao-ifusp" && <ReuniaoDirecaoIfuspContent />}
           {entry.key === "reuniao-todos-comandos" && <ReuniaoTodosComandosContent />}
           {entry.key === "reunioes-comando-kaline" && <ReunioesKalineContent />}
@@ -732,7 +730,7 @@ export default function DocumentoPage({ params }: { params: { slug: string[] } }
           {entry.key === "o-que-e-o-comando" && <OQueEComandoContent />}
           {entry.key === "influencers-de-direita" && <LidarInfluencersContent />}
 
-          {/* Seção de Referências (HUB V1.0) */}
+          {/* Seção de Referências (CG V1.0) */}
           <div className="mt-20 pt-10 border-t border-gray-800">
             <h3 className="text-lg font-bold text-white mb-6 flex items-center gap-2">
               <FileCheck size={20} className="text-primary" />

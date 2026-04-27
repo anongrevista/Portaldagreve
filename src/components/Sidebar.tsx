@@ -27,12 +27,19 @@ export function Sidebar() {
       
       {/* Sidebar Container */}
       <aside className={cn(
-        "fixed md:static inset-y-0 left-0 z-50 w-72 bg-[#121212] border-r border-gray-800/50 flex flex-col transition-transform duration-300",
+        "fixed md:relative inset-y-0 left-0 z-50 w-72 bg-[#121212] border-r border-gray-800/50 flex flex-col transition-transform duration-300",
         isMobileMenuOpen ? "translate-x-0" : "-translate-x-full md:translate-x-0"
       )}>
         <div className="p-6 pb-4">
-          <h2 className="text-xl font-bold text-white tracking-tight">
-            HUB da Greve
+          <h2 className="text-xl font-black text-white tracking-tight flex items-center gap-2">
+            <div className="w-8 h-8 rounded-lg bg-gray-900 border border-gray-800 flex items-center justify-center overflow-hidden shadow-lg shadow-primary/10 transition-transform group-hover:scale-105">
+              <img 
+                src="/logo.svg" 
+                alt="Logo CG" 
+                className="w-full h-full object-cover"
+              />
+            </div>
+            Central da Greve
           </h2>
         </div>
         
@@ -58,10 +65,10 @@ export function Sidebar() {
              <span className="text-sm font-medium">Envio de Documentos</span>
            </Link>
 
-           <h3 className="text-xs font-semibold text-gray-500 mb-4 px-2 tracking-wider">DOCUMENTOS DO HUB</h3>
+           <h3 className="text-xs font-semibold text-gray-500 mb-4 px-2 tracking-wider">DOCUMENTOS DA CENTRAL</h3>
            
            <div className="flex flex-col gap-1">
-              <FileItem title="Apresentação do HUB da Greve" href="/documentos/apresentacao-do-hub-da-greve" />
+              <FileItem title="Apresentação da Central da Greve" href="/documentos/apresentacao-do-hub-da-greve" />
               
               <div className="my-2 h-px bg-gray-800/50 mx-2" />
 
