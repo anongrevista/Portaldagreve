@@ -11,7 +11,7 @@ const SOCIAL_POSTS = [
     caption: "@cefisma: Calendário de Greve - Semana 2. Confira a programação completa das atividades.",
     likes: "1.2k",
     comments: "45",
-    link: "https://www.instagram.com/p/DXnPYqWlGDC/"
+    link: "https://www.instagram.com/p/DXnP-jJlP8o/"
   },
   {
     id: "2",
