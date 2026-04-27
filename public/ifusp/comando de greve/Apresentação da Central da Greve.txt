@@ -1,11 +1,11 @@
-                                HUB da Greve
+                                Central da Greve - CG
 
                                          Projeto de João Stangorlini
                                    desenvolvido para o Comando de Greve do IFUSP.
                                   (Inspirado na arquitetura do HUB LabDiv)
 
 O projeto em poucas palavras
-O HUB da Greve é uma plataforma digital, um aplicativo que roda direto no navegador, construído para melhorar a comunicação e a organização durante o período de mobilização. O projeto segue a filosofia de software livre (open source) e foi projetado para ser uma ferramenta centralizadora de informações, pautas e suporte à comunidade acadêmica em greve, com todo o código-fonte disponível publicamente.
+O Central da Greve - CG é uma plataforma digital, um aplicativo que roda direto no navegador, construído para melhorar a comunicação e a organização durante o período de mobilização. O projeto segue a filosofia de software livre (open source) e foi projetado para ser uma ferramenta centralizadora de informações, pautas e suporte à comunidade acadêmica em greve, com todo o código-fonte disponível publicamente.
 
 Guia de leitura
    ● Para a comunidade (alunos, funcionários e docentes): Recomendamos a leitura dos capítulos 2, 6, 8 e 10.
@@ -54,10 +54,10 @@ Sumário 3
 16. Conclusão 19
 
 1. Introdução
-O HUB da Greve é uma frente tecnológica do movimento de mobilização do IFUSP. Seu objetivo é transformar a forma como a comunicação da greve é realizada, tanto internamente (na relação entre alunos e comando) quanto na relação entre a universidade e a sociedade, buscando dar transparência e agilidade às pautas e ações do movimento.
+O Central da Greve - CG é uma frente tecnológica do movimento de mobilização do IFUSP. Seu objetivo é transformar a forma como a comunicação da greve é realizada, tanto internamente (na relação entre alunos e comando) quanto na relação entre a universidade e a sociedade, buscando dar transparência e agilidade às pautas e ações do movimento.
 
 2. O que é
-O HUB da Greve é uma plataforma digital do tipo WebApp. Ele não se limita a ser uma rede social de notícias, mas uma ferramenta de organização política e acadêmica. Trata-se de uma plataforma que estende o alcance das assembleias para o ambiente digital, incentivando a participação ativa e o entendimento profundo das causas defendidas.
+O Central da Greve - CG é uma plataforma digital do tipo WebApp. Ele não se limita a ser uma rede social de notícias, mas uma ferramenta de organização política e acadêmica. Trata-se de uma plataforma que estende o alcance das assembleias para o ambiente digital, incentivando a participação ativa e o entendimento profundo das causas defendidas.
 A plataforma oferece ferramentas específicas: acompanhamento de pautas, calendários de mobilização, manuais de greve e suporte para que alunos não percam o vínculo com o instituto.
 
 3. Equipe
@@ -104,4 +104,4 @@ A arquitetura utiliza TypeScript, Next.js e Supabase. A performance é otimizada
 Conformidade integral com a LGPD e o Marco Civil da Internet. O código é licenciado sob AGPLv3, garantindo que a ferramenta permaneça sempre livre e pública para o movimento estudantil.
 
 16. Conclusão
-O HUB da Greve representa um marco na organização digital dos movimentos universitários. Ao unir tecnologia de ponta com pautas sociais, ele consolida a infraestrutura necessária para uma mobilização moderna, inclusiva e tecnicamente robusta.
+O Central da Greve - CG representa um marco na organização digital dos movimentos universitários. Ao unir tecnologia de ponta com pautas sociais, ele consolida a infraestrutura necessária para uma mobilização moderna, inclusiva e tecnicamente robusta.

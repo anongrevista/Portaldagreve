@@ -1,4 +1,4 @@
-Sumário do HUB da Greve
+Sumário do Central da Greve - CG
 
 1. Introdução
 2. O que é
@@ -24,7 +24,7 @@ Sumário do HUB da Greve
     6.16. Centralizar oportunidades, eventos, iniciativas e projetos:
     6.17. Espaços e Vivência:
     6.18. Influenciadores e Comunicadores:
-    6.19. Página Oficial do HUB da Greve:
+    6.19. Página Oficial do Central da Greve - CG:
 7. Estrutura de Abas
     7.1. Comunidade
         7.1.1. Fluxo
@@ -48,7 +48,7 @@ Sumário do HUB da Greve
         7.5.2. Laboratório pessoal
         7.5.3. Configurações
         7.5.4. Pergunte ao comando
-    7.6. HUB da Greve
+    7.6. Central da Greve - CG
         7.6.1. Sobre o HUB
     7.7. Admin
         7.7.1. Moderadores
