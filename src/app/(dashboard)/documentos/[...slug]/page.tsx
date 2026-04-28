@@ -2,6 +2,9 @@ import { notFound } from "next/navigation";
 import { Reference } from "@/components/ReferenceTooltip";
 import { FileCheck, Calendar, Users, PenTool, Link as LinkIcon, AlertTriangle } from "lucide-react";
 import { cn } from "@/lib/utils";
+import fs from "fs";
+import path from "path";
+import { MarkdownRenderer } from "@/components/MarkdownRenderer";
 
 /**
  * Dados estruturados do documento "Informações sobre a greve"
@@ -40,11 +43,8 @@ const APRESENTACAO_CENTRAL = {
   ],
 };
 
-/**
- * Mapeamento de slugs para documentos.
- * Quando novos documentos forem adicionados, basta adicionar a entrada aqui.
- */
-const DOCUMENT_MAP: Record<string, { key: string; title: string }> = {
+const DOCUMENT_MAP: Record<string, { key: string; title: string; filePath?: string }> = {
+  // Existing
   "ifusp/comando-de-greve/informacoes-sobre-a-greve": {
     key: "informacoes-sobre-a-greve",
     title: "Informações sobre a greve",
@@ -52,6 +52,7 @@ const DOCUMENT_MAP: Record<string, { key: string; title: string }> = {
   "apresentacao-da-central-da-greve": {
     key: "apresentacao-da-central",
     title: "Apresentação da Central da Greve (CG)",
+    filePath: "Cópia de Cópia de Apresentação da central da greve .md"
   },
   "ifusp/comando-de-greve/reuniao-direcao-ifusp": {
     key: "reuniao-direcao-ifusp",
@@ -72,6 +73,78 @@ const DOCUMENT_MAP: Record<string, { key: string; title: string }> = {
   "ifusp/comando-de-greve/influencers-de-direita": {
     key: "influencers-de-direita",
     title: "Como lidar com influencers de direita",
+    filePath: "Manuais da greve/Como lidar com a aparição de influencers de direita.md"
+  },
+  
+  // New mappings from Drive Structure
+  "central-da-greve/geral/glossario": {
+    key: "glossario",
+    title: "Glossário da Greve",
+  },
+  "central-da-greve/geral/read-me": {
+    key: "read-me",
+    title: "READ-ME: Documentos HUB",
+    filePath: "READ-ME.md"
+  },
+  "dce/geral/read-me": {
+    key: "read-me",
+    title: "READ-ME: DCE",
+    filePath: "DCE/READ-ME .md"
+  },
+  "dce/notas/read-me": {
+    key: "read-me",
+    title: "READ-ME: Notas do DCE",
+    filePath: "DCE/Notas/READ-ME .md"
+  },
+  "dossies-usp/geral/fotos-bandejoes": {
+    key: "fotos-bandejoes",
+    title: "Fotos horrendas dos bandejões",
+    filePath: "Docies USP/Fotos horrendas dos bandeijões/READ-ME.md"
+  },
+  "dossies-usp/geral/read-me": {
+    key: "read-me",
+    title: "READ-ME: Dossiês USP",
+    filePath: "Docies USP/READ-ME .md"
+  },
+  "ifusp/geral/read-me": {
+    key: "read-me",
+    title: "READ-ME: IFUSP",
+    filePath: "IFUSP/READ-ME.md"
+  },
+  "ifusp/assembleias/read-me": {
+    key: "read-me",
+    title: "READ-ME: Assembleias IFUSP",
+    filePath: "IFUSP/Assembleias/Cópia de READ-ME.md"
+  },
+  "ifusp/oficios/read-me": {
+    key: "read-me",
+    title: "READ-ME: Ofícios IFUSP",
+    filePath: "IFUSP/Ofícios/READ-ME.md"
+  },
+  "ifusp/plenarias/read-me": {
+    key: "read-me",
+    title: "READ-ME: Plenárias IFUSP",
+    filePath: "IFUSP/Plenárias/_READ-ME.md"
+  },
+  "ifusp/reunioes/read-me": {
+    key: "read-me",
+    title: "READ-ME: Reuniões IFUSP",
+    filePath: "IFUSP/Reuniões/READ-ME.md"
+  },
+  "ifusp/reunioes/reuniao-comando": {
+    key: "reuniao-todos-comandos", // Map to existing component
+    title: "Reunião do Comando de Greve",
+    filePath: "IFUSP/Reuniões/Reunião do comando de greve.md"
+  },
+  "ifusp/reunioes/reunioes-kaline": {
+    key: "reunioes-comando-kaline", // Map to existing component
+    title: "Reuniões com a Kaline",
+    filePath: "IFUSP/Reuniões/Reuniões com a kaline.md"
+  },
+  "manuais-de-greve/geral/read-me": {
+    key: "read-me",
+    title: "READ-ME: Manuais de greve",
+    filePath: "Manuais da greve/READ-ME.md"
   },
 };
 
@@ -686,11 +759,21 @@ export default function DocumentoPage({ params }: { params: { slug: string[] } }
 
   const context = params.slug.slice(0, -1).join(" / ").toUpperCase();
 
+  let markdownContent = null;
+  if (entry.filePath) {
+    try {
+      const fullPath = path.join(process.cwd(), 'public', 'Documentos HUB', entry.filePath);
+      markdownContent = fs.readFileSync(fullPath, 'utf8');
+    } catch (e) {
+      console.error("Error reading markdown file", e);
+    }
+  }
+
   return (
     <div className="flex flex-col min-h-screen">
 
-      <div className="flex flex-1 overflow-hidden px-4 sm:px-8 max-w-7xl mx-auto w-full">
-        <div className="flex-1 overflow-y-auto pr-4 sm:pr-8 pb-32 pt-4 max-w-4xl">
+      <div className="flex flex-1 min-w-0 overflow-hidden px-4 sm:px-8 max-w-7xl mx-auto w-full">
+        <div className="flex-1 min-w-0 overflow-y-auto overflow-x-hidden pr-2 sm:pr-8 pb-24 sm:pb-32 pt-4 sm:pt-8 max-w-4xl">
           {/* Breadcrumb */}
           <div className="mb-4 text-xs font-semibold text-gray-500 tracking-wider">
             DOCUMENTOS DA CENTRAL &gt; {context}
@@ -721,14 +804,43 @@ export default function DocumentoPage({ params }: { params: { slug: string[] } }
           </div>
 
           {/* Conteúdo do documento */}
-          {entry.key === "informacoes-sobre-a-greve" && <InformacoesGreveContent />}
-          {entry.key === "apresentacao-da-central" && <ApresentacaoCentralContent />}
-          {entry.key === "reuniao-direcao-ifusp" && <ReuniaoDirecaoIfuspContent />}
-          {entry.key === "reuniao-todos-comandos" && <ReuniaoTodosComandosContent />}
-          {entry.key === "reunioes-comando-kaline" && <ReunioesKalineContent />}
-          {entry.key === "documento-assinatura-kaline" && <AssinaturaKalineContent />}
-          {entry.key === "o-que-e-o-comando" && <OQueEComandoContent />}
-          {entry.key === "influencers-de-direita" && <LidarInfluencersContent />}
+          {markdownContent ? (
+            <MarkdownRenderer content={markdownContent} />
+          ) : (
+            <>
+              {entry.key === "informacoes-sobre-a-greve" && <InformacoesGreveContent />}
+              {entry.key === "apresentacao-da-central" && <ApresentacaoCentralContent />}
+              {entry.key === "reuniao-direcao-ifusp" && <ReuniaoDirecaoIfuspContent />}
+              {entry.key === "reuniao-todos-comandos" && <ReuniaoTodosComandosContent />}
+              {entry.key === "reunioes-comando-kaline" && <ReunioesKalineContent />}
+              {entry.key === "documento-assinatura-kaline" && <AssinaturaKalineContent />}
+              {entry.key === "o-que-e-o-comando" && <OQueEComandoContent />}
+              {entry.key === "influencers-de-direita" && <LidarInfluencersContent />}
+              {entry.key === "glossario" && <GlossarioGreveContent />}
+              
+              {![
+                "informacoes-sobre-a-greve",
+                "apresentacao-da-central",
+                "reuniao-direcao-ifusp",
+                "reuniao-todos-comandos",
+                "reunioes-comando-kaline",
+                "documento-assinatura-kaline",
+                "o-que-e-o-comando",
+                "influencers-de-direita",
+                "glossario"
+              ].includes(entry.key) && (
+                <div className="py-16 mt-8 flex flex-col items-center text-center border border-dashed border-gray-800 rounded-2xl bg-gray-900/20">
+                  <div className="w-16 h-16 rounded-full bg-gray-800/50 flex items-center justify-center mb-4">
+                    <FileCheck size={32} className="text-gray-500" />
+                  </div>
+                  <h3 className="text-xl font-bold text-gray-300 mb-2">Documento em digitalização</h3>
+                  <p className="text-sm text-gray-500 max-w-md">
+                    O conteúdo deste documento já foi mapeado, mas ainda está sendo transcrito para o formato nativo da Central da Greve.
+                  </p>
+                </div>
+              )}
+            </>
+          )}
 
           {/* Seção de Referências (CG V1.0) */}
           <div className="mt-20 pt-10 border-t border-gray-800">
@@ -887,6 +999,33 @@ function ReuniaoTodosComandosContent() {
         <p className="text-gray-400 text-sm italic">
           Nota: Estas decisões foram tomadas de forma coletiva entre os comandos de greve presentes na reunião geral da USP.
         </p>
+      </div>
+    </>
+  );
+}
+
+function GlossarioGreveContent() {
+  return (
+    <>
+      <SectionTitle id="palavras">Palavra - significado - ref</SectionTitle>
+      
+      <div className="bg-[#1a1f2e] border border-gray-700/50 rounded-xl p-8 mb-8">
+        <p className="text-gray-300 mb-6">
+          ex:
+        </p>
+
+        <ul className="space-y-4 mb-8">
+          <li className="flex items-start gap-3 bg-gray-900/50 p-4 rounded-lg border border-gray-800">
+            <div className="mt-1 w-2 h-2 rounded-full bg-primary shrink-0" />
+            <p className="text-gray-300">
+              <strong className="text-white">Comando de greve</strong> - Responsáveis por gerir o andamento da greve<Reference id="CG1" index={1} title="O que é o comando de greve?" date="MAI 2024" url="/documentos/ifusp/comando-de-greve/o-que-e-o-comando" />
+            </p>
+          </li>
+        </ul>
+      </div>
+
+      <div className="grid grid-cols-1 gap-4 mt-8">
+        <ReferenceItem id="CG1" index={1} title="O que é o comando de greve?" url="/documentos/ifusp/comando-de-greve/o-que-e-o-comando" />
       </div>
     </>
   );

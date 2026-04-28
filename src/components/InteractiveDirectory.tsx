@@ -5,54 +5,82 @@ import { Folder, FileText, ChevronRight, Inbox } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import Link from 'next/link';
 
-interface DocumentFile {
+export interface DocumentFile {
   title: string;
   href: string;
 }
 
-interface FolderData {
+export interface FolderData {
   description: string;
   subfolders: Record<string, DocumentFile[]>;
 }
 
-type DirectoryData = Record<string, FolderData>;
+export type DirectoryData = Record<string, FolderData>;
 
-const DIRECTORY_DATA: DirectoryData = {
-  DCE: {
-    description: "Documentos e pautas do Diretório Central dos Estudantes.",
-    subfolders: {},
-  },
-  IFusp: {
-    description: "Documentos, pautas e informações do Instituto de Física da USP.",
+export const DIRECTORY_DATA: DirectoryData = {
+  "Central da Greve": {
+    description: "Documentos gerais, apresentações e glossário.",
     subfolders: {
-      "Comando de Greve": [
-        {
-          title: "Informações sobre a greve",
-          href: "/documentos/ifusp/comando-de-greve/informacoes-sobre-a-greve",
-        },
-        {
-          title: "Reunião com a Direção do IFUSP",
-          href: "/documentos/ifusp/comando-de-greve/reuniao-direcao-ifusp",
-        },
-        {
-          title: "Reunião com o comando de greve geral da USP",
-          href: "/documentos/ifusp/comando-de-greve/reuniao-todos-comandos",
-        },
-        {
-          title: "Documento de não perseguição que a kaline (diretora do IF assinou)",
-          href: "/documentos/ifusp/comando-de-greve/documento-assinatura-kaline",
-        },
-        {
-          title: "O que é o Comando de Greve",
-          href: "/documentos/ifusp/comando-de-greve/o-que-e-o-comando",
-        },
-        {
-          title: "Como lidar com influencers de direita",
-          href: "/documentos/ifusp/comando-de-greve/influencers-de-direita",
-        },
-      ],
-    },
+      "Geral": [
+        { title: "Apresentação da Central da Greve", href: "/documentos/apresentacao-da-central-da-greve" },
+        { title: "Glossário da greve", href: "/documentos/central-da-greve/geral/glossario" },
+        { title: "READ-ME", href: "/documentos/central-da-greve/geral/read-me" }
+      ]
+    }
   },
+  "DCE": {
+    description: "Documentos e pautas do Diretório Central dos Estudantes.",
+    subfolders: {
+      "Geral": [
+        { title: "READ-ME", href: "/documentos/dce/geral/read-me" }
+      ],
+      "Notas": [
+        { title: "READ-ME", href: "/documentos/dce/notas/read-me" }
+      ]
+    }
+  },
+  "Dossiês USP": {
+    description: "Dossiês e investigações sobre as condições na USP.",
+    subfolders: {
+      "Geral": [
+        { title: "Fotos horrendas dos bandejões", href: "/documentos/dossies-usp/geral/fotos-bandejoes" },
+        { title: "READ-ME", href: "/documentos/dossies-usp/geral/read-me" }
+      ]
+    }
+  },
+  "IFUSP": {
+    description: "Documentos, assembleias e reuniões do Instituto de Física.",
+    subfolders: {
+      "Geral": [
+        { title: "READ-ME", href: "/documentos/ifusp/geral/read-me" }
+      ],
+      "Assembleias": [
+        { title: "READ-ME", href: "/documentos/ifusp/assembleias/read-me" }
+      ],
+      "Ofícios": [
+        { title: "READ-ME", href: "/documentos/ifusp/oficios/read-me" }
+      ],
+      "Plenárias": [
+        { title: "READ-ME", href: "/documentos/ifusp/plenarias/read-me" }
+      ],
+      "Reuniões": [
+        { title: "Reunião do comando de greve", href: "/documentos/ifusp/reunioes/reuniao-comando" },
+        { title: "Reuniões com a Kaline", href: "/documentos/ifusp/reunioes/reunioes-kaline" },
+        { title: "READ-ME", href: "/documentos/ifusp/reunioes/read-me" }
+      ]
+    }
+  },
+  "Manuais de greve": {
+    description: "Guias, protocolos e informações sobre a paralisação.",
+    subfolders: {
+      "Geral": [
+        { title: "Informações sobre a greve (comando)", href: "/documentos/ifusp/comando-de-greve/informacoes-sobre-a-greve" },
+        { title: "O que é o Comando de Greve", href: "/documentos/ifusp/comando-de-greve/o-que-e-o-comando" },
+        { title: "Como lidar com influencers de direita", href: "/documentos/ifusp/comando-de-greve/influencers-de-direita" },
+        { title: "READ-ME", href: "/documentos/manuais-de-greve/geral/read-me" }
+      ]
+    }
+  }
 };
 
 type MainFolder = string;
@@ -80,7 +108,7 @@ export function InteractiveDirectory() {
 
   if (mainFolders.length === 0) {
     return (
-      <div className="flex flex-col items-center justify-center py-16 px-8 border border-dashed border-gray-800 rounded-xl bg-[#121212]/30">
+      <div className="flex flex-col items-center justify-center py-8 sm:py-16 px-4 sm:px-8 border border-dashed border-gray-800 rounded-xl bg-[#121212]/30">
         <div className="p-4 bg-gray-800/30 rounded-full mb-6">
           <Inbox size={40} className="text-gray-600" />
         </div>

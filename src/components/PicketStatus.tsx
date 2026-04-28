@@ -1,87 +1,133 @@
 "use client";
 
-import React from "react";
+import React, { useMemo } from "react";
 import { cn } from "@/lib/utils";
 import { Calendar, ChevronLeft, ChevronRight, Clock } from "lucide-react";
 
 interface TimelineEvent {
-  date: string;
+  dateObj?: Date;
+  dateStr?: string;
   title: string;
   description?: string;
   time?: string;
-  status: "past" | "current" | "future";
 }
 
-const events: TimelineEvent[] = [
+const rawEvents: TimelineEvent[] = [
   // Past
   {
-    date: "17 Abr",
+    dateStr: "17 Abr",
+    dateObj: new Date("2026-04-17T00:00:00"),
     title: "Assembleia Geral IFUSP",
     description: "Greve aprovada e eleição do comando.",
-    status: "past",
   },
   {
-    date: "17 Abr",
+    dateStr: "17 Abr",
+    dateObj: new Date("2026-04-17T00:00:00"),
     title: "Trancamento das Salas",
     description: "Início do piquete no IFUSP.",
-    status: "past",
   },
   {
-    date: "20-24 Abr",
+    dateStr: "20-24 Abr",
+    dateObj: new Date("2026-04-20T00:00:00"),
     title: "Semana de Piquetes",
     description: "Mobilização e atividades internas.",
-    status: "past",
   },
   {
-    date: "24 Abr",
+    dateStr: "24 Abr",
+    dateObj: new Date("2026-04-24T00:00:00"),
     title: "Comandos USP",
     description: "Reunião dos comandos de greve da USP.",
-    status: "past",
   },
   {
-    date: "24 Abr",
+    dateStr: "24 Abr",
+    dateObj: new Date("2026-04-24T00:00:00"),
     title: "Direção IFUSP",
     description: "Reunião com a direção do instituto.",
-    status: "past",
   },
-  // Current (Monday)
+  // Monday
   {
-    date: "Hoje (Seg)",
+    dateObj: new Date("2026-04-27T00:00:00"),
     time: "08:00",
     title: "C.G. IFUSP",
     description: "Reunião do comando de greve IF.",
-    status: "current",
   },
   {
-    date: "Hoje (Seg)",
+    dateObj: new Date("2026-04-27T00:00:00"),
     time: "16:00",
     title: "Baixo Matão",
     description: "Reunião dos comandos do baixo matão.",
-    status: "current",
   },
-  // Future
+  // Tuesday
   {
-    date: "Terça",
+    dateObj: new Date("2026-04-28T00:00:00"),
     title: "Reunião Reitoria",
     description: "Comandos com o reitor.",
-    status: "future",
   },
+  // Wednesday
   {
-    date: "Quarta",
+    dateObj: new Date("2026-04-29T00:00:00"),
     title: "Comandos Gerais",
     description: "Reunião dos comandos gerais.",
-    status: "future",
   },
+  // Thursday
   {
-    date: "Quinta",
+    dateObj: new Date("2026-04-30T00:00:00"),
     title: "Assembleia Geral",
     description: "Assembleia geral do IF.",
-    status: "future",
   },
 ];
 
 export function PicketStatus() {
   const scrollRef = React.useRef<HTMLDivElement>(null);
+
+  const events = useMemo(() => {
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+
+    const formatDayOfWeek = (date: Date) => {
+      const days = ["Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "Sáb"];
+      return days[date.getDay()];
+    };
+
+    return rawEvents.map((event) => {
+      let status: "past" | "current" | "future" = "future";
+      let displayDate = event.dateStr || "";
+
+      if (event.dateObj) {
+        const eventDate = new Date(event.dateObj);
+        eventDate.setHours(0, 0, 0, 0);
+        
+        const diffTime = eventDate.getTime() - today.getTime();
+        const diffDays = Math.round(diffTime / (1000 * 60 * 60 * 24));
+
+        if (diffDays < 0) {
+          status = "past";
+        } else if (diffDays === 0) {
+          status = "current";
+          displayDate = `Hoje (${formatDayOfWeek(eventDate)})`;
+        } else {
+          status = "future";
+          if (!event.dateStr) {
+            const daysFull = ["Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado"];
+            displayDate = diffDays === 1 ? `Amanhã (${formatDayOfWeek(eventDate)})` : daysFull[eventDate.getDay()];
+          }
+        }
+        
+        if (!displayDate && event.dateStr) {
+          displayDate = event.dateStr;
+        }
+      } else {
+        // Fallback for events without dateObj
+        status = "past";
+      }
+
+      return {
+        ...event,
+        status,
+        date: displayDate,
+      };
+    });
+  }, []);
 
   React.useEffect(() => {
     // Scroll to the current event on mount
@@ -96,7 +142,7 @@ export function PicketStatus() {
         behavior: "smooth"
       });
     }
-  }, []);
+  }, [events]);
 
   return (
     <div className="w-full mb-16 group/timeline">

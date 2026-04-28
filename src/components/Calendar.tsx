@@ -113,6 +113,94 @@ export const EVENTS = [
     location: "IFUSP",
     category: "Cultura",
     priority: "medium"
+  },
+  {
+    date: "2026-04-28",
+    title: "Café da Manhã",
+    time: "07:00",
+    location: "IFUSP",
+    category: "Mobilização",
+    priority: "low"
+  },
+  {
+    date: "2026-04-28",
+    title: "Reunião do Comando da Física",
+    time: "08:00",
+    location: "IFUSP",
+    category: "Reunião",
+    priority: "high"
+  },
+  {
+    date: "2026-04-28",
+    title: "Grupos de Estudos",
+    time: "08:00",
+    location: "IFUSP",
+    category: "Acadêmico",
+    priority: "medium"
+  },
+  {
+    date: "2026-04-28",
+    title: "Roda de Conversa + Oficina de Crafts",
+    time: "10:00",
+    location: "IFUSP",
+    category: "Mobilização",
+    priority: "medium"
+  },
+  {
+    date: "2026-04-28",
+    title: "\"Almoço\" - Bandejão da Física",
+    time: "12:00",
+    location: "Bandejão da Física",
+    category: "Mobilização",
+    priority: "low"
+  },
+  {
+    date: "2026-04-28",
+    title: "Ato \"Arrastão\" - Ponto de encontro IF",
+    time: "13:00",
+    location: "IFUSP",
+    category: "Ato",
+    priority: "high"
+  },
+  {
+    date: "2026-04-28",
+    title: "Ato Reitoria - A Mesa de Negociação",
+    time: "14:00",
+    location: "Reitoria",
+    category: "Ato",
+    priority: "high"
+  },
+  {
+    date: "2026-04-28",
+    title: "\"Janta\" - Bandejão da Física",
+    time: "18:00",
+    location: "Bandejão da Física",
+    category: "Mobilização",
+    priority: "low"
+  },
+  {
+    date: "2026-04-28",
+    title: "Grupo de Estudos",
+    time: "19:00",
+    location: "IFUSP",
+    category: "Acadêmico",
+    priority: "medium"
+  },
+  {
+    date: "2026-04-28",
+    title: "Reunião do Comando da Física",
+    time: "19:00",
+    location: "IFUSP",
+    category: "Reunião",
+    priority: "high"
+  },
+  {
+    date: "2026-04-28",
+    title: "Noite de Jogos Hackerspace",
+    time: "22:00",
+    location: "Hackerspace",
+    category: "Lazer",
+    priority: "medium"
   }
 ];
 
@@ -134,7 +222,12 @@ export function Calendar({ limit }: { limit?: number }) {
       const eventDate = new Date(year, month - 1, day, hour, minute);
       return { ...event, eventDate };
     })
-    .filter(event => event.eventDate >= now)
+    .filter(event => {
+      if (limit) {
+        return event.eventDate >= now;
+      }
+      return true;
+    })
     .sort((a, b) => a.eventDate.getTime() - b.eventDate.getTime());
 
     setUpcomingEvents(upcoming.slice(0, limit || 3));
@@ -144,7 +237,7 @@ export function Calendar({ limit }: { limit?: number }) {
 
   if (upcomingEvents.length === 0) {
     return (
-      <div className="p-8 border border-dashed border-gray-800 rounded-2xl bg-gray-900/30 text-center">
+      <div className="p-6 sm:p-8 border border-dashed border-gray-800 rounded-2xl bg-gray-900/30 text-center">
         <p className="text-gray-500 text-sm italic">
           Não há atividades programadas para as próximas horas.
         </p>
@@ -156,7 +249,7 @@ export function Calendar({ limit }: { limit?: number }) {
   const followingActivities = upcomingEvents.slice(1);
 
   return (
-    <div className="flex flex-col gap-8">
+    <div className="flex flex-col gap-6 sm:gap-8">
       {/* Próxima Atividade */}
       <div>
         <h3 className="text-[10px] font-black text-secondary uppercase tracking-[0.3em] mb-4 flex items-center gap-2">
@@ -164,13 +257,13 @@ export function Calendar({ limit }: { limit?: number }) {
           Próxima Atividade
         </h3>
         
-        <div className="group relative bg-gradient-to-br from-secondary/20 to-primary/10 border border-secondary/30 rounded-3xl p-8 transition-all hover:shadow-[0_0_40px_rgba(15,102,136,0.2)] overflow-hidden">
+        <div className="group relative bg-gradient-to-br from-secondary/20 to-primary/10 border border-secondary/30 rounded-3xl p-6 sm:p-8 transition-all hover:shadow-[0_0_40px_rgba(15,102,136,0.2)] overflow-hidden">
           <div className={cn(
             "absolute top-0 left-0 w-2 h-full",
             nextActivity.priority === 'high' ? "bg-red-500" : "bg-secondary"
           )} />
           
-          <div className="flex flex-col md:flex-row gap-8 items-start relative z-10">
+          <div className="flex flex-col md:flex-row gap-6 sm:gap-8 items-start relative z-10">
             <div className="flex flex-col items-center justify-center min-w-[100px] p-5 rounded-2xl bg-gray-900/80 border border-white/5 text-center shadow-2xl">
               <span className="text-xs font-bold text-secondary uppercase tracking-widest mb-1">
                 {nextActivity.eventDate.toLocaleDateString('pt-BR', { month: 'short' })}
@@ -189,7 +282,7 @@ export function Calendar({ limit }: { limit?: number }) {
                   {nextActivity.category}
                 </span>
               </div>
-              <h2 className="text-3xl font-black text-white mb-6 leading-tight">
+              <h2 className="text-2xl sm:text-3xl font-black text-white mb-6 leading-tight break-words">
                 {nextActivity.title}
               </h2>
               

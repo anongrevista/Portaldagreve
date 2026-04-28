@@ -6,7 +6,7 @@ import Image from "next/image";
 
 export function TopBar() {
   return (
-    <header className="flex items-center justify-between px-8 py-6 w-full max-w-7xl mx-auto border-b border-gray-800/50 mb-8 bg-[#09090b]/80 backdrop-blur-md sticky top-0 z-30">
+    <header className="flex items-center justify-between px-4 sm:px-8 py-4 sm:py-6 w-full max-w-7xl mx-auto border-b border-gray-800/50 mb-4 sm:mb-8 bg-[#09090b]/80 backdrop-blur-md sticky top-0 z-30">
       <Link 
         href="/" 
         className="flex items-center gap-3 hover:opacity-80 transition-all group"
@@ -36,7 +36,7 @@ export function TopBar() {
         <input 
           type="text" 
           placeholder="Procurar documentos..." 
-          className="bg-transparent border-none outline-none text-sm placeholder:text-gray-600 w-48 sm:w-64 text-white"
+          className="bg-transparent border-none outline-none text-sm placeholder:text-gray-600 w-32 sm:w-64 text-white"
         />
         <div className="hidden md:flex items-center gap-1 px-1.5 py-0.5 rounded border border-gray-800 bg-gray-900 text-[10px] font-medium text-gray-500">
           <span className="text-[12px]">⌘</span>

@@ -10,16 +10,16 @@ export default function DashboardHome() {
   return (
     <div className="flex flex-col min-h-screen">
       
-      <div className="flex flex-1 overflow-hidden px-8 max-w-5xl mx-auto w-full pt-12">
-        <div className="flex-1 overflow-y-auto pr-8 pb-32">
+      <div className="flex flex-1 min-w-0 overflow-hidden px-4 sm:px-8 max-w-5xl mx-auto w-full pt-6 sm:pt-12">
+        <div className="flex-1 min-w-0 overflow-y-auto overflow-x-hidden pr-2 sm:pr-8 pb-24 sm:pb-32">
           
           <div className="mb-12 space-y-8">
             <div>
-              <h1 className="text-4xl font-black tracking-tight mb-4 text-white">
+              <h1 className="text-3xl sm:text-4xl font-black tracking-tight mb-4 text-white break-words">
                 <span className="text-primary">Central</span>
-                <span className="text-gray-400 font-medium text-3xl"> da </span>
+                <span className="text-gray-400 font-medium text-2xl sm:text-3xl"> da </span>
                 <span className="text-secondary">Greve</span>
-                <span className="text-gray-500 ml-2 text-2xl font-bold">(CG)</span>
+                <span className="text-gray-500 ml-2 text-xl sm:text-2xl font-bold">(CG)</span>
               </h1>
               <p className="text-lg text-gray-400 max-w-2xl leading-relaxed">
                 Bem-vindo ao portal interativo de documentação.
@@ -35,36 +35,24 @@ export default function DashboardHome() {
               </p>
             </div>
 
-            <div>
-              <h2 className="text-xl font-bold text-white mb-2 uppercase tracking-wider text-sm text-gray-500">
-                A Importância das Greves
-              </h2>
-              <p className="text-lg text-gray-400 max-w-2xl leading-relaxed mb-4">
-                A greve de 2016, que durou quase 3 meses, foi fundamental: graças a ela tivemos as cotas e o Enem-USP. Já a greve de 2023, que durou um mês e meio, teve como resultado a contratação de novos professores.
-              </p>
-              <p className="text-lg text-gray-400 max-w-2xl leading-relaxed mb-6">
-                As greves são importantes e tentam se organizar para não atrapalhar os estudos, tendo mais informações sobre a greve atual nas pastas a seguir.
-              </p>
+            <div className="flex flex-col sm:flex-row flex-wrap gap-4 mt-6">
+              <Link 
+                href="/documentos/apresentacao-da-central-da-greve"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-primary to-secondary text-white font-bold hover:shadow-[0_0_20px_rgba(15,102,136,0.4)] transition-all transform hover:-translate-y-0.5 active:scale-95 group text-center"
+              >
+                Ver Apresentação da Central
+                <ArrowRight size={18} className="transition-transform group-hover:translate-x-1" />
+              </Link>
 
-              <div className="flex flex-wrap gap-4">
-                <Link 
-                  href="/documentos/apresentacao-da-central-da-greve"
-                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-primary to-secondary text-white font-bold hover:shadow-[0_0_20px_rgba(15,102,136,0.4)] transition-all transform hover:-translate-y-0.5 active:scale-95 group"
-                >
-                  Ver Apresentação da Central
-                  <ArrowRight size={18} className="transition-transform group-hover:translate-x-1" />
-                </Link>
-
-                <a 
-                  href="https://chat.whatsapp.com/BAKYXhrnPwxDeYaSCDw0Fr"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-green-600 hover:bg-green-500 text-white font-bold hover:shadow-[0_0_20px_rgba(22,163,74,0.4)] transition-all transform hover:-translate-y-0.5 active:scale-95 group"
-                >
-                  <MessageSquare size={18} />
-                  Entrar no grupo da mobilização
-                </a>
-              </div>
+              <a 
+                href="https://chat.whatsapp.com/BAKYXhrnPwxDeYaSCDw0Fr"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-green-600 hover:bg-green-500 text-white font-bold hover:shadow-[0_0_20px_rgba(22,163,74,0.4)] transition-all transform hover:-translate-y-0.5 active:scale-95 group text-center"
+              >
+                <MessageSquare size={18} />
+                Entrar no grupo da mobilização
+              </a>
             </div>
           </div>
 
@@ -87,17 +75,65 @@ export default function DashboardHome() {
             Documentos em destaque
           </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+            {/* Card 1 - Informações (Secondary/Red) */}
             <Link 
               href="/documentos/ifusp/comando-de-greve/informacoes-sobre-a-greve"
-              className="group p-6 rounded-2xl bg-gradient-to-br from-gray-800/40 to-gray-900/60 border border-gray-700/30 hover:border-primary/50 transition-all hover:shadow-[0_0_30px_rgba(15,102,136,0.15)] flex flex-col gap-3"
+              className="group relative p-6 rounded-3xl bg-gradient-to-br from-[#231a1a] to-[#121212] border border-secondary/20 hover:border-secondary/60 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(241,67,67,0.2)] overflow-hidden flex flex-col gap-4"
             >
-              <div className="flex items-center justify-between">
-                <span className="text-[10px] font-black text-primary uppercase tracking-[0.2em]">Importante</span>
-                <ArrowRight size={16} className="text-gray-500 group-hover:text-primary transition-transform group-hover:translate-x-1" />
+              <div className="absolute top-0 right-0 w-32 h-32 bg-secondary/10 rounded-full blur-3xl group-hover:bg-secondary/20 transition-all duration-500"></div>
+              
+              <div className="flex items-center justify-between relative z-10">
+                <span className="px-3 py-1 rounded-full bg-secondary/20 border border-secondary/30 text-[10px] font-black text-secondary uppercase tracking-widest drop-shadow-md">Importante</span>
+                <div className="w-8 h-8 rounded-full bg-secondary/10 flex items-center justify-center text-secondary group-hover:bg-secondary group-hover:text-white transition-all duration-500">
+                  <ArrowRight size={16} className="transition-transform group-hover:translate-x-0.5" />
+                </div>
               </div>
-              <h3 className="text-xl font-bold text-white group-hover:text-primary transition-colors">Informações sobre a greve</h3>
-              <p className="text-sm text-gray-400 leading-relaxed">Conquistas passadas, pautas atuais e guia de funcionamento da mobilização.</p>
+              
+              <div className="mt-2 relative z-10">
+                <h3 className="text-xl font-black text-white group-hover:text-secondary transition-colors mb-2 leading-tight">Informações sobre a greve</h3>
+                <p className="text-sm text-gray-400 leading-relaxed group-hover:text-gray-300 transition-colors">Conquistas passadas, pautas atuais e guia de funcionamento da mobilização.</p>
+              </div>
+            </Link>
+
+            {/* Card 2 - README (Primary/Blue) */}
+            <Link 
+              href="/documentos/central-da-greve/geral/read-me"
+              className="group relative p-6 rounded-3xl bg-gradient-to-br from-[#1a202c] to-[#121212] border border-primary/20 hover:border-primary/60 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(15,102,136,0.2)] overflow-hidden flex flex-col gap-4"
+            >
+              <div className="absolute bottom-0 right-0 w-32 h-32 bg-primary/10 rounded-full blur-3xl group-hover:bg-primary/20 transition-all duration-500"></div>
+              
+              <div className="flex items-center justify-between relative z-10">
+                <span className="px-3 py-1 rounded-full bg-primary/20 border border-primary/30 text-[10px] font-black text-primary uppercase tracking-widest drop-shadow-md">Geral</span>
+                <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all duration-500">
+                  <ArrowRight size={16} className="transition-transform group-hover:translate-x-0.5" />
+                </div>
+              </div>
+              
+              <div className="mt-2 relative z-10">
+                <h3 className="text-xl font-black text-white group-hover:text-primary transition-colors mb-2 leading-tight">READ-ME do Hub</h3>
+                <p className="text-sm text-gray-400 leading-relaxed group-hover:text-gray-300 transition-colors">Guia de como navegar e utilizar a documentação da Central da Greve.</p>
+              </div>
+            </Link>
+
+            {/* Card 3 - Glossário (Secondary/Red) */}
+            <Link 
+              href="/documentos/central-da-greve/geral/glossario"
+              className="group relative p-6 rounded-3xl bg-gradient-to-br from-[#231a1a] to-[#121212] border border-secondary/20 hover:border-secondary/60 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(241,67,67,0.2)] overflow-hidden flex flex-col gap-4"
+            >
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-secondary/10 rounded-full blur-3xl group-hover:bg-secondary/20 transition-all duration-500"></div>
+              
+              <div className="flex items-center justify-between relative z-10">
+                <span className="px-3 py-1 rounded-full bg-secondary/20 border border-secondary/30 text-[10px] font-black text-secondary uppercase tracking-widest drop-shadow-md">Base</span>
+                <div className="w-8 h-8 rounded-full bg-secondary/10 flex items-center justify-center text-secondary group-hover:bg-secondary group-hover:text-white transition-all duration-500">
+                  <ArrowRight size={16} className="transition-transform group-hover:translate-x-0.5" />
+                </div>
+              </div>
+              
+              <div className="mt-2 relative z-10">
+                <h3 className="text-xl font-black text-white group-hover:text-secondary transition-colors mb-2 leading-tight">Glossário da Greve</h3>
+                <p className="text-sm text-gray-400 leading-relaxed group-hover:text-gray-300 transition-colors">Entenda os termos, siglas e jargões essenciais usados durante o movimento.</p>
+              </div>
             </Link>
           </div>
 

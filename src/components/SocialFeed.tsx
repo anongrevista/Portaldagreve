@@ -11,7 +11,15 @@ const SOCIAL_POSTS = [
     caption: "@cefisma: Calendário de Greve - Semana 2. Confira a programação completa das atividades.",
     likes: "1.2k",
     comments: "45",
-    link: "https://www.instagram.com/p/DXnP-jJlP8o/"
+    link: "https://www.instagram.com/p/DXqLqyDlMX6/"
+  },
+  {
+    id: "3",
+    thumbnail: "/assets/instagram_post_1.png",
+    caption: "@cefisma: Informes da Mobilização.",
+    likes: "1.5k",
+    comments: "30",
+    link: "https://www.instagram.com/p/DXp6ZVpjBgm/"
   },
   {
     id: "2",
@@ -46,7 +54,7 @@ export function SocialFeed() {
         </a>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 max-w-5xl mx-auto">
         {SOCIAL_POSTS.map((post) => (
           <div 
             key={post.id}

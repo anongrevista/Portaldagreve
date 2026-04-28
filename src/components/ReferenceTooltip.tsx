@@ -10,7 +10,7 @@ interface ReferenceProps {
   title: string;
   date: string;
   url?: string;
-  children: React.ReactNode;
+  children?: React.ReactNode;
 }
 
 export function Reference({ id, index, title, date, url, children }: ReferenceProps) {
@@ -41,10 +41,13 @@ export function Reference({ id, index, title, date, url, children }: ReferencePr
     >
       <span 
         onClick={handleLinkClick}
-        className="cursor-pointer border-b-2 border-red-500/60 hover:border-red-500 text-gray-100 hover:text-white transition-all duration-300 decoration-skip-ink font-medium"
+        className={cn(
+          "cursor-pointer text-gray-100 hover:text-white transition-all duration-300 decoration-skip-ink font-medium",
+          children ? "border-b-2 border-red-500/60 hover:border-red-500" : ""
+        )}
       >
         {children}
-        <span className="text-[10px] ml-0.5 font-bold text-secondary no-underline inline-block align-top -mt-1">
+        <span className="text-xs font-bold text-secondary ml-0.5">
           {indexStr}
         </span>
       </span>

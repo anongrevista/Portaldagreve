@@ -2,9 +2,10 @@
 
 import { useSidebarStore } from '@/store/useSidebarStore';
 import { cn } from '@/lib/utils';
-import { Folder, FileText, ChevronRight, ChevronDown, File, Home, Calendar as CalendarIcon, Instagram, Upload } from 'lucide-react';
+import { Folder, FileText, ChevronRight, ChevronDown, File, Home, Calendar as CalendarIcon, Instagram, Upload, Presentation } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
+import { DIRECTORY_DATA } from './InteractiveDirectory';
 
 export function Sidebar() {
   const { isMobileMenuOpen, setMobileMenuOpen } = useSidebarStore();
@@ -60,32 +61,44 @@ export function Sidebar() {
              <span className="text-sm font-medium">Posts da Greve</span>
            </Link>
 
-           <Link href="/submit" className="flex items-center gap-2 px-2 py-2 mb-6 rounded-md text-red-400 hover:text-red-300 hover:bg-red-400/10 transition-colors">
+           <Link href="/submit" className="flex items-center gap-2 px-2 py-2 rounded-md text-red-400 hover:text-red-300 hover:bg-red-400/10 transition-colors">
              <Upload size={18} className="shrink-0" />
              <span className="text-sm font-medium">Envio de Documentos</span>
            </Link>
 
+           <Link href="/documentos/apresentacao-da-central-da-greve" className="flex items-center gap-2 px-2 py-2 mb-6 rounded-md text-blue-400 hover:text-blue-300 hover:bg-blue-400/10 transition-colors">
+             <Presentation size={18} className="shrink-0" />
+             <span className="text-sm font-medium">Apresentação do HUB</span>
+           </Link>
+
            <h3 className="text-xs font-semibold text-gray-500 mb-4 px-2 tracking-wider">DOCUMENTOS DA CENTRAL</h3>
            
+           <div className="flex flex-col gap-1 mb-2">
+             <FileItem title="Informações sobre a greve" href="/documentos/ifusp/comando-de-greve/informacoes-sobre-a-greve" />
+             <FileItem title="READ-ME do Hub" href="/documentos/central-da-greve/geral/read-me" />
+             <FileItem title="Glossário da Greve" href="/documentos/central-da-greve/geral/glossario" />
+           </div>
+
            <div className="flex flex-col gap-1">
-              <FileItem title="Apresentação da Central da Greve" href="/documentos/apresentacao-da-central-da-greve" />
-              
-              <div className="my-2 h-px bg-gray-800/50 mx-2" />
-
-              <FolderItem title="DCE" color="red">
-                <div className="text-xs text-gray-600 py-2 italic px-4">Nenhum documento disponível ainda</div>
-              </FolderItem>
-
-              <FolderItem title="IFusp" defaultOpen color="blue">
-                <FolderItem title="Comando de Greve" defaultOpen color="blue">
-                  <FileItem title="Informações sobre a greve" href="/documentos/ifusp/comando-de-greve/informacoes-sobre-a-greve" />
-                  <FileItem title="Reunião com a Direção do IFUSP" href="/documentos/ifusp/comando-de-greve/reuniao-direcao-ifusp" />
-                  <FileItem title="Reunião com o comando de greve geral da USP" href="/documentos/ifusp/comando-de-greve/reuniao-todos-comandos" />
-                  <FileItem title="Documento de não perseguição que a kaline (diretora do IF assinou)" href="/documentos/ifusp/comando-de-greve/documento-assinatura-kaline" />
-                  <FileItem title="O que é o Comando de Greve" href="/documentos/ifusp/comando-de-greve/o-que-e-o-comando" />
-                  <FileItem title="Como lidar com influencers de direita" href="/documentos/ifusp/comando-de-greve/influencers-de-direita" />
+              {Object.entries(DIRECTORY_DATA).map(([mainFolder, data]) => (
+                <FolderItem 
+                  key={mainFolder} 
+                  title={mainFolder} 
+                  color={(mainFolder === 'IFUSP' || mainFolder === 'DCE') ? 'blue' : 'red'}
+                >
+                  {Object.entries(data.subfolders).map(([subFolder, files]) => (
+                    <FolderItem key={subFolder} title={subFolder}>
+                      {files.length === 0 ? (
+                        <div className="text-xs text-gray-600 py-2 italic px-4">Nenhum documento</div>
+                      ) : (
+                        files.map(file => (
+                          <FileItem key={file.href} title={file.title} href={file.href} />
+                        ))
+                      )}
+                    </FolderItem>
+                  ))}
                 </FolderItem>
-              </FolderItem>
+              ))}
            </div>
         </div>
       </aside>
