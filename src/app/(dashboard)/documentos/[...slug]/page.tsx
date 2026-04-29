@@ -146,6 +146,13 @@ const DOCUMENT_MAP: Record<string, { key: string; title: string; filePath?: stri
     title: "READ-ME: Manuais de greve",
     filePath: "Manuais da greve/READ-ME.md"
   },
+
+  // CEFISMA
+  "ifusp/cefisma/a-semana-decisiva-da-greve": {
+    key: "a-semana-decisiva-da-greve",
+    title: "A Semana Decisiva da Greve",
+    filePath: "IFUSP/CEFISMA/A SEMANA DECISIVA DA GREVE.md"
+  },
 };
 
 function SectionDivider() {

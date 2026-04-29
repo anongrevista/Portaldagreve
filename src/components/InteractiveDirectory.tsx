@@ -54,6 +54,9 @@ export const DIRECTORY_DATA: DirectoryData = {
       "Geral": [
         { title: "READ-ME", href: "/documentos/ifusp/geral/read-me" }
       ],
+      "CEFISMA": [
+        { title: "A Semana Decisiva da Greve", href: "/documentos/ifusp/cefisma/a-semana-decisiva-da-greve" }
+      ],
       "Assembleias": [
         { title: "READ-ME", href: "/documentos/ifusp/assembleias/read-me" }
       ],

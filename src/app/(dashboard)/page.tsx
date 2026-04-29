@@ -75,64 +75,44 @@ export default function DashboardHome() {
             Documentos em destaque
           </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
-            {/* Card 1 - Informações (Secondary/Red) */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
+            {/* Card 1 - A Semana Decisiva (Secondary/Red) — CEFISMA */}
             <Link 
-              href="/documentos/ifusp/comando-de-greve/informacoes-sobre-a-greve"
+              href="/documentos/ifusp/cefisma/a-semana-decisiva-da-greve"
               className="group relative p-6 rounded-3xl bg-gradient-to-br from-[#231a1a] to-[#121212] border border-secondary/20 hover:border-secondary/60 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(241,67,67,0.2)] overflow-hidden flex flex-col gap-4"
             >
               <div className="absolute top-0 right-0 w-32 h-32 bg-secondary/10 rounded-full blur-3xl group-hover:bg-secondary/20 transition-all duration-500"></div>
               
               <div className="flex items-center justify-between relative z-10">
-                <span className="px-3 py-1 rounded-full bg-secondary/20 border border-secondary/30 text-[10px] font-black text-secondary uppercase tracking-widest drop-shadow-md">Importante</span>
+                <span className="px-3 py-1 rounded-full bg-secondary/20 border border-secondary/30 text-[10px] font-black text-secondary uppercase tracking-widest drop-shadow-md">🔥 Urgente — CEFISMA</span>
                 <div className="w-8 h-8 rounded-full bg-secondary/10 flex items-center justify-center text-secondary group-hover:bg-secondary group-hover:text-white transition-all duration-500">
                   <ArrowRight size={16} className="transition-transform group-hover:translate-x-0.5" />
                 </div>
               </div>
               
               <div className="mt-2 relative z-10">
-                <h3 className="text-xl font-black text-white group-hover:text-secondary transition-colors mb-2 leading-tight">Informações sobre a greve</h3>
-                <p className="text-sm text-gray-400 leading-relaxed group-hover:text-gray-300 transition-colors">Conquistas passadas, pautas atuais e guia de funcionamento da mobilização.</p>
+                <h3 className="text-xl font-black text-white group-hover:text-secondary transition-colors mb-2 leading-tight">A Semana Decisiva da Greve</h3>
+                <p className="text-sm text-gray-400 leading-relaxed group-hover:text-gray-300 transition-colors">Agenda, posição do Cefisma e como participar desta semana crucial para o movimento.</p>
               </div>
             </Link>
 
-            {/* Card 2 - README (Primary/Blue) */}
+            {/* Card 2 - Apresentação (Primary/Blue) */}
             <Link 
-              href="/documentos/central-da-greve/geral/read-me"
+              href="/documentos/apresentacao-da-central-da-greve"
               className="group relative p-6 rounded-3xl bg-gradient-to-br from-[#1a202c] to-[#121212] border border-primary/20 hover:border-primary/60 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(15,102,136,0.2)] overflow-hidden flex flex-col gap-4"
             >
               <div className="absolute bottom-0 right-0 w-32 h-32 bg-primary/10 rounded-full blur-3xl group-hover:bg-primary/20 transition-all duration-500"></div>
               
               <div className="flex items-center justify-between relative z-10">
-                <span className="px-3 py-1 rounded-full bg-primary/20 border border-primary/30 text-[10px] font-black text-primary uppercase tracking-widest drop-shadow-md">Geral</span>
+                <span className="px-3 py-1 rounded-full bg-primary/20 border border-primary/30 text-[10px] font-black text-primary uppercase tracking-widest drop-shadow-md">Apresentação</span>
                 <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all duration-500">
                   <ArrowRight size={16} className="transition-transform group-hover:translate-x-0.5" />
                 </div>
               </div>
               
               <div className="mt-2 relative z-10">
-                <h3 className="text-xl font-black text-white group-hover:text-primary transition-colors mb-2 leading-tight">READ-ME do Hub</h3>
-                <p className="text-sm text-gray-400 leading-relaxed group-hover:text-gray-300 transition-colors">Guia de como navegar e utilizar a documentação da Central da Greve.</p>
-              </div>
-            </Link>
-
-            {/* Card 3 - Glossário (Secondary/Red) */}
-            <Link 
-              href="/documentos/central-da-greve/geral/glossario"
-              className="group relative p-6 rounded-3xl bg-gradient-to-br from-[#231a1a] to-[#121212] border border-secondary/20 hover:border-secondary/60 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(241,67,67,0.2)] overflow-hidden flex flex-col gap-4"
-            >
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-secondary/10 rounded-full blur-3xl group-hover:bg-secondary/20 transition-all duration-500"></div>
-              
-              <div className="flex items-center justify-between relative z-10">
-                <span className="px-3 py-1 rounded-full bg-secondary/20 border border-secondary/30 text-[10px] font-black text-secondary uppercase tracking-widest drop-shadow-md">Base</span>
-                <div className="w-8 h-8 rounded-full bg-secondary/10 flex items-center justify-center text-secondary group-hover:bg-secondary group-hover:text-white transition-all duration-500">
-                  <ArrowRight size={16} className="transition-transform group-hover:translate-x-0.5" />
-                </div>
-              </div>
-              
-              <div className="mt-2 relative z-10">
-                <h3 className="text-xl font-black text-white group-hover:text-secondary transition-colors mb-2 leading-tight">Glossário da Greve</h3>
-                <p className="text-sm text-gray-400 leading-relaxed group-hover:text-gray-300 transition-colors">Entenda os termos, siglas e jargões essenciais usados durante o movimento.</p>
+                <h3 className="text-xl font-black text-white group-hover:text-primary transition-colors mb-2 leading-tight">Apresentação da Central da Greve</h3>
+                <p className="text-sm text-gray-400 leading-relaxed group-hover:text-gray-300 transition-colors">O que é a Central da Greve, como funciona e por que ela é necessária para o movimento.</p>
               </div>
             </Link>
           </div>
