@@ -34,12 +34,9 @@ const APRESENTACAO_CENTRAL = {
     { label: "1. Introdução", anchor: "introducao" },
     { label: "2. O que é", anchor: "o-que-e" },
     { label: "3. Equipe", anchor: "equipe" },
-    { label: "4. Objetivos e Como", anchor: "objetivos" },
-    { label: "5. Estrutura de Abas", anchor: "estrutura-abas" },
-    { label: "6. Organização e Layout", anchor: "organizacao-layout" },
-    { label: "7. Por que a Central é necessária?", anchor: "necessidade" },
-    { label: "9. Parte Técnica", anchor: "parte-tecnica" },
-    { label: "10. Conclusão", anchor: "conclusao" },
+    { label: "4. Por que o HUB é necessário?", anchor: "necessidade" },
+    { label: "5. Parte Técnica", anchor: "parte-tecnica" },
+    { label: "6. Conclusão", anchor: "conclusao" },
   ],
 };
 

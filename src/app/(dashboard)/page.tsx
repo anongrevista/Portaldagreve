@@ -88,7 +88,7 @@ export default function DashboardHome() {
             Documentos em destaque
           </h2>
 
-          <div className="mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
             {/* Card - A Semana Decisiva (Secondary/Red) — CEFISMA */}
             <Link 
               href="/documentos/ifusp/cefisma/a-semana-decisiva-da-greve"
@@ -97,15 +97,55 @@ export default function DashboardHome() {
               <div className="absolute top-0 right-0 w-32 h-32 bg-secondary/10 rounded-full blur-3xl group-hover:bg-secondary/20 transition-all duration-500"></div>
               
               <div className="flex items-center justify-between relative z-10">
-                <span className="px-3 py-1 rounded-full bg-secondary/20 border border-secondary/30 text-[10px] font-black text-secondary uppercase tracking-widest drop-shadow-md">🔥 Urgente — CEFISMA</span>
+                <span className="px-3 py-1 rounded-full bg-secondary/20 border border-secondary/30 text-[10px] font-black text-secondary uppercase tracking-widest">🔥 Urgente — CEFISMA</span>
                 <div className="w-8 h-8 rounded-full bg-secondary/10 flex items-center justify-center text-secondary group-hover:bg-secondary group-hover:text-white transition-all duration-500">
-                  <ArrowRight size={16} className="transition-transform group-hover:translate-x-0.5" />
+                  <ArrowRight size={16} />
                 </div>
               </div>
               
               <div className="mt-2 relative z-10">
                 <h3 className="text-xl font-black text-white group-hover:text-secondary transition-colors mb-2 leading-tight">A Semana Decisiva da Greve</h3>
-                <p className="text-sm text-gray-400 leading-relaxed group-hover:text-gray-300 transition-colors">Agenda, posição do Cefisma e como participar desta semana crucial para o movimento.</p>
+                <p className="text-sm text-gray-400 leading-relaxed group-hover:text-gray-300 transition-colors">Agenda, posição do Cefisma e como participar desta semana crucial.</p>
+              </div>
+            </Link>
+
+            {/* Card - Informações sobre a greve (Primary/Blue) */}
+            <Link 
+              href="/documentos/ifusp/comando-de-greve/informacoes-sobre-a-greve"
+              className="group relative p-6 rounded-3xl bg-gradient-to-br from-[#1a1f23] to-[#121212] border border-primary/20 hover:border-primary/60 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(15,102,136,0.2)] overflow-hidden flex flex-col gap-4"
+            >
+              <div className="absolute top-0 right-0 w-32 h-32 bg-primary/10 rounded-full blur-3xl group-hover:bg-primary/20 transition-all duration-500"></div>
+              
+              <div className="flex items-center justify-between relative z-10">
+                <span className="px-3 py-1 rounded-full bg-primary/20 border border-primary/30 text-[10px] font-black text-primary uppercase tracking-widest">ℹ️ Guia Geral</span>
+                <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all duration-500">
+                  <ArrowRight size={16} />
+                </div>
+              </div>
+              
+              <div className="mt-2 relative z-10">
+                <h3 className="text-xl font-black text-white group-hover:text-primary transition-colors mb-2 leading-tight">Informações sobre a greve</h3>
+                <p className="text-sm text-gray-400 leading-relaxed group-hover:text-gray-300 transition-colors">Conquistas passadas, pautas atuais e como o movimento funciona no dia a dia.</p>
+              </div>
+            </Link>
+
+            {/* Card - Glossário (Gray/Neutral) */}
+            <Link 
+              href="/documentos/central-da-greve/geral/glossario"
+              className="group relative p-6 rounded-3xl bg-gradient-to-br from-[#1f1f1f] to-[#121212] border border-gray-700/50 hover:border-gray-500 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(255,255,255,0.05)] overflow-hidden flex flex-col gap-4"
+            >
+              <div className="absolute top-0 right-0 w-32 h-32 bg-gray-500/10 rounded-full blur-3xl group-hover:bg-gray-500/20 transition-all duration-500"></div>
+              
+              <div className="flex items-center justify-between relative z-10">
+                <span className="px-3 py-1 rounded-full bg-gray-800 border border-gray-700 text-[10px] font-black text-gray-400 uppercase tracking-widest">📚 Termos e Conceitos</span>
+                <div className="w-8 h-8 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 group-hover:bg-white group-hover:text-black transition-all duration-500">
+                  <ArrowRight size={16} />
+                </div>
+              </div>
+              
+              <div className="mt-2 relative z-10">
+                <h3 className="text-xl font-black text-white group-hover:text-gray-300 transition-colors mb-2 leading-tight">Glossário da Greve</h3>
+                <p className="text-sm text-gray-400 leading-relaxed group-hover:text-gray-300 transition-colors">Entenda as siglas e termos jurídicos e políticos usados durante a mobilização.</p>
               </div>
             </Link>
           </div>
