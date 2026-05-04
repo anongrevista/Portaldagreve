@@ -29,10 +29,10 @@ export default function DashboardHome() {
           <div className="mb-12 space-y-8">
             <div>
               <h1 className="text-3xl sm:text-4xl font-black tracking-tight mb-4 text-white break-words">
-                <span className="text-primary">Central</span>
+                <span className="text-primary">Portal</span>
                 <span className="text-gray-400 font-medium text-2xl sm:text-3xl"> da </span>
                 <span className="text-secondary">Greve</span>
-                <span className="text-gray-500 ml-2 text-xl sm:text-2xl font-bold">(CG)</span>
+                <span className="text-gray-500 ml-2 text-xl sm:text-2xl font-bold">(PG)</span>
               </h1>
               <p className="text-lg text-gray-400 max-w-2xl leading-relaxed">
                 Bem-vindo ao portal interativo de documentação.
@@ -50,10 +50,10 @@ export default function DashboardHome() {
 
             <div className="flex flex-col sm:flex-row flex-wrap gap-4 mt-6">
               <Link 
-                href="/documentos/apresentacao-da-central-da-greve"
+                href="/documentos/apresentacao-do-portal-da-greve"
                 className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-primary to-secondary text-white font-bold hover:shadow-[0_0_20px_rgba(15,102,136,0.4)] transition-all transform hover:-translate-y-0.5 active:scale-95 group text-center"
               >
-                Ver Apresentação da Central
+                Ver Apresentação do Portal
                 <ArrowRight size={18} className="transition-transform group-hover:translate-x-1" />
               </Link>
 
@@ -131,7 +131,7 @@ export default function DashboardHome() {
 
             {/* Card - Glossário (Gray/Neutral) */}
             <Link 
-              href="/documentos/central-da-greve/geral/glossario"
+              href="/documentos/portal-da-greve/geral/glossario"
               className="group relative p-6 rounded-3xl bg-gradient-to-br from-[#1f1f1f] to-[#121212] border border-gray-700/50 hover:border-gray-500 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(255,255,255,0.05)] overflow-hidden flex flex-col gap-4"
             >
               <div className="absolute top-0 right-0 w-32 h-32 bg-gray-500/10 rounded-full blur-3xl group-hover:bg-gray-500/20 transition-all duration-500"></div>

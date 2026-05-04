@@ -2,7 +2,7 @@
 
 import { useSidebarStore } from '@/store/useSidebarStore';
 import { cn } from '@/lib/utils';
-import { Folder, FileText, ChevronRight, ChevronDown, File, Home, Calendar as CalendarIcon, Instagram, Upload, Presentation } from 'lucide-react';
+import { Folder, FileText, ChevronRight, ChevronDown, File, Home, Calendar as CalendarIcon, Instagram, Upload, Presentation, HelpCircle } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { DIRECTORY_DATA } from './InteractiveDirectory';
@@ -35,12 +35,12 @@ export function Sidebar() {
           <h2 className="text-xl font-black text-white tracking-tight flex items-center gap-2">
             <div className="w-8 h-8 rounded-lg bg-gray-900 border border-gray-800 flex items-center justify-center overflow-hidden shadow-lg shadow-primary/10 transition-transform group-hover:scale-105">
               <img 
-                src="/logo.svg" 
-                alt="Logo CG" 
+                src="/logo.png" 
+                alt="Logo PG" 
                 className="w-full h-full object-cover"
               />
             </div>
-            Central da Greve
+            Portal da Greve
           </h2>
         </div>
         
@@ -66,17 +66,21 @@ export function Sidebar() {
              <span className="text-sm font-medium">Envio de Documentos</span>
            </Link>
 
-           <Link href="/documentos/apresentacao-da-central-da-greve" className="flex items-center gap-2 px-2 py-2 mb-6 rounded-md text-blue-400 hover:text-blue-300 hover:bg-blue-400/10 transition-colors">
+           <Link href="/documentos/apresentacao-do-portal-da-greve" className="flex items-center gap-2 px-2 py-2 mb-6 rounded-md text-blue-400 hover:text-blue-300 hover:bg-blue-400/10 transition-colors">
              <Presentation size={18} className="shrink-0" />
-             <span className="text-sm font-medium">Apresentação do HUB</span>
+             <span className="text-sm font-medium">Apresentação do PG</span>
            </Link>
+            <Link href="/#faq" className="flex items-center gap-2 px-2 py-2 mb-6 rounded-md text-blue-400 hover:text-blue-300 hover:bg-blue-400/10 transition-colors">
+              <HelpCircle size={18} className="shrink-0" />
+              <span className="text-sm font-medium">Perguntas Frequentes</span>
+            </Link>
 
-           <h3 className="text-xs font-semibold text-gray-500 mb-4 px-2 tracking-wider">DOCUMENTOS DA CENTRAL</h3>
+           <h3 className="text-xs font-semibold text-gray-500 mb-4 px-2 tracking-wider">DOCUMENTOS DO PORTAL</h3>
            
            <div className="flex flex-col gap-1 mb-2">
              <FileItem title="Informações sobre a greve" href="/documentos/ifusp/comando-de-greve/informacoes-sobre-a-greve" />
-             <FileItem title="READ-ME do Hub" href="/documentos/central-da-greve/geral/read-me" />
-             <FileItem title="Glossário da Greve" href="/documentos/central-da-greve/geral/glossario" />
+             <FileItem title="READ-ME do Portal" href="/documentos/portal-da-greve/geral/read-me" />
+             <FileItem title="Glossário da Greve" href="/documentos/portal-da-greve/geral/glossario" />
            </div>
 
            <div className="flex flex-col gap-1">

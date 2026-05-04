@@ -8,7 +8,7 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: "Central da Greve (CG)",
+  title: "Portal da Greve (PG)",
   description: "Portal interativo de documentação da greve",
 };
 

@@ -13,8 +13,8 @@ export function TopBar() {
       >
         <div className="relative w-10 h-10 rounded-xl overflow-hidden shadow-lg shadow-primary/20 group-hover:scale-105 transition-transform">
           <Image 
-            src="/logo.svg" 
-            alt="Logo Central da Greve" 
+            src="/logo.png" 
+            alt="Logo Portal da Greve" 
             width={32} 
             height={32}
             className="w-full h-full object-contain"
@@ -23,10 +23,10 @@ export function TopBar() {
         <div className="text-left hidden sm:block">
           <span className="block text-[10px] font-black tracking-[0.2em] text-gray-500 uppercase leading-none mb-1">Portal Interativo</span>
           <div className="flex items-center font-black text-lg leading-none uppercase tracking-tight">
-            <span className="text-primary">Central</span>
+            <span className="text-primary">Portal</span>
             <span className="text-white mx-1">da</span>
             <span className="text-secondary">Greve</span>
-            <span className="text-gray-500 ml-1 text-sm font-bold">(CG)</span>
+            <span className="text-gray-500 ml-1 text-sm font-bold">(PG)</span>
           </div>
         </div>
       </Link>

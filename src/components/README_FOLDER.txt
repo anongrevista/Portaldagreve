@@ -1,6 +1,6 @@
 README_FOLDER.txt - Pasta src/components/
 
-Contém os elementos visuais da Central da Greve, focando em reusabilidade e design premium.
+Contém os elementos visuais do Portal da Greve, focando em reusabilidade e design premium.
 
 - BottomNavigation.tsx: Menu de navegação inferior otimizado para dispositivos móveis.
 - Calendar.tsx: Exibe o calendário de eventos e reuniões de forma compacta e elegante.

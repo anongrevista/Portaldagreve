@@ -82,7 +82,7 @@ export function PicketSituation() {
           <Info size={20} className="text-gray-400" />
         </div>
         <p className="text-sm text-gray-400 leading-relaxed pt-0.5">
-          A <strong className="text-gray-300">Central da Greve</strong> recomenda que você utilize os espaços comuns para estudos coletivos e mantenha-se informado sobre as decisões das assembleias para saber quando as atividades serão retomadas.
+          O <strong className="text-gray-300">Portal da Greve</strong> recomenda que você utilize os espaços comuns para estudos coletivos e mantenha-se informado sobre as decisões das assembleias para saber quando as atividades serão retomadas.
         </p>
       </div>
     </section>

@@ -18,11 +18,11 @@ export interface FolderData {
 export type DirectoryData = Record<string, FolderData>;
 
 export const DIRECTORY_DATA: DirectoryData = {
-  "Central da Greve": {
+  "Portal da Greve": {
     description: "Documentos gerais, apresentações e glossário.",
     subfolders: {
       "Geral": [
-        { title: "Apresentação da Central da Greve", href: "/documentos/apresentacao-da-central-da-greve" }
+        { title: "Apresentação do Portal da Greve", href: "/documentos/apresentacao-do-portal-da-greve" }
       ]
     }
   },

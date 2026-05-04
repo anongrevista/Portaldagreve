@@ -28,13 +28,13 @@ const INFORMACOES_GREVE = {
 };
 
 const APRESENTACAO_CENTRAL = {
-  title: "Apresentação da Central da Greve (CG)",
+  title: "Apresentação do Portal da Greve (PG)",
   sumario: [
     { label: "O projeto em poucas palavras", anchor: "projeto-resumo" },
     { label: "1. Introdução", anchor: "introducao" },
     { label: "2. O que é", anchor: "o-que-e" },
     { label: "3. Equipe", anchor: "equipe" },
-    { label: "4. Por que o HUB é necessário?", anchor: "necessidade" },
+    { label: "4. Por que o PG é necessário?", anchor: "necessidade" },
     { label: "5. Parte Técnica", anchor: "parte-tecnica" },
     { label: "6. Conclusão", anchor: "conclusao" },
   ],
@@ -46,10 +46,10 @@ const DOCUMENT_MAP: Record<string, { key: string; title: string; filePath?: stri
     key: "informacoes-sobre-a-greve",
     title: "Informações sobre a greve",
   },
-  "apresentacao-da-central-da-greve": {
+  "apresentacao-do-portal-da-greve": {
     key: "apresentacao-da-central",
-    title: "Apresentação da Central da Greve (CG)",
-    filePath: "Cópia de Cópia de Apresentação da central da greve .md"
+    title: "Apresentação do Portal da Greve (PG)",
+    filePath: "Cópia de Cópia de Apresentação do central da greve .md"
   },
   "ifusp/comando-de-greve/reuniao-direcao-ifusp": {
     key: "reuniao-direcao-ifusp",
@@ -74,13 +74,13 @@ const DOCUMENT_MAP: Record<string, { key: string; title: string; filePath?: stri
   },
   
   // New mappings from Drive Structure
-  "central-da-greve/geral/glossario": {
+  "portal-da-greve/geral/glossario": {
     key: "glossario",
     title: "Glossário da Greve",
   },
-  "central-da-greve/geral/read-me": {
+  "portal-da-greve/geral/read-me": {
     key: "read-me",
-    title: "READ-ME: Documentos HUB",
+    title: "READ-ME: Documentos PG",
     filePath: "READ-ME.md"
   },
   "dce/geral/read-me": {
@@ -571,8 +571,8 @@ function ApresentacaoCentralContent() {
       {/* Imagem de Capa */}
       <div className="relative w-full aspect-video md:aspect-[21/9] mb-8 rounded-2xl overflow-hidden border border-gray-800 bg-[#09090b] flex items-center justify-center">
         <img 
-          src="/assets/apresentacao-da-central.jpg" 
-          alt="Apresentação Central" 
+          src="/logo_1080.jpg" 
+          alt="Logo Portal da Greve" 
           className="object-contain w-full h-full p-4"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-[#09090b]/80 to-transparent pointer-events-none" />
@@ -606,19 +606,19 @@ function ApresentacaoCentralContent() {
 
       <SectionTitle id="projeto-resumo">O projeto em poucas palavras</SectionTitle>
       <p className="text-gray-300 leading-relaxed mb-6">
-        A Central da Greve (CG) é uma plataforma digital, um aplicativo que roda direto no navegador, construído para melhorar a comunicação e a organização durante o período de mobilização. O projeto segue a filosofia de software livre (open source) e foi projetado para ser uma ferramenta centralizadora de informações, pautas e suporte à comunidade acadêmica em greve, com todo o código-fonte disponível publicamente.
+        A Portal da Greve (PG) é uma plataforma digital, um aplicativo que roda direto no navegador, construído para melhorar a comunicação e a organização durante o período de mobilização. O projeto segue a filosofia de software livre (open source) e foi projetado para ser uma ferramenta centralizadora de informações, pautas e suporte à comunidade acadêmica em greve, com todo o código-fonte disponível publicamente.
       </p>
 
       <SectionDivider />
 
       <SectionTitle id="introducao">1. Introdução</SectionTitle>
       <p className="text-gray-300 leading-relaxed mb-6">
-        A Central da Greve (CG) é uma frente tecnológica do movimento de mobilização do IFUSP. Seu objetivo é transformar a forma como a comunicação da greve é realizada, tanto internamente (na relação entre alunos e comando) quanto na relação entre a universidade e a sociedade, buscando dar transparência e agilidade às pautas e ações do movimento.
+        A Portal da Greve (PG) é uma frente tecnológica do movimento de mobilização do IFUSP. Seu objetivo é transformar a forma como a comunicação da greve é realizada, tanto internamente (na relação entre alunos e comando) quanto na relação entre a universidade e a sociedade, buscando dar transparência e agilidade às pautas e ações do movimento.
       </p>
 
       <SectionTitle id="o-que-e">2. O que é</SectionTitle>
       <p className="text-gray-300 leading-relaxed mb-4">
-        A Central da Greve (CG) é uma plataforma digital do tipo WebApp. Ele não se limita a ser uma rede social de notícias, mas uma ferramenta de organização política e acadêmica. Trata-se de uma plataforma que estende o alcance das assembleias para o ambiente digital, incentivando a participação ativa e o entendimento profundo das causas defendidas.
+        A Portal da Greve (PG) é uma plataforma digital do tipo WebApp. Ele não se limita a ser uma rede social de notícias, mas uma ferramenta de organização política e acadêmica. Trata-se de uma plataforma que estende o alcance das assembleias para o ambiente digital, incentivando a participação ativa e o entendimento profundo das causas defendidas.
       </p>
       <p className="text-gray-300 leading-relaxed mb-6">
         A plataforma oferece ferramentas específicas: acompanhamento de pautas, calendários de mobilização, manuais de greve e suporte para que alunos não percam o vínculo com o instituto.
@@ -687,7 +687,7 @@ function ApresentacaoCentralContent() {
 
       <SectionTitle id="conclusao">10. Conclusão</SectionTitle>
       <p className="text-gray-300 leading-relaxed mb-6">
-        A Central da Greve (CG) representa um marco na organização digital dos movimentos universitários. Ao unir tecnologia de ponta com pautas sociais, ela consolida a infraestrutura necessária para uma mobilização moderna, inclusiva e tecnicamente robusta.
+        A Portal da Greve (PG) representa um marco na organização digital dos movimentos universitários. Ao unir tecnologia de ponta com pautas sociais, ela consolida a infraestrutura necessária para uma mobilização moderna, inclusiva e tecnicamente robusta.
       </p>
     </>
   );
@@ -766,7 +766,7 @@ export default function DocumentoPage({ params }: { params: { slug: string[] } }
   let markdownContent = null;
   if (entry.filePath) {
     try {
-      const fullPath = path.join(process.cwd(), 'public', 'Documentos HUB', entry.filePath);
+      const fullPath = path.join(process.cwd(), 'public', 'Documentos PG', entry.filePath);
       markdownContent = fs.readFileSync(fullPath, 'utf8');
     } catch (e) {
       console.error("Error reading markdown file", e);
@@ -780,7 +780,7 @@ export default function DocumentoPage({ params }: { params: { slug: string[] } }
         <div className="flex-1 min-w-0 overflow-y-auto overflow-x-hidden pr-2 sm:pr-8 pb-24 sm:pb-32 pt-4 sm:pt-8 max-w-4xl">
           {/* Breadcrumb */}
           <div className="mb-4 text-xs font-semibold text-gray-500 tracking-wider">
-            DOCUMENTOS DA CENTRAL &gt; {context}
+            DOCUMENTOS DO PORTAL &gt; {context}
           </div>
 
           {/* Título do documento */}
@@ -839,7 +839,7 @@ export default function DocumentoPage({ params }: { params: { slug: string[] } }
                   </div>
                   <h3 className="text-xl font-bold text-gray-300 mb-2">Documento em digitalização</h3>
                   <p className="text-sm text-gray-500 max-w-md">
-                    O conteúdo deste documento já foi mapeado, mas ainda está sendo transcrito para o formato nativo da Central da Greve.
+                    O conteúdo deste documento já foi mapeado, mas ainda está sendo transcrito para o formato nativo do Portal da Greve.
                   </p>
                 </div>
               )}

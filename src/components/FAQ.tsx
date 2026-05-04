@@ -81,7 +81,7 @@ export function FAQ() {
   };
 
   return (
-    <section className="mb-16">
+    <section id="faq" className="mb-16">
       <h2 className="text-xl font-bold text-white mb-6 uppercase tracking-wider text-sm text-gray-500 flex items-center gap-2">
         <HelpCircle size={18} className="text-primary" />
         Perguntas Frequentes
