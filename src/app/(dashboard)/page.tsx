@@ -92,22 +92,22 @@ export default function DashboardHome() {
             <FAQ />
           </section>
 
-          {/* 5. POSTS SOBRE A GREVE (DCE + CEFISMA) */}
-          <section id="posts" className="mb-20 scroll-mt-24">
-            <h2 className="text-xs font-black text-gray-500 uppercase tracking-[0.3em] mb-8 flex items-center gap-3">
-              <span className="w-8 h-px bg-gray-800"></span>
-              Atualizações (DCE & CEFISMA)
-            </h2>
-            <SocialFeed />
-          </section>
-
-          {/* 6. DOCUMENTOS PG */}
+          {/* 5. DOCUMENTOS PG */}
           <section id="documentos" className="mb-20 scroll-mt-24">
             <h2 className="text-xs font-black text-gray-500 uppercase tracking-[0.3em] mb-8 flex items-center gap-3">
               <span className="w-8 h-px bg-gray-800"></span>
               Diretório de Documentos
             </h2>
             <InteractiveDirectory />
+          </section>
+
+          {/* 6. POSTS SOBRE A GREVE (DCE + CEFISMA) */}
+          <section id="posts" className="mb-20 scroll-mt-24">
+            <h2 className="text-xs font-black text-gray-500 uppercase tracking-[0.3em] mb-8 flex items-center gap-3">
+              <span className="w-8 h-px bg-gray-800"></span>
+              Atualizações (DCE & CEFISMA)
+            </h2>
+            <SocialFeed />
           </section>
 
         </div>

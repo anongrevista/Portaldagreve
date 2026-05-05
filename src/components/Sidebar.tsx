@@ -97,17 +97,17 @@ export function Sidebar() {
               color="red" 
             />
             <SidebarButton 
-              href={isHome ? "#posts" : "/#posts"} 
-              icon={<Instagram size={18} />} 
-              label="Posts da Greve" 
-              isActive={isHome && activeSection === 'posts'} 
-              color="red" 
-            />
-            <SidebarButton 
               href={isHome ? "#documentos" : "/#documentos"} 
               icon={<BookOpen size={18} />} 
               label="Documentos PG" 
               isActive={isHome && activeSection === 'documentos'} 
+              color="red" 
+            />
+            <SidebarButton 
+              href={isHome ? "#posts" : "/#posts"} 
+              icon={<Instagram size={18} />} 
+              label="Posts da Greve" 
+              isActive={isHome && activeSection === 'posts'} 
               color="red" 
             />
           </div>

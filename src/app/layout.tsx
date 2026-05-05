@@ -12,6 +12,8 @@ export const metadata: Metadata = {
   description: "Portal interativo de documentação da greve",
 };
 
+import { ReadingProgressBar } from "@/components/ReadingProgressBar";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -19,7 +21,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR" className="dark">
-      <body className="antialiased min-h-screen bg-background text-foreground">
+      <body className="antialiased min-h-screen bg-[#151414] text-foreground">
+        <ReadingProgressBar />
         {children}
       </body>
     </html>
