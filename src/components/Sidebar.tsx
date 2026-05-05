@@ -60,7 +60,7 @@ export function Sidebar() {
       )}
       
       <aside className={cn(
-        "fixed md:sticky top-16 inset-y-0 right-0 md:left-0 z-40 w-64 h-[calc(100vh-64px)] bg-[#09090b] border-l md:border-l-0 md:border-r border-gray-800/30 flex flex-col transition-transform duration-300 shadow-2xl md:shadow-none",
+        "fixed md:sticky top-16 inset-y-0 right-0 md:left-0 z-40 w-64 h-[calc(100vh-64px)] bg-[#151414] border-l md:border-l-0 md:border-r border-gray-800/30 flex flex-col transition-transform duration-300 shadow-2xl md:shadow-none",
         isMobileMenuOpen ? "translate-x-0" : "translate-x-full md:translate-x-0"
       )}>
         <div className="flex-1 overflow-y-auto px-3 pt-12 pb-6 space-y-8">

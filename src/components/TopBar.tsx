@@ -108,7 +108,7 @@ export function TopBar() {
   }, [query]);
 
   return (
-    <header className="w-full bg-[#09090b] border-b border-gray-800/50 z-50">
+    <header className="w-full bg-[#151414] border-b border-gray-800/50 z-50">
       <div className="max-w-[1600px] mx-auto px-4 h-16 flex items-center justify-between gap-4">
         
         {/* Left: Logo & Title */}
