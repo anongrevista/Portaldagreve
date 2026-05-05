@@ -13,6 +13,7 @@ export const metadata: Metadata = {
 };
 
 import { ReadingProgressBar } from "@/components/ReadingProgressBar";
+import { IframeResizer } from "@/components/IframeResizer";
 
 export default function RootLayout({
   children,
@@ -22,6 +23,7 @@ export default function RootLayout({
   return (
     <html lang="pt-BR" className="dark">
       <body className="antialiased min-h-screen bg-[#151414] text-foreground">
+        <IframeResizer />
         <ReadingProgressBar />
         {children}
       </body>
