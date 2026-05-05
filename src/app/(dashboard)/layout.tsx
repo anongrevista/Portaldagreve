@@ -1,21 +1,21 @@
 import { Sidebar } from "@/components/Sidebar";
-import { BottomNavigation } from "@/components/BottomNavigation";
-import { NavRail } from "@/components/NavRail";
 import { TopBar } from "@/components/TopBar";
-
 export default function DashboardLayout({ children }: { children: React.ReactNode }) {
   return (
-    <div className="flex h-screen bg-[#09090b] text-foreground overflow-hidden">
-      <NavRail />
-      {/* Container to offset the fixed NavRail on desktop */}
-      <div className="flex flex-1 min-w-0 md:pl-16">
+    <div className="flex flex-col h-screen bg-[#09090b] text-foreground overflow-hidden">
+      {/* TopBar is now the full-width header */}
+      <TopBar />
+      
+      <div className="flex flex-1 min-w-0 overflow-hidden">
+        {/* Sidebar starts below TopBar */}
         <Sidebar />
+        
         <main className="flex-1 min-w-0 overflow-y-auto overflow-x-hidden pb-16 md:pb-0 bg-[#09090b]">
-          <TopBar />
-          {children}
+          <div className="max-w-7xl mx-auto px-4 sm:px-8 py-6">
+            {children}
+          </div>
         </main>
       </div>
-      <BottomNavigation />
     </div>
   );
 }

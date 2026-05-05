@@ -1,88 +1,10 @@
 "use client";
 
 import { useState } from 'react';
-import { Folder, FileText, ChevronRight, Inbox } from 'lucide-react';
+import { Folder, FileText, ChevronRight, Inbox, Search } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import Link from 'next/link';
-
-export interface DocumentFile {
-  title: string;
-  href: string;
-}
-
-export interface FolderData {
-  description: string;
-  subfolders: Record<string, DocumentFile[]>;
-}
-
-export type DirectoryData = Record<string, FolderData>;
-
-export const DIRECTORY_DATA: DirectoryData = {
-  "Portal da Greve": {
-    description: "Documentos gerais, apresentações e glossário.",
-    subfolders: {
-      "Geral": [
-        { title: "Apresentação do Portal da Greve", href: "/documentos/apresentacao-do-portal-da-greve" }
-      ]
-    }
-  },
-  "DCE": {
-    description: "Documentos e pautas do Diretório Central dos Estudantes.",
-    subfolders: {
-      "Geral": [
-        { title: "READ-ME", href: "/documentos/dce/geral/read-me" }
-      ],
-      "Notas": [
-        { title: "READ-ME", href: "/documentos/dce/notas/read-me" }
-      ]
-    }
-  },
-  "Dossiês USP": {
-    description: "Dossiês e investigações sobre as condições na USP.",
-    subfolders: {
-      "Geral": [
-        { title: "Fotos horrendas dos bandejões", href: "/documentos/dossies-usp/geral/fotos-bandejoes" },
-        { title: "READ-ME", href: "/documentos/dossies-usp/geral/read-me" }
-      ]
-    }
-  },
-  "IFUSP": {
-    description: "Documentos, assembleias e reuniões do Instituto de Física.",
-    subfolders: {
-      "Geral": [
-        { title: "READ-ME", href: "/documentos/ifusp/geral/read-me" }
-      ],
-      "CEFISMA": [
-        { title: "A Semana Decisiva da Greve", href: "/documentos/ifusp/cefisma/a-semana-decisiva-da-greve" }
-      ],
-      "Assembleias": [
-        { title: "READ-ME", href: "/documentos/ifusp/assembleias/read-me" }
-      ],
-      "Ofícios": [
-        { title: "READ-ME", href: "/documentos/ifusp/oficios/read-me" }
-      ],
-      "Plenárias": [
-        { title: "READ-ME", href: "/documentos/ifusp/plenarias/read-me" }
-      ],
-      "Reuniões": [
-        { title: "Reunião do comando de greve", href: "/documentos/ifusp/reunioes/reuniao-comando" },
-        { title: "Reuniões com a Kaline", href: "/documentos/ifusp/reunioes/reunioes-kaline" },
-        { title: "READ-ME", href: "/documentos/ifusp/reunioes/read-me" }
-      ]
-    }
-  },
-  "Manuais de greve": {
-    description: "Guias, protocolos e informações sobre a paralisação.",
-    subfolders: {
-      "Geral": [
-        { title: "Informações sobre a greve (comando)", href: "/documentos/ifusp/comando-de-greve/informacoes-sobre-a-greve" },
-        { title: "O que é o Comando de Greve", href: "/documentos/ifusp/comando-de-greve/o-que-e-o-comando" },
-        { title: "Como lidar com influencers de direita", href: "/documentos/ifusp/comando-de-greve/influencers-de-direita" },
-        { title: "READ-ME", href: "/documentos/manuais-de-greve/geral/read-me" }
-      ]
-    }
-  }
-};
+import { DIRECTORY_DATA } from '@/data/directoryData';
 
 type MainFolder = string;
 type SubFolder = string;

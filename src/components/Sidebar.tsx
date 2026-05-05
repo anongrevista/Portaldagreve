@@ -2,165 +2,211 @@
 
 import { useSidebarStore } from '@/store/useSidebarStore';
 import { cn } from '@/lib/utils';
-import { Folder, FileText, ChevronRight, ChevronDown, File, Home, Calendar as CalendarIcon, Instagram, Upload, Presentation, HelpCircle } from 'lucide-react';
-import { useEffect, useState } from 'react';
+import { Folder, FileText, ChevronRight, ChevronDown, Home, Calendar, Instagram, Upload, HelpCircle, Activity, BookOpen } from 'lucide-react';
+import { useEffect, useState, useRef } from 'react';
 import Link from 'next/link';
-import { DIRECTORY_DATA } from './InteractiveDirectory';
+import { DIRECTORY_DATA } from '@/data/directoryData';
+import { usePathname } from 'next/navigation';
 
 export function Sidebar() {
   const { isMobileMenuOpen, setMobileMenuOpen } = useSidebarStore();
   const [mounted, setMounted] = useState(false);
-
-  // Prevent Hydration Mismatch for Zustand persist
+  const [activeSection, setActiveSection] = useState('inicio');
+  const pathname = usePathname();
+  
   useEffect(() => setMounted(true), []);
 
-  if (!mounted) return <div className="w-72 bg-[#121212] border-r border-gray-800 hidden md:block"></div>;
+  // ScrollSpy Logic
+  useEffect(() => {
+    if (pathname !== '/') return;
+
+    const sections = ['inicio', 'calendario', 'status', 'faq', 'posts', 'documentos'];
+    const observers = new Map();
+
+    const observerOptions = {
+      root: null,
+      rootMargin: '-20% 0px -70% 0px',
+      threshold: 0
+    };
+
+    const handleIntersect = (entries: IntersectionObserverEntry[]) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          setActiveSection(entry.target.id);
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(handleIntersect, observerOptions);
+
+    sections.forEach(id => {
+      const element = document.getElementById(id);
+      if (element) observer.observe(element);
+    });
+
+    return () => {
+      observer.disconnect();
+    };
+  }, [pathname]);
+
+  if (!mounted) return <div className="w-64 bg-transparent border-r border-gray-800/20 hidden md:block"></div>;
+
+  const isHome = pathname === '/';
 
   return (
     <>
-      {/* Mobile Overlay */}
       {isMobileMenuOpen && (
-        <div 
-          className="fixed inset-0 bg-black/50 z-40 md:hidden"
-          onClick={() => setMobileMenuOpen(false)}
-        />
+        <div className="fixed top-16 inset-0 bg-black/50 z-30 md:hidden" onClick={() => setMobileMenuOpen(false)} />
       )}
       
-      {/* Sidebar Container */}
       <aside className={cn(
-        "fixed md:relative inset-y-0 left-0 z-50 w-72 bg-[#121212] border-r border-gray-800/50 flex flex-col transition-transform duration-300",
-        isMobileMenuOpen ? "translate-x-0" : "-translate-x-full md:translate-x-0"
+        "fixed md:sticky top-16 inset-y-0 right-0 md:left-0 z-40 w-64 h-[calc(100vh-64px)] bg-[#09090b] border-l md:border-l-0 md:border-r border-gray-800/30 flex flex-col transition-transform duration-300 shadow-2xl md:shadow-none",
+        isMobileMenuOpen ? "translate-x-0" : "translate-x-full md:translate-x-0"
       )}>
-        <div className="p-6 pb-4">
-          <h2 className="text-xl font-black text-white tracking-tight flex items-center gap-2">
-            <div className="w-8 h-8 rounded-lg bg-gray-900 border border-gray-800 flex items-center justify-center overflow-hidden shadow-lg shadow-primary/10 transition-transform group-hover:scale-105">
-              <img 
-                src="/logo.png" 
-                alt="Logo PG" 
-                className="w-full h-full object-cover"
-              />
+        <div className="flex-1 overflow-y-auto px-3 pt-12 pb-6 space-y-8">
+          
+          {/* Main Navigation Group (Scroll Tracker) */}
+          <div className="space-y-1">
+            <h3 className="px-4 text-[10px] font-black text-gray-500 uppercase tracking-[0.2em] mb-3">Navegação</h3>
+            <SidebarButton 
+              href={isHome ? "#inicio" : "/#inicio"} 
+              icon={<Home size={18} />} 
+              label="Início" 
+              isActive={isHome && activeSection === 'inicio'} 
+              color="blue" 
+            />
+            <SidebarButton 
+              href={isHome ? "#calendario" : "/#calendario"} 
+              icon={<Calendar size={18} />} 
+              label="Calendário" 
+              isActive={isHome && activeSection === 'calendario'} 
+              color="blue" 
+            />
+            <SidebarButton 
+              href={isHome ? "#status" : "/#status"} 
+              icon={<Activity size={18} />} 
+              label="Status da Greve" 
+              isActive={isHome && activeSection === 'status'} 
+              color="blue" 
+            />
+            <SidebarButton 
+              href={isHome ? "#faq" : "/#faq"} 
+              icon={<HelpCircle size={18} />} 
+              label="FAQ" 
+              isActive={isHome && activeSection === 'faq'} 
+              color="red" 
+            />
+            <SidebarButton 
+              href={isHome ? "#posts" : "/#posts"} 
+              icon={<Instagram size={18} />} 
+              label="Posts da Greve" 
+              isActive={isHome && activeSection === 'posts'} 
+              color="red" 
+            />
+            <SidebarButton 
+              href={isHome ? "#documentos" : "/#documentos"} 
+              icon={<BookOpen size={18} />} 
+              label="Documentos PG" 
+              isActive={isHome && activeSection === 'documentos'} 
+              color="red" 
+            />
+          </div>
+
+          {/* Detailed Document Index */}
+          <div>
+            <h3 className="px-4 text-[10px] font-black text-gray-500 uppercase tracking-[0.2em] mb-3">Índice de Pastas</h3>
+            <div className="space-y-1">
+               {Object.entries(DIRECTORY_DATA).map(([folder, data]) => (
+                 <FolderCollapse key={folder} title={folder} color={folder === 'IFUSP' ? 'blue' : 'red'}>
+                   {Object.entries(data.subfolders).map(([sub, files]) => (
+                     <FolderCollapse key={sub} title={sub} isSub>
+                       {files.map(file => (
+                         <FileLink key={file.href} title={file.title} href={file.href} />
+                       ))}
+                     </FolderCollapse>
+                   ))}
+                 </FolderCollapse>
+               ))}
             </div>
-            Portal da Greve
-          </h2>
-        </div>
-        
-        <div className="flex-1 overflow-y-auto px-4 pb-4">
-           
-           <Link href="/" className="flex items-center gap-2 px-2 py-2 rounded-md text-blue-400 hover:text-blue-300 hover:bg-blue-400/10 transition-colors">
-             <Home size={18} className="shrink-0" />
-             <span className="text-sm font-medium">Início</span>
-           </Link>
+          </div>
 
-           <Link href="/calendario" className="flex items-center gap-2 px-2 py-2 rounded-md text-blue-400 hover:text-blue-300 hover:bg-blue-400/10 transition-colors">
-             <CalendarIcon size={18} className="shrink-0" />
-             <span className="text-sm font-medium">Calendário</span>
-           </Link>
-           
-           <Link href="/#social-feed" className="flex items-center gap-2 px-2 py-2 rounded-md text-red-400 hover:text-red-300 hover:bg-red-400/10 transition-colors">
-             <Instagram size={18} className="shrink-0" />
-             <span className="text-sm font-medium">Posts da Greve</span>
-           </Link>
-
-           <Link href="/submit" className="flex items-center gap-2 px-2 py-2 rounded-md text-red-400 hover:text-red-300 hover:bg-red-400/10 transition-colors">
-             <Upload size={18} className="shrink-0" />
-             <span className="text-sm font-medium">Envio de Documentos</span>
-           </Link>
-
-           <Link href="/documentos/apresentacao-do-portal-da-greve" className="flex items-center gap-2 px-2 py-2 mb-6 rounded-md text-blue-400 hover:text-blue-300 hover:bg-blue-400/10 transition-colors">
-             <Presentation size={18} className="shrink-0" />
-             <span className="text-sm font-medium">Apresentação do PG</span>
-           </Link>
-            <Link href="/#faq" className="flex items-center gap-2 px-2 py-2 mb-6 rounded-md text-blue-400 hover:text-blue-300 hover:bg-blue-400/10 transition-colors">
-              <HelpCircle size={18} className="shrink-0" />
-              <span className="text-sm font-medium">Perguntas Frequentes</span>
-            </Link>
-
-           <h3 className="text-xs font-semibold text-gray-500 mb-4 px-2 tracking-wider">DOCUMENTOS DO PORTAL</h3>
-           
-           <div className="flex flex-col gap-1 mb-2">
-             <FileItem title="Informações sobre a greve" href="/documentos/ifusp/comando-de-greve/informacoes-sobre-a-greve" />
-             <FileItem title="READ-ME do Portal" href="/documentos/portal-da-greve/geral/read-me" />
-             <FileItem title="Glossário da Greve" href="/documentos/portal-da-greve/geral/glossario" />
-           </div>
-
-           <div className="flex flex-col gap-1">
-              {Object.entries(DIRECTORY_DATA).map(([mainFolder, data]) => (
-                <FolderItem 
-                  key={mainFolder} 
-                  title={mainFolder} 
-                  color={(mainFolder === 'IFUSP' || mainFolder === 'DCE') ? 'blue' : 'red'}
-                >
-                  {Object.entries(data.subfolders).map(([subFolder, files]) => (
-                    <FolderItem key={subFolder} title={subFolder}>
-                      {files.length === 0 ? (
-                        <div className="text-xs text-gray-600 py-2 italic px-4">Nenhum documento</div>
-                      ) : (
-                        files.map(file => (
-                          <FileItem key={file.href} title={file.title} href={file.href} />
-                        ))
-                      )}
-                    </FolderItem>
-                  ))}
-                </FolderItem>
-              ))}
-           </div>
+          {/* Quick Actions (Now at the bottom) */}
+          <div className="pt-4 border-t border-gray-800/50">
+            <SidebarButton 
+              href="/submit" 
+              icon={<Upload size={18} />} 
+              label="Enviar Arquivo" 
+              isActive={pathname === "/submit"} 
+              color="green" 
+            />
+          </div>
         </div>
       </aside>
     </>
   );
 }
 
-function FolderItem({ title, defaultOpen = false, isFolderActive = false, color, children }: { title: string, defaultOpen?: boolean, isFolderActive?: boolean, color?: 'red' | 'blue', children?: React.ReactNode }) {
-  const [isOpen, setIsOpen] = useState(defaultOpen);
+function SidebarButton({ href, icon, label, isActive, color = 'blue' }: { href: string; icon: React.ReactNode; label: string; isActive: boolean; color?: 'blue' | 'red' | 'green' | 'orange' | 'purple' }) {
+  const colorMap = {
+    blue: 'text-primary bg-primary/10 border-primary/20 hover:border-primary/40',
+    red: 'text-secondary bg-secondary/10 border-secondary/20 hover:border-secondary/40',
+    green: 'text-emerald-500 bg-emerald-500/10 border-emerald-500/20 hover:border-emerald-500/40',
+    orange: 'text-orange-500 bg-orange-500/10 border-orange-500/20 hover:border-orange-500/40',
+    purple: 'text-purple-500 bg-purple-500/10 border-purple-500/20 hover:border-purple-500/40',
+  };
 
-  return (
-    <div className="flex flex-col">
-      <div 
-        onClick={() => setIsOpen(!isOpen)}
-        className={cn(
-          "flex items-center gap-2 px-2 py-1.5 rounded-md cursor-pointer transition-colors select-none",
-          isFolderActive ? "bg-primary text-white" : "hover:bg-gray-800/50",
-          !isFolderActive && color === 'red' && "text-red-400 hover:text-red-300",
-          !isFolderActive && color === 'blue' && "text-blue-400 hover:text-blue-300",
-          !isFolderActive && !color && "text-gray-300 hover:text-white"
-        )}
-      >
-        {isOpen ? <ChevronDown size={16} className="shrink-0" /> : <ChevronRight size={16} className="shrink-0" />}
-        <Folder size={18} className={cn(
-          "shrink-0", 
-          isFolderActive ? "text-white" : (color === 'red' ? "text-red-400" : color === 'blue' ? "text-blue-400" : "text-gray-400")
-        )} />
-        <span className="text-sm font-medium truncate">{title}</span>
-      </div>
-      {isOpen && children && (
-        <div className="flex flex-col pl-3 mt-1 ml-4 gap-1 border-l border-gray-800/80 hover:border-gray-700 transition-colors">
-          <div className="pl-3">
-            {children}
-          </div>
-        </div>
-      )}
-    </div>
-  );
-}
+  const activeClass = isActive ? colorMap[color] : 'text-gray-400 hover:text-gray-200 hover:bg-white/5 border-transparent';
 
-function FileItem({ title, icon = 'pdf', href, isActive = false }: { title: string, icon?: 'pdf' | 'doc', href: string, isActive?: boolean }) {
   return (
     <Link 
       href={href}
       className={cn(
-        "flex items-center gap-2 px-2 py-1.5 rounded-md cursor-pointer transition-colors",
-        isActive ? "bg-gray-800/60 text-white" : "text-gray-400 hover:text-gray-200 hover:bg-gray-800/30"
+        "flex items-center gap-3 px-4 py-2.5 rounded-xl transition-all font-medium text-sm group border",
+        activeClass
       )}
     >
-      {icon === 'pdf' ? (
-        <FileText size={16} className="text-secondary shrink-0" />
-      ) : (
-        <File size={16} className="text-gray-500 shrink-0" />
-      )}
-      <span className="text-sm truncate">{title}</span>
-      {isActive && (
-        <span className="ml-auto text-[10px] uppercase text-gray-500 font-semibold tracking-wider bg-gray-900 px-1.5 py-0.5 rounded shrink-0">Active</span>
-      )}
+      <div className={cn(
+        "shrink-0 transition-colors",
+        isActive ? "" : "text-gray-500 group-hover:text-gray-300"
+      )}>
+        {icon}
+      </div>
+      <span>{label}</span>
+      {isActive && <div className={cn("ml-auto w-1.5 h-1.5 rounded-full shadow-[0_0_8px_currentColor]", color === 'blue' ? 'bg-primary' : (color === 'red' ? 'bg-secondary' : 'bg-current'))} />}
+    </Link>
+  );
+}
+
+function FolderCollapse({ title, isSub = false, color = 'blue', children }: { title: string; isSub?: boolean; color?: 'blue' | 'red'; children: React.ReactNode }) {
+  const [isOpen, setIsOpen] = useState(false);
+  const colorClass = color === 'blue' ? 'text-primary' : 'text-secondary';
+  
+  return (
+    <div className="flex flex-col">
+      <button 
+        onClick={() => setIsOpen(!isOpen)}
+        className={cn(
+          "flex items-center gap-3 px-4 py-2 rounded-lg hover:bg-white/5 transition-colors text-sm font-medium text-gray-400 hover:text-gray-200",
+          isSub && "ml-4 text-xs"
+        )}
+      >
+        {isOpen ? <ChevronDown size={14} /> : <ChevronRight size={14} />}
+        {!isSub && <Folder size={16} className={cn("shrink-0", colorClass)} />}
+        <span className="truncate">{title}</span>
+      </button>
+      {isOpen && <div className={cn("flex flex-col mt-1", !isSub && "ml-4")}>{children}</div>}
+    </div>
+  );
+}
+
+function FileLink({ title, href }: { title: string; href: string }) {
+  return (
+    <Link 
+      href={href}
+      className="flex items-center gap-2 px-4 py-1.5 ml-4 rounded-md text-xs text-gray-500 hover:text-primary hover:bg-primary/5 transition-all border-l border-gray-800/50"
+    >
+      <FileText size={12} className="shrink-0" />
+      <span className="truncate">{title}</span>
     </Link>
   );
 }
