@@ -72,7 +72,7 @@ const DOCUMENT_MAP: Record<string, { key: string; title: string; filePath?: stri
     title: "Como lidar com influencers de direita",
     filePath: "Manuais da greve/Como lidar com a aparição de influencers de direita.md"
   },
-  
+
   // New mappings from Drive Structure
   "portal-da-greve/geral/glossario": {
     key: "glossario",
@@ -190,7 +190,7 @@ function Marked({ color, children }: { color: 'yellow' | 'red' | 'gray'; childre
     red: 'bg-red-500/20 border-b border-red-500/40 text-red-100',
     gray: 'bg-gray-500/20 border-b border-gray-500/40 text-gray-100',
   }[color];
-  
+
   return <span className={cn("px-1.5 py-0.5 rounded-sm transition-colors", bgClass)}>{children}</span>;
 }
 
@@ -239,9 +239,8 @@ function InformacoesGreveContent() {
             <a
               key={item.anchor}
               href={`#${item.anchor}`}
-              className={`block text-sm transition-colors hover:text-secondary ${
-                item.indent ? "pl-6 text-gray-400 hover:text-gray-200" : "font-semibold text-gray-300"
-              }`}
+              className={`block text-sm transition-colors hover:text-secondary ${item.indent ? "pl-6 text-gray-400 hover:text-gray-200" : "font-semibold text-gray-300"
+                }`}
             >
               {item.label}
             </a>
@@ -482,10 +481,10 @@ function InformacoesGreveContent() {
         <BulletItem>Participando das atividades de greve divulgadas</BulletItem>
         <BulletItem>Ajudar nos cartazes e na exposição que pretendemos fazer</BulletItem>
         <BulletItem>
-          <Reference 
-            id="1" 
-            index={1} 
-            title="Como lidar com a aparição de influencers de direita" 
+          <Reference
+            id="1"
+            index={1}
+            title="Como lidar com a aparição de influencers de direita"
             date="Guia de Conduta"
             url="/documentos/ifusp/comando-de-greve/influencers-de-direita"
           >
@@ -500,10 +499,10 @@ function InformacoesGreveContent() {
       <SubSectionTitle id="reunioes-atividades">2.6 Reuniões e atividades até agora</SubSectionTitle>
       <ul className="space-y-4 mb-16">
         <ActivityItem date="Dia 17">
-          <Reference 
-            id="4" 
-            index={4} 
-            title="O que é o Comando de Greve" 
+          <Reference
+            id="4"
+            index={4}
+            title="O que é o Comando de Greve"
             date="17 de Outubro"
             url="/documentos/ifusp/comando-de-greve/o-que-e-o-comando"
           >
@@ -517,10 +516,10 @@ function InformacoesGreveContent() {
           <Marked color="gray">Piquetes elaborados e manutenção da mobilização no instituto.</Marked>
         </ActivityItem>
         <ActivityItem date="Dia 24">
-          <Reference 
-            id="2" 
-            index={2} 
-            title="Reunião com o comando de greve geral da USP" 
+          <Reference
+            id="2"
+            index={2}
+            title="Reunião com o comando de greve geral da USP"
             date="24 de Outubro"
             url="/documentos/ifusp/comando-de-greve/reuniao-todos-comandos"
           >
@@ -528,10 +527,10 @@ function InformacoesGreveContent() {
           </Reference>
         </ActivityItem>
         <ActivityItem date="Dia 24">
-          <Reference 
-            id="3" 
-            index={3} 
-            title="Reunião com a Direção do IFUSP" 
+          <Reference
+            id="3"
+            index={3}
+            title="Reunião com a Direção do IFUSP"
             date="24 de Outubro"
             url="/documentos/ifusp/comando-de-greve/reuniao-direcao-ifusp"
           >
@@ -548,7 +547,7 @@ function InformacoesGreveContent() {
         </h3>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           {references.map((ref) => (
-            <a 
+            <a
               key={ref.id}
               id={`ref-${ref.id}`}
               href={ref.url}
@@ -573,9 +572,9 @@ function ApresentacaoCentralContent() {
     <>
       {/* Imagem de Capa */}
       <div className="relative w-full aspect-video md:aspect-[21/9] mb-8 rounded-2xl overflow-hidden border border-gray-800 bg-[#09090b] flex items-center justify-center">
-        <img 
-          src="/logo_1080.jpg" 
-          alt="Logo Portal da Greve" 
+        <img
+          src="/logo_1080.jpg"
+          alt="Logo Portal da Greve"
           className="object-contain w-full h-full p-4"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-[#09090b]/80 to-transparent pointer-events-none" />
@@ -655,7 +654,7 @@ function ApresentacaoCentralContent() {
           "Centralizar assembleias, eventos e iniciativas"
         ].map((obj, i) => (
           <div key={i} className="bg-[#1a1f2e] p-4 rounded-lg border border-gray-700/30 flex items-start gap-3">
-            <span className="text-secondary font-bold">4.{i+1}</span>
+            <span className="text-secondary font-bold">4.{i + 1}</span>
             <p className="text-sm text-gray-300 leading-tight">{obj}</p>
           </div>
         ))}
@@ -701,9 +700,9 @@ function OQueEComandoContent() {
     <>
       <SectionTitle id="definicao">O que é o Comando de Greve?</SectionTitle>
       <p className="text-gray-300 leading-relaxed mb-6">
-        O comando de greve é votado em assembleia e nela cada instituto/faculdade tem direito a 1 representante em seu comando a cada 15 alunos presentes na assembleia. 
+        O comando de greve é votado em assembleia e nela cada instituto/faculdade tem direito a 1 representante em seu comando a cada 15 alunos presentes na assembleia.
       </p>
-      
+
       <p className="text-gray-300 leading-relaxed mb-4">
         Seu papel é além de <Marked color="yellow">representar os estudantes</Marked> daquele espaço no período de greve também comandar a mesma das seguintes formas:
       </p>
@@ -959,7 +958,7 @@ function RespostaComandoContent() {
         Como muitos andam questionando, já respondo de antemão:
         <strong className="text-white block mt-2">
           Sim, estamos em greve geral e greve na física, e essa decisão só se altera ao ser deliberada em uma nova assembleia.
-        </strong> 
+        </strong>
         Apesar das pressões, conflitos e falas, especialmente por parte da reitoria e da nossa diretoria, a greve continua em frente, com nossos atos, eventos e piquete.
       </p>
 
@@ -981,7 +980,7 @@ function RespostaComandoContent() {
       <p className="text-gray-300 leading-relaxed mb-6">
         Greve é uma metodologia que apresenta sim consequências, por isso só é aprovada após esgotadas as outras formas de protesto. Da mesma forma que falta de assistência estudantil e comer larvas. Apesar das falas da reitoria, todas essas ameaças apresentam precedentes históricos, já que essas conversas para boi dormir já são feitas a muitas greves.
       </p>
-      
+
       <p className="text-primary font-bold text-lg mb-6 leading-relaxed">
         Mobilizados e articulados, eles não podem reprovar todos os alunos. Mobilizados e articulados, eles terão que fazer uma nova mesa de negociação. Mobilizados e articulados, eles não podem nos ignorar.
       </p>
@@ -998,7 +997,7 @@ function RespostaComandoContent() {
             </svg>
           </div>
           <p className="text-gray-200 font-medium">
-            <strong className="text-primary">Nesta quinta-feira, dia 07/05</strong>, teremos um ato em frente à reitoria, às XXhXX. Os convido para participarem, para realizarmos mais um ato massificado, um ato que a reitoria não poderá só ignorar.
+            <strong className="text-primary">Nesta quinta-feira, dia 07/05</strong>, teremos um ato em frente à reitoria, às 14 horas. Os convido para participarem, para realizarmos mais um ato massificado, um ato que a reitoria não poderá só ignorar.
           </p>
         </div>
       </div>
@@ -1080,7 +1079,7 @@ export default function DocumentoPage({ params }: { params: { slug: string[] } }
               {entry.key === "glossario" && <GlossarioGreveContent />}
               {entry.key === "a-semana-decisiva-da-greve" && <SemanaDecisivaContent />}
               {entry.key === "resposta-do-comando-de-greve" && <RespostaComandoContent />}
-              
+
               {![
                 "informacoes-sobre-a-greve",
                 "apresentacao-da-central",
@@ -1094,16 +1093,16 @@ export default function DocumentoPage({ params }: { params: { slug: string[] } }
                 "a-semana-decisiva-da-greve",
                 "resposta-do-comando-de-greve"
               ].includes(entry.key) && (
-                <div className="py-16 mt-8 flex flex-col items-center text-center border border-dashed border-gray-800 rounded-2xl bg-gray-900/20">
-                  <div className="w-16 h-16 rounded-full bg-gray-800/50 flex items-center justify-center mb-4">
-                    <FileCheck size={32} className="text-gray-500" />
+                  <div className="py-16 mt-8 flex flex-col items-center text-center border border-dashed border-gray-800 rounded-2xl bg-gray-900/20">
+                    <div className="w-16 h-16 rounded-full bg-gray-800/50 flex items-center justify-center mb-4">
+                      <FileCheck size={32} className="text-gray-500" />
+                    </div>
+                    <h3 className="text-xl font-bold text-gray-300 mb-2">Documento em digitalização</h3>
+                    <p className="text-sm text-gray-500 max-w-md">
+                      O conteúdo deste documento já foi mapeado, mas ainda está sendo transcrito para o formato nativo do Portal da Greve.
+                    </p>
                   </div>
-                  <h3 className="text-xl font-bold text-gray-300 mb-2">Documento em digitalização</h3>
-                  <p className="text-sm text-gray-500 max-w-md">
-                    O conteúdo deste documento já foi mapeado, mas ainda está sendo transcrito para o formato nativo do Portal da Greve.
-                  </p>
-                </div>
-              )}
+                )}
             </>
           )}
 
@@ -1125,7 +1124,7 @@ export default function DocumentoPage({ params }: { params: { slug: string[] } }
 
 function ReferenceItem({ id, index, title, url }: { id: string; index: number; title: string; url: string }) {
   return (
-    <a 
+    <a
       id={`ref-${id}`}
       href={url}
       className="flex flex-col p-4 rounded-xl bg-gray-900/50 border border-gray-800 hover:border-primary/30 transition-all group scroll-mt-24"
@@ -1155,7 +1154,7 @@ function ReunioesKalineContent() {
             <p className="text-sm text-gray-400">Pautas de permanência e apoio estudantil</p>
           </div>
         </div>
-        
+
         <p className="text-gray-300 leading-relaxed mb-6">
           As reuniões com a representante Kaline focaram na viabilização das pautas de permanência que foram apresentadas na carta de reivindicações. Houve um debate extenso sobre a aplicação dos recursos e a transparência nos processos de auxílio.
         </p>
@@ -1185,7 +1184,7 @@ function AssinaturaKalineContent() {
         <p className="text-gray-400 max-w-md mx-auto mb-8">
           Este documento representa o compromisso formal assinado durante as negociações, detalhando os prazos para resposta da Reitoria.
         </p>
-        
+
         <div className="bg-[#121212] border border-gray-800 rounded-xl p-6 w-full max-w-sm text-left">
           <div className="flex items-center gap-3 mb-4">
             <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
@@ -1243,14 +1242,14 @@ function ReuniaoTodosComandosContent() {
               Votação de quais serão os comandos que terão representantes na reunião com o reitor na terça-feira.
             </p>
           </BulletItem>
-          
+
           <BulletItem>
             <strong className="text-primary block mb-1 uppercase text-xs tracking-widest">Quórum de Representantes</strong>
             <p className="text-gray-300 leading-relaxed">
               Votação de quantos serão os representantes enviados para a mesa de negociação.
             </p>
           </BulletItem>
-          
+
           <BulletItem>
             <strong className="text-primary block mb-1 uppercase text-xs tracking-widest">Próxima Reunião</strong>
             <p className="text-gray-300 leading-relaxed">
@@ -1259,7 +1258,7 @@ function ReuniaoTodosComandosContent() {
           </BulletItem>
         </ul>
       </div>
-      
+
       <div className="bg-primary/5 border border-primary/20 rounded-xl p-6">
         <p className="text-gray-400 text-sm italic">
           Nota: Estas decisões foram tomadas de forma coletiva entre os comandos de greve presentes na reunião geral da USP.
@@ -1273,7 +1272,7 @@ function GlossarioGreveContent() {
   return (
     <>
       <SectionTitle id="palavras">Palavra - significado - ref</SectionTitle>
-      
+
       <div className="bg-[#1a1f2e] border border-gray-700/50 rounded-xl p-8 mb-8">
         <p className="text-gray-300 mb-6">
           ex:
