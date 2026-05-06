@@ -7,13 +7,13 @@ import { cn } from "@/lib/utils";
 const SOCIAL_POSTS: { id: string; link: string }[] = [
   { id: "DX-X_HcgNiM", link: "https://www.instagram.com/p/DX-X_HcgNiM/" },
   { id: "DXerEh4gO3d", link: "https://www.instagram.com/p/DXerEh4gO3d/" },
-  { id: "DX70zs5OA-O", link: "https://www.instagram.com/cefisma/p/DX70zs5OA-O/" },
-  { id: "DX-uV0LFxL7", link: "https://www.instagram.com/cefisma/p/DX-uV0LFxL7/" },
-  { id: "DYACoVJjr4x", link: "https://www.instagram.com/cefisma/p/DYACoVJjr4x/" },
-  { id: "DX91heIOt2d", link: "https://www.instagram.com/cefisma/p/DX91heIOt2d/" },
-  { id: "DXsn2AigFgV", link: "https://www.instagram.com/dceusp/p/DXsn2AigFgV/" },
-  { id: "DYAL7yKBWBW", link: "https://www.instagram.com/cde.eachusp/reel/DYAL7yKBWBW/" },
-  { id: "DX7htfJIE2d", link: "https://www.instagram.com/camat.usp/reel/DX7htfJIE2d/" }
+  { id: "DX70zs5OA-O", link: "https://www.instagram.com/p/DX70zs5OA-O/" },
+  { id: "DX-uV0LFxL7", link: "https://www.instagram.com/p/DX-uV0LFxL7/" },
+  { id: "DYACoVJjr4x", link: "https://www.instagram.com/p/DYACoVJjr4x/" },
+  { id: "DX91heIOt2d", link: "https://www.instagram.com/p/DX91heIOt2d/" },
+  { id: "DXsn2AigFgV", link: "https://www.instagram.com/p/DXsn2AigFgV/" },
+  { id: "DYAL7yKBWBW", link: "https://www.instagram.com/reel/DYAL7yKBWBW/" },
+  { id: "DX7htfJIE2d", link: "https://www.instagram.com/reel/DX7htfJIE2d/" }
 ];
 
 
