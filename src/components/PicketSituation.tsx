@@ -78,31 +78,7 @@ export function PicketSituation() {
         </div>
       </div>
 
-      {/* Horizontal Card: Outros Institutos */}
-      <div className="mt-6 group relative p-6 sm:p-8 rounded-[2rem] bg-[#121212] border border-gray-800/50 hover:border-primary/40 transition-all duration-500 hover:shadow-[0_30px_60px_rgba(0,0,0,0.5)] overflow-hidden">
-        <div className="absolute top-0 right-0 w-96 h-full bg-primary/5 blur-[100px] -skew-x-12 translate-x-48 group-hover:bg-primary/10 transition-all duration-700"></div>
-        
-        <div className="flex flex-col md:flex-row items-center gap-6 sm:gap-10 relative z-10">
-          <div className="w-16 h-16 shrink-0 rounded-2xl bg-gradient-to-br from-gray-900 to-black flex items-center justify-center text-gray-500 border border-gray-800 group-hover:text-primary group-hover:border-primary/30 transition-all duration-500 shadow-2xl">
-            <Building2 size={32} />
-          </div>
-          
-          <div className="flex-1 text-center md:text-left">
-            <div className="flex flex-col md:flex-row md:items-center gap-2 md:gap-4 mb-2">
-              <h3 className="text-xl font-black text-white uppercase tracking-tighter">Situação em outros Institutos</h3>
-              <span className="inline-flex self-center md:self-auto px-2 py-0.5 rounded text-[10px] font-black bg-primary/10 text-primary border border-primary/20 uppercase tracking-widest">Atualizado</span>
-            </div>
-            <p className="text-sm text-gray-400 leading-relaxed max-w-2xl">
-              Confira o status das mobilizações na FFLCH, IME, FE, FAU e demais unidades da capital e interior. 
-              Mantenha a unidade do movimento estudantil.
-            </p>
-          </div>
-          
-          <button className="w-full md:w-auto px-8 py-4 rounded-2xl bg-primary/10 border border-primary/30 text-primary font-black hover:bg-primary hover:text-white transition-all active:scale-95 text-xs uppercase tracking-[0.2em] shadow-xl group-hover:shadow-primary/20">
-            Ver Todos
-          </button>
-        </div>
-      </div>
+
 
       <div className="mt-8 p-6 rounded-2xl bg-gradient-to-r from-gray-900/60 to-gray-800/40 border border-gray-700/50 flex items-start gap-4 shadow-lg backdrop-blur-sm">
         <div className="p-2 rounded-full bg-gray-800/80 border border-gray-700 shrink-0">

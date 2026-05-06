@@ -13,24 +13,23 @@ interface TimelineEvent {
 }
 
 const rawEvents: TimelineEvent[] = [
-  // Past
+  {
+    dateStr: "16 Abr",
+    dateObj: new Date("2026-04-16T00:00:00"),
+    title: "Assembleia Geral USP",
+    description: "Greve aprovada na USP.",
+  },
   {
     dateStr: "17 Abr",
     dateObj: new Date("2026-04-17T00:00:00"),
     title: "Assembleia Geral IFUSP",
-    description: "Greve aprovada e eleição do comando.",
+    description: "Greve aprovada no IF.",
   },
   {
-    dateStr: "17 Abr",
-    dateObj: new Date("2026-04-17T00:00:00"),
-    title: "Trancamento das Salas",
-    description: "Início do piquete no IFUSP.",
-  },
-  {
-    dateStr: "20-24 Abr",
+    dateStr: "20 Abr",
     dateObj: new Date("2026-04-20T00:00:00"),
-    title: "Semana de Piquetes",
-    description: "Mobilização e atividades internas.",
+    title: "Começo dos Piquetes",
+    description: "Início dos piquetes no IF.",
   },
   {
     dateStr: "24 Abr",
@@ -41,41 +40,63 @@ const rawEvents: TimelineEvent[] = [
   {
     dateStr: "24 Abr",
     dateObj: new Date("2026-04-24T00:00:00"),
-    title: "Direção IFUSP",
-    description: "Reunião com a direção do instituto.",
-  },
-  // Monday
-  {
-    dateObj: new Date("2026-04-27T00:00:00"),
-    time: "08:00",
-    title: "C.G. IFUSP",
-    description: "Reunião do comando de greve IF.",
+    title: "Direção IF",
+    description: "Reunião com a direção do IF (alunos, professores, funcionários e direção).",
   },
   {
-    dateObj: new Date("2026-04-27T00:00:00"),
-    time: "16:00",
-    title: "Baixo Matão",
-    description: "Reunião dos comandos do baixo matão.",
+    dateStr: "25 Abr",
+    dateObj: new Date("2026-04-25T00:00:00"),
+    title: "Fim da Greve Func.",
+    description: "Fim da greve dos funcionários.",
   },
-  // Tuesday
   {
+    dateStr: "28 Abr",
     dateObj: new Date("2026-04-28T00:00:00"),
-    title: "Reunião Reitoria",
-    description: "Comandos com o reitor.",
+    title: "Reunião Reitor",
+    description: "Reunião dos representantes eleitos pelos comandos com o reitor.",
   },
-  // Wednesday - TODAY
   {
+    dateStr: "29 Abr",
+    dateObj: new Date("2026-04-29T00:00:00"),
+    title: "Assembleia Geral USP",
+    description: "Continuidade da greve aprovada.",
+  },
+  {
+    dateStr: "30 Abr",
     dateObj: new Date("2026-04-30T00:00:00"),
-    time: "14:00",
-    title: "Assembleia Geral IF",
-    description: "Assembleia Geral do Instituto de Física.",
+    title: "Nova Negociação",
+    description: "Nova negociação com o reitor.",
   },
-  // Monday
   {
+    dateStr: "30 Abr",
+    dateObj: new Date("2026-04-30T00:00:00"),
+    title: "Assembleia Geral IFUSP",
+    description: "Greve aprovada no IF.",
+  },
+  {
+    dateStr: "04 Mai",
     dateObj: new Date("2026-05-04T00:00:00"),
+    title: "Negociação Cotas",
+    description: "Negociação sobre cotas trans e vestibular indígena.",
+  },
+  {
+    dateStr: "04 Mai",
+    dateObj: new Date("2026-05-04T00:00:00"),
+    title: "Ato no CRUESP",
+    description: "Ato em frente ao CRUESP - Reunião entre reitores das estaduais.",
+  },
+  {
+    dateStr: "06 Mai",
+    dateObj: new Date("2026-05-06T00:00:00"),
     time: "18:00",
+    title: "Assembleia Geral USP",
+    description: "Assembleia geral da USP.",
+  },
+  {
+    dateStr: "08 Mai",
+    dateObj: new Date("2026-05-08T00:00:00"),
     title: "Assembleia Geral IF",
-    description: "Abraão de Morais.",
+    description: "Assembleia geral no IF.",
   },
 ];
 

@@ -27,56 +27,41 @@ export interface RootDocument {
 }
 
 export const ROOT_DOCUMENTS: RootDocument[] = [
+  /*
   { 
     title: "Apresentação do Portal da Greve (PG)", 
     slug: "apresentacao-do-portal-da-greve",
     fileUrl: "/Documentos PG (Portal da greve)/Apresentação do Portal da Greve o (PG).zip",
-    destaque: true,
+    destaque: false,
     description: "Visão geral e objetivos do Portal da Greve."
   },
-  { 
-    title: "Glossário da greve", 
-    slug: "portal-da-greve/geral/glossario",
-    fileUrl: "/Documentos PG (Portal da greve)/Glossário da greve .zip",
+  */
+  {
+    title: "A semana decisiva da greve",
+    slug: "a-semana-decisiva-da-greve",
+    fileUrl: "/Documentos PG (Portal da greve)/A SEMANA DECISIVA DA GREVE.zip",
     destaque: true,
-    description: "Termos e definições importantes do movimento."
+    description: "Documento sobre a semana decisiva da greve."
   },
-  { 
-    title: "Informações sobre a greve", 
-    slug: "ifusp/comando-de-greve/informacoes-sobre-a-greve",
-    fileUrl: "/Documentos PG (Portal da greve)/Informações sobre a greve.zip",
+  {
+    title: "Resposta do Comando de Greve ao email da direção do IFUSP",
+    slug: "ifusp/emails-enviados/resposta-do-comando-de-greve",
+    fileUrl: "/Documentos PG (Portal da greve)/IFUSP/Emails enviados/Resposta do Comando de greve ao email da direção do IFUSP.zip",
     destaque: true,
-    description: "Dados centrais, pautas e reivindicações."
+    description: "Resposta oficial do comando de greve à direção do IFUSP."
   }
 ];
 
 export const DIRECTORY_DATA: DirectoryData = {
-  "DCE": {
-    description: "Documentos e pautas do Diretório Central dos Estudantes.",
-    subfolders: {
-      "Notas": []
-    }
-  },
-  "Docies USP": {
-    description: "Dossiês e investigações sobre as condições na USP.",
-    subfolders: {}
-  },
   "IFUSP": {
     description: "Documentos, assembleias e reuniões do Instituto de Física.",
     subfolders: {
-      "Assembleias": [],
-      "Emails enviados": [],
-      "Ofícios": [],
-      "Plenárias": [],
-      "Reuniões": []
+      "Emails enviados": [
+        {
+          title: "Resposta do Comando de Greve ao email da direção do IFUSP",
+          href: "/documentos/ifusp/emails-enviados/resposta-do-comando-de-greve"
+        }
+      ]
     }
-  },
-  "Manuais de greve": {
-    description: "Guias, protocolos e informações sobre a paralisação.",
-    subfolders: {}
-  },
-  "Referencias": {
-    description: "Materiais de referência e consulta externa.",
-    subfolders: {}
   }
 };

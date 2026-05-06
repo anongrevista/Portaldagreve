@@ -5,8 +5,6 @@ import { SocialFeed } from "@/components/SocialFeed";
 import { Calendar } from "@/components/Calendar";
 import { PicketStatus } from "@/components/PicketStatus";
 import { PicketSituation } from "@/components/PicketSituation";
-import { FAQ } from "@/components/FAQ";
-
 export default function DashboardHome() {
   return (
     <div className="flex flex-col min-h-screen">
@@ -38,22 +36,23 @@ export default function DashboardHome() {
                 Aqui você encontra pautas, atas e manuais organizados para fortalecer a mobilização.
               </p>
               
-              <div className="flex flex-col sm:flex-row gap-4 pt-2">
+              <div className="flex flex-col sm:flex-row gap-5 pt-6">
                 <Link 
                   href="/documentos/apresentacao-do-portal-da-greve"
-                  className="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-2xl bg-white text-black font-black hover:bg-gray-200 transition-all active:scale-95 text-sm uppercase tracking-widest"
+                  className="group relative inline-flex items-center justify-center gap-3 px-8 py-4 rounded-2xl bg-gradient-to-r from-primary to-secondary text-white font-black transition-all duration-300 hover:scale-[1.02] active:scale-95 text-sm uppercase tracking-widest shadow-[0_0_30px_rgba(15,102,136,0.3)] hover:shadow-[0_0_40px_rgba(241,67,67,0.4)] overflow-hidden"
                 >
-                  Ver Apresentação
-                  <ArrowRight size={18} />
+                  <div className="absolute inset-0 w-full h-full bg-white/20 blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <span className="relative z-10">Ver Apresentação</span>
+                  <ArrowRight size={18} className="relative z-10 group-hover:translate-x-1 transition-transform" />
                 </Link>
                 <a 
                   href="https://chat.whatsapp.com/BAKYXhrnPwxDeYaSCDw0Fr"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-2xl bg-[#121212] border border-gray-800 text-white font-black hover:bg-gray-800 transition-all active:scale-95 text-sm uppercase tracking-widest"
+                  className="group relative inline-flex items-center justify-center gap-3 px-8 py-4 rounded-2xl bg-[#121212]/80 backdrop-blur-md border border-green-500/30 text-white font-black transition-all duration-300 hover:bg-green-500/10 hover:border-green-500/50 hover:scale-[1.02] active:scale-95 text-sm uppercase tracking-widest shadow-[0_0_20px_rgba(34,197,94,0.1)] hover:shadow-[0_0_30px_rgba(34,197,94,0.2)]"
                 >
-                  <MessageSquare size={18} className="text-green-500" />
-                  Grupo Mobilização
+                  <MessageSquare size={18} className="text-green-500 group-hover:scale-110 transition-transform" />
+                  <span>Grupo Mobilização</span>
                 </a>
               </div>
             </div>
@@ -87,20 +86,12 @@ export default function DashboardHome() {
           <section id="status" className="mb-20 scroll-mt-24 space-y-10">
             <h2 className="text-xs font-black text-gray-500 uppercase tracking-[0.3em] mb-8 flex items-center gap-3">
               <span className="w-8 h-px bg-gray-800"></span>
-              Situação dos Piquetes
+              Linha do Tempo
             </h2>
             <PicketStatus />
             <PicketSituation />
           </section>
 
-          {/* 4. FAQ */}
-          <section id="faq" className="mb-20 scroll-mt-24">
-            <h2 className="text-xs font-black text-gray-500 uppercase tracking-[0.3em] mb-8 flex items-center gap-3">
-              <span className="w-8 h-px bg-gray-800"></span>
-              Perguntas Frequentes
-            </h2>
-            <FAQ />
-          </section>
 
           {/* 5. DOCUMENTOS PG */}
           <section id="documentos" className="mb-20 scroll-mt-24">

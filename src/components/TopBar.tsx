@@ -129,7 +129,6 @@ export function TopBar() {
           <TopNavLink href="/" label="Início" isActive={pathname === "/"} />
           <TopNavLink href="/calendario" label="Calendário" isActive={pathname === "/calendario"} />
           <TopNavLink href="/submit" label="Enviar" isActive={pathname === "/submit"} />
-          <TopNavLink href="/#faq" label="FAQ" isActive={false} />
         </nav>
 
         {/* Right: Search Bar & Mobile Menu */}

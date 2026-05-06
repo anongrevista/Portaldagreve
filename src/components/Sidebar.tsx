@@ -2,7 +2,7 @@
 
 import { useSidebarStore } from '@/store/useSidebarStore';
 import { cn } from '@/lib/utils';
-import { Folder, FileText, ChevronRight, ChevronDown, Home, Calendar, Instagram, Upload, HelpCircle, Activity, BookOpen, GraduationCap } from 'lucide-react';
+import { Folder, FileText, ChevronRight, ChevronDown, Home, Calendar, Instagram, Upload, HelpCircle, Activity, BookOpen, GraduationCap, MessageSquare, Info } from 'lucide-react';
 import { useEffect, useState, useRef } from 'react';
 import Link from 'next/link';
 import { DIRECTORY_DATA, ROOT_DOCUMENTS } from '@/data/directoryData';
@@ -20,7 +20,7 @@ export function Sidebar() {
   useEffect(() => {
     if (pathname !== '/') return;
 
-    const sections = ['inicio', 'calendario', 'status', 'faq', 'posts', 'documentos'];
+    const sections = ['inicio', 'calendario', 'status', 'posts', 'documentos'];
 
 
     const observers = new Map();
@@ -93,13 +93,7 @@ export function Sidebar() {
               isActive={isHome && activeSection === 'status'} 
               color="blue" 
             />
-            <SidebarButton 
-              href={isHome ? "#faq" : "/#faq"} 
-              icon={<HelpCircle size={18} />} 
-              label="FAQ" 
-              isActive={isHome && activeSection === 'faq'} 
-              color="red" 
-            />
+
             <SidebarButton 
               href={isHome ? "#documentos" : "/#documentos"} 
               icon={<BookOpen size={18} />} 
@@ -114,6 +108,26 @@ export function Sidebar() {
               isActive={isHome && activeSection === 'posts'} 
               color="red" 
             />
+          </div>
+
+          <div className="flex items-center gap-2 px-1">
+            <Link 
+              href="/documentos/apresentacao-do-portal-da-greve"
+              className="flex-1 flex flex-col items-center justify-center gap-1.5 p-3 rounded-xl bg-gradient-to-br from-primary/20 to-primary/5 border border-primary/30 text-primary hover:bg-primary hover:text-white transition-all text-center group"
+            >
+              <Info size={18} className="group-hover:scale-110 transition-transform" />
+              <span className="text-[9px] font-black uppercase tracking-widest leading-tight">Apresentação<br />do PG</span>
+            </Link>
+            
+            <a 
+              href="https://chat.whatsapp.com/BAKYXhrnPwxDeYaSCDw0Fr"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex-1 flex flex-col items-center justify-center gap-1.5 p-3 rounded-xl bg-green-500/10 border border-green-500/30 text-green-500 hover:bg-green-500 hover:text-white transition-all text-center group"
+            >
+              <MessageSquare size={18} className="group-hover:scale-110 transition-transform" />
+              <span className="text-[9px] font-black uppercase tracking-widest leading-tight">Grupo<br />Mobilização</span>
+            </a>
           </div>
 
           {/* Destaques */}
@@ -156,16 +170,7 @@ export function Sidebar() {
             </div>
           </div>
 
-          {/* Quick Actions (Now at the bottom) */}
-          <div className="pt-4 border-t border-gray-800/50">
-            <SidebarButton 
-              href="/submit" 
-              icon={<Upload size={18} />} 
-              label="Enviar Arquivo" 
-              isActive={pathname === "/submit"} 
-              color="green" 
-            />
-          </div>
+
         </div>
       </aside>
     </>

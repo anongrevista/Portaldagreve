@@ -40,7 +40,7 @@ const APRESENTACAO_CENTRAL = {
   ],
 };
 
-const DOCUMENT_MAP: Record<string, { key: string; title: string; filePath?: string }> = {
+const DOCUMENT_MAP: Record<string, { key: string; title: string; filePath?: string; pdfPath?: string }> = {
   // Existing
   "ifusp/comando-de-greve/informacoes-sobre-a-greve": {
     key: "informacoes-sobre-a-greve",
@@ -145,11 +145,16 @@ const DOCUMENT_MAP: Record<string, { key: string; title: string; filePath?: stri
   },
 
   // CEFISMA
-  "ifusp/cefisma/a-semana-decisiva-da-greve": {
+  "a-semana-decisiva-da-greve": {
     key: "a-semana-decisiva-da-greve",
     title: "A Semana Decisiva da Greve",
-    filePath: "IFUSP/CEFISMA/A SEMANA DECISIVA DA GREVE.md"
+    pdfPath: "/Documentos PG (Portal da greve)/A SEMANA DECISIVA DA GREVE.pdf"
   },
+  "ifusp/emails-enviados/resposta-do-comando-de-greve": {
+    key: "resposta-do-comando-de-greve",
+    title: "Resposta do Comando de Greve ao email da direção do IFUSP",
+    pdfPath: "/Documentos PG (Portal da greve)/IFUSP/Emails enviados/Resposta do Comando de greve ao email da direção do IFUSP.pdf"
+  }
 };
 
 function SectionDivider() {
@@ -808,7 +813,9 @@ export default function DocumentoPage({ params }: { params: { slug: string[] } }
           </div>
 
           {/* Conteúdo do documento */}
-          {markdownContent ? (
+          {entry.pdfPath ? (
+            <iframe src={entry.pdfPath} className="w-full h-[80vh] border-0 rounded-xl bg-white" />
+          ) : markdownContent ? (
             <MarkdownRenderer content={markdownContent} />
           ) : (
             <>
