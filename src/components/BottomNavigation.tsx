@@ -17,15 +17,6 @@ export function BottomNavigation() {
         <span className="text-[10px] mt-1">Documentos</span>
       </button>
       
-      <Link href="/" className="flex flex-col items-center text-gray-400 hover:text-primary transition-colors">
-        <Home size={24} />
-        <span className="text-[10px] mt-1">Início</span>
-      </Link>
-
-      <Link href="/submit" className="flex flex-col items-center text-gray-400 hover:text-secondary transition-colors">
-        <Upload size={24} />
-        <span className="text-[10px] mt-1">Submeter</span>
-      </Link>
     </nav>
   );
 }

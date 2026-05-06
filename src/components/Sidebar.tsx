@@ -70,20 +70,6 @@ export function Sidebar() {
           {/* Main Navigation Group (Scroll Tracker) */}
           <div className="space-y-1">
             <h3 className="px-4 text-[10px] font-black text-gray-500 uppercase tracking-[0.2em] mb-3">Navegação</h3>
-            <SidebarButton 
-              href={isHome ? "#inicio" : "/#inicio"} 
-              icon={<Home size={18} />} 
-              label="Início" 
-              isActive={isHome && activeSection === 'inicio'} 
-              color="blue" 
-            />
-            <SidebarButton 
-              href={isHome ? "#calendario" : "/#calendario"} 
-              icon={<Calendar size={18} />} 
-              label="Calendário" 
-              isActive={isHome && activeSection === 'calendario'} 
-              color="blue" 
-            />
 
 
             <SidebarButton 

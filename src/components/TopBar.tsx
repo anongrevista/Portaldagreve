@@ -124,12 +124,6 @@ export function TopBar() {
           </div>
         </Link>
 
-        {/* Center: Navigation Bar (Pill style like the image) */}
-        <nav className="hidden xl:flex items-center bg-[#1a1f2e]/40 border border-gray-800/50 rounded-full px-1 py-1">
-          <TopNavLink href="/" label="Início" isActive={pathname === "/"} />
-          <TopNavLink href="/calendario" label="Calendário" isActive={pathname === "/calendario"} />
-          <TopNavLink href="/submit" label="Enviar" isActive={pathname === "/submit"} />
-        </nav>
 
         {/* Right: Search Bar & Mobile Menu */}
         <div className="flex items-center gap-3 flex-1 max-w-md justify-end">

@@ -11,8 +11,6 @@ export function NavRail() {
   return (
     <nav className="fixed inset-y-0 left-0 z-50 flex w-16 flex-col items-center justify-between bg-background/50 backdrop-blur-sm py-6 hidden md:flex border-r border-gray-800/20">
       <div className="flex flex-col items-center gap-6 w-full">
-        <NavItem href="/" icon={<Home size={20} />} isActive={pathname === "/"} />
-        <NavItem href="/submit" icon={<Upload size={20} />} isActive={pathname === "/submit"} />
       </div>
     </nav>
   );

@@ -13,18 +13,6 @@ export default function DashboardHome() {
 
           {/* 1. INÍCIO (Hero/Intro) */}
           <section id="inicio" className="mb-12 scroll-mt-24">
-            {/* ⚠️ AVISO DE REVISÃO */}
-            <div className="mb-10 flex items-start gap-4 p-5 rounded-3xl bg-red-950/40 border border-red-500/30 shadow-[0_0_50px_rgba(239,68,68,0.1)]">
-              <span className="text-2xl shrink-0 mt-0.5">🚨</span>
-              <div>
-                <p className="text-red-400 font-black text-sm uppercase tracking-widest mb-1">
-                  Documentos em revisão
-                </p>
-                <p className="text-red-300/70 text-xs leading-relaxed">
-                  Os documentos desta plataforma ainda não foram finalizados. Por favor, <strong>não compartilhe este link</strong> publicamente até a liberação final.
-                </p>
-              </div>
-            </div>
 
             <div className="space-y-6">
               <h1 className="text-4xl sm:text-5xl font-black tracking-tighter text-white leading-none">
