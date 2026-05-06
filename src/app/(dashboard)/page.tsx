@@ -45,15 +45,6 @@ export default function DashboardHome() {
                   <span className="relative z-10">Ver Apresentação</span>
                   <ArrowRight size={18} className="relative z-10 group-hover:translate-x-1 transition-transform" />
                 </Link>
-                <a 
-                  href="https://chat.whatsapp.com/BAKYXhrnPwxDeYaSCDw0Fr"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group relative inline-flex items-center justify-center gap-3 px-8 py-4 rounded-2xl bg-[#121212]/80 backdrop-blur-md border border-green-500/30 text-white font-black transition-all duration-300 hover:bg-green-500/10 hover:border-green-500/50 hover:scale-[1.02] active:scale-95 text-sm uppercase tracking-widest shadow-[0_0_20px_rgba(34,197,94,0.1)] hover:shadow-[0_0_30px_rgba(34,197,94,0.2)]"
-                >
-                  <MessageSquare size={18} className="text-green-500 group-hover:scale-110 transition-transform" />
-                  <span>Grupo Mobilização</span>
-                </a>
               </div>
             </div>
           </section>

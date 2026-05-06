@@ -110,24 +110,14 @@ export function Sidebar() {
             />
           </div>
 
-          <div className="flex items-center gap-2 px-1">
+          <div className="px-1">
             <Link 
               href="/documentos/apresentacao-do-portal-da-greve"
-              className="flex-1 flex flex-col items-center justify-center gap-1.5 p-3 rounded-xl bg-gradient-to-br from-primary/20 to-primary/5 border border-primary/30 text-primary hover:bg-primary hover:text-white transition-all text-center group"
+              className="flex flex-col items-center justify-center gap-1.5 p-3 rounded-xl bg-gradient-to-br from-primary/20 to-primary/5 border border-primary/30 text-primary hover:bg-primary hover:text-white transition-all text-center group w-full"
             >
               <Info size={18} className="group-hover:scale-110 transition-transform" />
               <span className="text-[9px] font-black uppercase tracking-widest leading-tight">Apresentação<br />do PG</span>
             </Link>
-            
-            <a 
-              href="https://chat.whatsapp.com/BAKYXhrnPwxDeYaSCDw0Fr"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex-1 flex flex-col items-center justify-center gap-1.5 p-3 rounded-xl bg-green-500/10 border border-green-500/30 text-green-500 hover:bg-green-500 hover:text-white transition-all text-center group"
-            >
-              <MessageSquare size={18} className="group-hover:scale-110 transition-transform" />
-              <span className="text-[9px] font-black uppercase tracking-widest leading-tight">Grupo<br />Mobilização</span>
-            </a>
           </div>
 
           {/* Destaques */}
