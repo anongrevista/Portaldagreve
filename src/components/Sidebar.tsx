@@ -5,7 +5,7 @@ import { cn } from '@/lib/utils';
 import { Folder, FileText, ChevronRight, ChevronDown, Home, Calendar, Instagram, Upload, HelpCircle, Activity, BookOpen, GraduationCap } from 'lucide-react';
 import { useEffect, useState, useRef } from 'react';
 import Link from 'next/link';
-import { DIRECTORY_DATA } from '@/data/directoryData';
+import { DIRECTORY_DATA, ROOT_DOCUMENTS } from '@/data/directoryData';
 import { usePathname } from 'next/navigation';
 
 export function Sidebar() {
@@ -114,6 +114,28 @@ export function Sidebar() {
               isActive={isHome && activeSection === 'posts'} 
               color="red" 
             />
+          </div>
+
+          {/* Destaques */}
+          <div>
+            <h3 className="px-4 text-[10px] font-black text-gray-500 uppercase tracking-[0.2em] mb-3">Destaques</h3>
+            <div className="space-y-1">
+              {ROOT_DOCUMENTS.filter(doc => doc.destaque).slice(0, 3).map(doc => (
+                <Link 
+                  key={doc.slug}
+                  href={`/documento/${doc.slug}`}
+                  className={cn(
+                    "flex items-center gap-2 px-4 py-2 mx-2 rounded-lg text-xs font-medium transition-all border border-transparent",
+                    pathname === `/documento/${doc.slug}`
+                      ? "text-secondary bg-secondary/10 border-secondary/20"
+                      : "text-gray-400 hover:text-white hover:bg-white/5"
+                  )}
+                >
+                  <FileText size={14} className="shrink-0" />
+                  <span className="truncate">{doc.title}</span>
+                </Link>
+              ))}
+            </div>
           </div>
 
           {/* Detailed Document Index */}

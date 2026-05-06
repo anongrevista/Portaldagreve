@@ -1,0 +1,65 @@
+
+Portal da greve 
+
+Feito pelo comando de greve para melhorar a comunica&ccedil;&atilde;o durante a greve.
+
+# o projeto em poucas palavras
+
+ O portal da greve &eacute; uma plataforma digital, um site, constru&iacute;do para melhorar a comunica&ccedil;&atilde;o e a organiza&ccedil;&atilde;o durante o per&iacute;odo de greve. O projeto segue a filosofia de software livre (open source) e foi projetado para ser uma ferramenta centralizadora de informa&ccedil;&otilde;es, pautas e suporte &agrave; comunidade acad&ecirc;mica em greve, com todo o c&oacute;digo-fonte dispon&iacute;vel publicamente.
+
+# Sum&aacute;rio
+
+o projeto em poucas palavras        2
+
+Sum&aacute;rio        2
+
+1. Introdu&ccedil;&atilde;o        2
+
+2. O que &eacute;        2
+
+3. equipe        3
+
+4. Por que o HUB &eacute; necess&aacute;rio?        3
+
+5. Parte T&eacute;cnica        3
+
+6. Conclus&atilde;o        3
+
+# 1. Introdu&ccedil;&atilde;o 
+
+ O portal da greve &eacute; uma frente tecnol&oacute;gica do movimento de mobiliza&ccedil;&atilde;o da USP. Seu objetivo &eacute; transformar a forma como a comunica&ccedil;&atilde;o da greve &eacute; realizada, tanto internamente (na rela&ccedil;&atilde;o entre alunos e comando) quanto na rela&ccedil;&atilde;o entre a universidade e a sociedade, buscando dar transpar&ecirc;ncia e agilidade &agrave;s pautas e a&ccedil;&otilde;es do movimento.
+
+# 2. O que &eacute; 
+
+ O portal da greve &eacute; uma plataforma digital do tipo WebApp. Ele n&atilde;o se limita a ser uma rede social de not&iacute;cias, mas uma ferramenta de organiza&ccedil;&atilde;o pol&iacute;tica e acad&ecirc;mica. Trata-se de uma plataforma que estende o alcance das assembleias para o ambiente digital, incentivando a participa&ccedil;&atilde;o ativa e o entendimento profundo das causas defendidas.
+
+A plataforma oferece ferramentas espec&iacute;ficas: acompanhamento de pautas, calend&aacute;rios de mobiliza&ccedil;&atilde;o, manuais de greve e suporte para que alunos n&atilde;o percam o v&iacute;nculo com o instituto.
+
+# 
+
+# 3. equipe
+
+ A governan&ccedil;a da plataforma &eacute; conduzida por uma equipe t&eacute;cnica em colabora&ccedil;&atilde;o com o Comando de Greve:
+
+    &#9679; Modera&ccedil;&atilde;o e Curadoria: Respons&aacute;veis por garantir que as informa&ccedil;&otilde;es publicadas sejam ver&iacute;dicas e alinhadas &agrave;s decis&otilde;es das assembleias.
+
+    &#9679; Produ&ccedil;&atilde;o de Conte&uacute;do: Equipe de comunica&ccedil;&atilde;o que traduz as pautas em materiais acess&iacute;veis (textos, v&iacute;deos, artes). 
+
+# 4. Por que o HUB &eacute; necess&aacute;rio? 
+
+ A comunica&ccedil;&atilde;o em tempos de greve costuma ser ca&oacute;tica e espalhada. O PG responde a tr&ecirc;s necessidades urgentes:
+
+    &#9679; Combate &agrave; Desinforma&ccedil;&atilde;o: Centraliza&ccedil;&atilde;o de fontes oficiais.
+
+    &#9679; Manuten&ccedil;&atilde;o da Comunidade: Evitar o isolamento dos alunos durante a suspens&atilde;o de aulas.
+
+    &#9679; Transpar&ecirc;ncia: Demonstrar claramente os motivos da greve para a sociedade.
+
+# 5. Parte T&eacute;cnica
+
+ A arquitetura utiliza TypeScript, Next.js e Supabase. A performance &eacute; otimizada para redes m&oacute;veis, garantindo que o usu&aacute;rio consiga acessar informa&ccedil;&otilde;es cr&iacute;ticas mesmo em condi&ccedil;&otilde;es de internet limitada dentro do campus.
+
+# 6. Conclus&atilde;o
+
+ O portal da greve representa um marco na organiza&ccedil;&atilde;o digital dos movimentos universit&aacute;rios. Ao unir as vantagens de um webapp com pautas sociais, ele consolida a infraestrutura necess&aacute;ria para uma mobiliza&ccedil;&atilde;o moderna, inclusiva e tecnicamente robusta. Onde n&atilde;o se usa as ferramentas criadas por big techs para informar as  pessoas sobre um conte&uacute;do contr&aacute;rio aos interesses da plataforma
+
