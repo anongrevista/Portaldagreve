@@ -46,7 +46,7 @@ export function InteractiveDirectory() {
             {destaques.map((doc, idx) => (
               <Link 
                 key={idx}
-                href={`/documento/${doc.slug}`}
+                href={`/documentos/${doc.slug}`}
                 className="group flex flex-col p-5 rounded-xl border border-secondary/30 bg-secondary/5 hover:bg-secondary/10 transition-all cursor-pointer shadow-lg hover:shadow-secondary/20 relative overflow-hidden"
               >
                 <div className="absolute top-0 left-0 w-1 h-full bg-secondary"></div>
@@ -74,7 +74,7 @@ export function InteractiveDirectory() {
             {outrosDocumentos.map((doc, idx) => (
               <Link
                 key={idx}
-                href={`/documento/${doc.slug}`}
+                href={`/documentos/${doc.slug}`}
                 className="group flex items-center gap-3 p-4 rounded-xl border border-gray-800 bg-[#121212]/50 hover:bg-gray-800/40 transition-all cursor-pointer"
               >
                 <div className="p-2 rounded-lg bg-gray-800 text-gray-400 group-hover:text-white transition-colors">

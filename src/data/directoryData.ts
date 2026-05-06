@@ -29,21 +29,21 @@ export interface RootDocument {
 export const ROOT_DOCUMENTS: RootDocument[] = [
   { 
     title: "Apresentação do Portal da Greve (PG)", 
-    slug: "apresentacao-portal",
+    slug: "apresentacao-do-portal-da-greve",
     fileUrl: "/Documentos PG (Portal da greve)/Apresentação do Portal da Greve o (PG).zip",
     destaque: true,
     description: "Visão geral e objetivos do Portal da Greve."
   },
   { 
     title: "Glossário da greve", 
-    slug: "glossario-da-greve",
+    slug: "portal-da-greve/geral/glossario",
     fileUrl: "/Documentos PG (Portal da greve)/Glossário da greve .zip",
     destaque: true,
     description: "Termos e definições importantes do movimento."
   },
   { 
     title: "Informações sobre a greve", 
-    slug: "informacoes-sobre-a-greve",
+    slug: "ifusp/comando-de-greve/informacoes-sobre-a-greve",
     fileUrl: "/Documentos PG (Portal da greve)/Informações sobre a greve.zip",
     destaque: true,
     description: "Dados centrais, pautas e reivindicações."

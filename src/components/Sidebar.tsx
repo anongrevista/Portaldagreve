@@ -123,10 +123,10 @@ export function Sidebar() {
               {ROOT_DOCUMENTS.filter(doc => doc.destaque).slice(0, 3).map(doc => (
                 <Link 
                   key={doc.slug}
-                  href={`/documento/${doc.slug}`}
+                  href={`/documentos/${doc.slug}`}
                   className={cn(
                     "flex items-center gap-2 px-4 py-2 mx-2 rounded-lg text-xs font-medium transition-all border border-transparent",
-                    pathname === `/documento/${doc.slug}`
+                    pathname === `/documentos/${doc.slug}`
                       ? "text-secondary bg-secondary/10 border-secondary/20"
                       : "text-gray-400 hover:text-white hover:bg-white/5"
                   )}
