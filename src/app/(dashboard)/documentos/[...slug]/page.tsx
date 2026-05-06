@@ -147,13 +147,11 @@ const DOCUMENT_MAP: Record<string, { key: string; title: string; filePath?: stri
   // CEFISMA
   "a-semana-decisiva-da-greve": {
     key: "a-semana-decisiva-da-greve",
-    title: "A Semana Decisiva da Greve",
-    pdfPath: "/Documentos PG (Portal da greve)/A SEMANA DECISIVA DA GREVE.pdf"
+    title: "A Semana Decisiva da Greve"
   },
   "ifusp/emails-enviados/resposta-do-comando-de-greve": {
     key: "resposta-do-comando-de-greve",
-    title: "Resposta do Comando de Greve ao email da direção do IFUSP",
-    pdfPath: "/Documentos PG (Portal da greve)/IFUSP/Emails enviados/Resposta do Comando de greve ao email da direção do IFUSP.pdf"
+    title: "Resposta do Comando de Greve ao email da direção do IFUSP"
   }
 };
 
@@ -758,6 +756,258 @@ function LidarInfluencersContent() {
   );
 }
 
+function SemanaDecisivaContent() {
+  return (
+    <>
+      <SectionTitle id="introducao">A SEMANA DECISIVA DA GREVE</SectionTitle>
+      <p className="text-gray-300 leading-relaxed mb-6 font-bold text-lg">
+        O que está em jogo? O que decidimos? O que não abrimos mão?
+      </p>
+
+      <SubSectionTitle id="objetivo">Qual o objetivo do documento?</SubSectionTitle>
+      <p className="text-gray-300 leading-relaxed mb-6">
+        O documento foi elaborado em resposta a dúvidas recorrentes que têm chegado de estudantes do Instituto, e busca oferecer informação organizada para que a base possa participar das plenárias e assembleias com clareza sobre o que está em discussão.
+      </p>
+
+      <ul className="list-disc list-inside space-y-2 ml-4 mb-10 text-gray-300">
+        <BulletItem>Informar a comunidade do IFUSP sobre o estado atual da greve estudantil</BulletItem>
+        <BulletItem>Esclarecer o cronograma e o funcionamento das instâncias de decisão da semana</BulletItem>
+        <BulletItem>Descrever a representação levada à mesa de negociação com a reitoria</BulletItem>
+        <BulletItem>Apresentar as reivindicações já firmadas pelo CEFISMA</BulletItem>
+        <BulletItem>Indicar os encaminhamentos previstos</BulletItem>
+      </ul>
+
+      <div className="bg-[#1a1f2e] border border-gray-700/50 rounded-xl p-6 mb-10">
+        <h2 className="text-lg font-bold text-white mb-4 flex items-center gap-2">
+          <svg className="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 10h16M4 14h16M4 18h16" />
+          </svg>
+          Sumário
+        </h2>
+        <nav className="space-y-1.5">
+          <a href="#objetivo" className="block text-sm font-semibold text-gray-300 hover:text-secondary transition-colors">Qual o objetivo do documento?</a>
+          <a href="#espacos" className="block text-sm font-semibold text-gray-300 hover:text-secondary transition-colors">1. Quais são os espaços políticos da semana</a>
+          <a href="#como-funcionam" className="block text-sm pl-6 text-gray-400 hover:text-gray-200 transition-colors">1.1 Como funcionam os espaços políticos?</a>
+          <a href="#reuniao-comando" className="block text-sm pl-6 text-gray-400 hover:text-gray-200 transition-colors">1.1.1 Reunião do Comando de Greve Geral com a reitoria</a>
+          <a href="#assembleia-usp" className="block text-sm pl-6 text-gray-400 hover:text-gray-200 transition-colors">2.1.2 Assembleia Geral dos Estudantes da USP</a>
+          <a href="#assembleia-ifusp" className="block text-sm pl-6 text-gray-400 hover:text-gray-200 transition-colors">1.1.3 Assembleia Geral dos Estudantes da Física</a>
+          <a href="#duracao" className="block text-sm font-semibold text-gray-300 hover:text-secondary transition-colors">2. Duração da greve</a>
+          <a href="#suspensao" className="block text-sm font-semibold text-gray-300 hover:text-secondary transition-colors">3. Suspensão da minuta dos espaços estudantis</a>
+          <a href="#pautas-gerais" className="block text-sm font-semibold text-gray-300 hover:text-secondary transition-colors">4. Outras pautas gerais já firmadas</a>
+          <a href="#funcionarios" className="block text-sm font-semibold text-gray-300 hover:text-secondary transition-colors">5. E o encerramento da greve dos funcionários?</a>
+          <a href="#pautas-locais" className="block text-sm font-semibold text-gray-300 hover:text-secondary transition-colors">6. E as pautas locais do IFUSP</a>
+          <a href="#faltas" className="block text-sm font-semibold text-gray-300 hover:text-secondary transition-colors">7. Mas e as aulas, vão ter faltas, terá garantias?</a>
+          <a href="#participacao" className="block text-sm font-semibold text-gray-300 hover:text-secondary transition-colors">8. Participação da semana</a>
+        </nav>
+      </div>
+
+      <SectionDivider />
+
+      <SectionTitle id="espacos">1. Quais são os espaços políticos da semana</SectionTitle>
+      <p className="text-gray-300 leading-relaxed mb-6">
+        Durante esta semana, a greve estudantil terá três espaços políticos centrais:
+      </p>
+      <ul className="list-disc list-inside space-y-2 ml-4 mb-6 text-gray-300">
+        <BulletItem>uma mesa de negociação com a reitoria</BulletItem>
+        <BulletItem>Seguida de deliberações nas instâncias da categoria (as duas assembleias estudantis.)</BulletItem>
+      </ul>
+      <p className="text-gray-300 leading-relaxed mb-8">
+        Essa configuração deve se repetir ao longo das próximas semanas, à medida que a greve avance e novas rodadas de discussão e proposição forem necessárias.
+      </p>
+
+      <SubSectionTitle id="como-funcionam">1.1 Como funcionam os espaços políticos?</SubSectionTitle>
+      <p className="text-gray-300 leading-relaxed mb-4">
+        Devemos compreender essas diferenças para poder acompanhar e participar do processo adequadamente.
+      </p>
+      <p className="text-gray-300 leading-relaxed mb-2 font-semibold">
+        Os três espaços operam em sequência ao longo da semana:
+      </p>
+      <ul className="list-disc list-inside space-y-2 ml-4 mb-6 text-gray-300">
+        <BulletItem>A reunião com a reitoria produz uma resposta institucional;</BulletItem>
+        <BulletItem>A Assembleia Geral da USP debate essa resposta no nível do conjunto da Universidade;</BulletItem>
+        <BulletItem>A Assembleia da Física delibera, com base nas duas etapas anteriores;</BulletItem>
+        <BulletItem>Os próximos passos do IFUSP. As datas, horários e locais das três instâncias estão divulgados em peça apartada.</BulletItem>
+      </ul>
+      <p className="text-gray-300 leading-relaxed mb-8">
+        Em detalhes, cada um deles funciona assim.
+      </p>
+
+      <SubSectionTitle id="reuniao-comando">1.1.1 Reunião do Comando de Greve Geral com a reitoria.</SubSectionTitle>
+      <p className="text-gray-300 leading-relaxed mb-4">
+        Esta reunião é composta por representações eleitas pelos comandos de greve dos diferentes institutos da USP em articulação regional. O Baixo Matão (IF, IME, IAG, IO e IGc), em particular, terá uma representante eleita pelo Comando de Greve da Geral em conjunto com os demais comandos da região.
+      </p>
+      <p className="text-gray-300 leading-relaxed mb-8">
+        A função desse espaço é apresentar à reitoria as reivindicações construídas coletivamente nas plenárias e nas instâncias estudantis, e receber a resposta institucional. É importante destacar que <Marked color="yellow">se trata de um espaço de negociação, e não de deliberação: nada do que é assinado nessa reunião encerra a greve</Marked>, e nada do que é dito nela substitui as decisões tomadas pelas assembleias da categoria. A representante leva à mesa uma posição previamente definida pela base e, após a reunião, retorna às instâncias para prestar contas, de modo que qualquer encaminhamento decorrente da negociação seja submetido à deliberação coletiva antes de qualquer aceitação.
+      </p>
+
+      <SubSectionTitle id="assembleia-usp">2.1.2 Assembleia Geral dos Estudantes da USP</SubSectionTitle>
+      <p className="text-gray-300 leading-relaxed mb-8">
+        Convocada pelo Diretório Central dos Estudantes da USP (DCE Livre da USP). Esta assembleia tem o papel de reunir, em escala universitária, os estudantes do conjunto da USP para debate e referendo de direções comuns ao movimento. <Marked color="yellow">As deliberações tomadas nela orientam o posicionamento da categoria estudantil no nível da Universidade.</Marked>
+      </p>
+
+      <SubSectionTitle id="assembleia-ifusp">1.1.3 Assembleia Geral dos Estudantes da Física.</SubSectionTitle>
+      <p className="text-gray-300 leading-relaxed mb-8">
+        Esta é a instância soberana dos estudantes do IFUSP, <Marked color="yellow">o único espaço com poder de manter, alterar ou encerrar a greve no nosso instituto.</Marked> É nela que se delibera, em última análise, os próximos passos da mobilização local, com base no que foi apresentado na mesa de negociação e no que foi debatido na Assembleia Geral da USP.
+      </p>
+
+      <SectionDivider />
+
+      <SectionTitle id="duracao">2. Duração da greve</SectionTitle>
+      <p className="text-gray-300 leading-relaxed mb-8">
+        A duração da greve está diretamente condicionada à dinâmica desses três espaços políticos: enquanto não houver, na sequência das rodadas, encaminhamentos satisfatórios da reitoria e a deliberação correspondente das instâncias estudantis, a greve segue em vigor. <Marked color="yellow">Então vale ressaltar que a greve não acaba logo após a reunião com o reitor.</Marked>
+      </p>
+
+      <SectionTitle id="suspensao">3. Suspensão da minuta dos espaços estudantis</SectionTitle>
+      <p className="text-gray-300 leading-relaxed mb-4">
+        A reitoria suspendeu a minuta dos espaços estudantis após o início da greve. Esta suspensão é resultado direto da pressão construída pelo movimento, e é um avanço concreto.
+      </p>
+      <p className="text-gray-300 leading-relaxed mb-4">
+        No entanto, o CEFISMA não considera, ainda, essa uma vitória que justifique o encerramento da greve. A minuta foi reapresentada, com formulações distintas, em diferentes momentos desde 2016.
+      </p>
+      <p className="text-gray-300 leading-relaxed mb-8">
+        A demanda do movimento é a regularização efetiva dos espaços estudantis, com autonomia de gestão e manutenção do financiamento estudantil, do qual dependem entidades, coletivos, atlética, semanas acadêmicas, kit bixo, monitorias e atividades culturais. <Marked color="yellow">Enquanto essa regularização não estiver formalizada, a suspensão é um passo necessário, mas insuficiente para encerrar a mobilização em torno desta pauta.</Marked>
+      </p>
+
+      <SectionDivider />
+
+      <SectionTitle id="pautas-gerais">4. Outras pautas gerais já firmadas</SectionTitle>
+      <p className="text-gray-300 leading-relaxed mb-6">
+        Além da pauta da minuta dos espaços estudantis, tratada na seção anterior, há, neste momento, duas outras reivindicações gerais que o CEFISMA assume em nome próprio e que estruturam a fala que será levada à mesa e às instâncias.
+      </p>
+      <div className="space-y-6 mb-8">
+        <div className="flex items-start gap-4 bg-[#1a1f2e] p-5 rounded-lg border border-gray-800">
+          <div className="w-8 h-8 rounded-full bg-secondary/20 flex items-center justify-center text-secondary font-bold shrink-0">1</div>
+          <p className="text-gray-300 leading-relaxed">
+            A primeira é o reajuste dos auxílios do PAPFE (alimentação e moradia), hoje defasados em relação ao custo de vida atual. A defasagem dos valores compromete a permanência estudantil, sobretudo de estudantes em situação de maior vulnerabilidade. O CEFISMA destaca, ainda, que a reitoria identificou disponibilidade orçamentária para a Gratificação por Apoio às Atividades Complementares Estratégicas dos Docentes (GAACEO), mas tem alegado ausência de recursos para o reajuste dos auxílios estudantis. <Marked color="yellow">Esta assimetria é tratada pelo movimento como um indicador de que o reajuste do PAPFE é tecnicamente viável e politicamente postergado.</Marked>
+          </p>
+        </div>
+        <div className="flex items-start gap-4 bg-[#1a1f2e] p-5 rounded-lg border border-gray-800">
+          <div className="w-8 h-8 rounded-full bg-secondary/20 flex items-center justify-center text-secondary font-bold shrink-0">2</div>
+          <div className="w-full">
+            <p className="text-gray-300 leading-relaxed mb-4">
+              A segunda diz respeito ao bandejão e organiza-se em três medidas.
+            </p>
+            <ul className="list-disc list-inside space-y-2 ml-2 text-gray-300">
+              <BulletItem>A primeira é a realização de <Marked color="yellow">um estudo técnico para a reestatização dos bandejões</Marked>, atualmente sob terceirização, com sucessivas denúncias de queda de qualidade, incluindo o caso recente de vermes na comida servida.</BulletItem>
+              <BulletItem>A segunda é a <Marked color="yellow">construção de um novo bandejão</Marked>, para ampliar a capacidade de atendimento, hoje insuficiente diante da demanda da comunidade USP.</BulletItem>
+              <BulletItem>A terceira é o <Marked color="yellow">aumento da fiscalização sanitária e do financiamento</Marked>, com o objetivo de assegurar qualidade nutricional e segurança alimentar.</BulletItem>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <SectionDivider />
+
+      <SectionTitle id="funcionarios">5. E o encerramento da greve dos funcionários?</SectionTitle>
+      <p className="text-gray-300 leading-relaxed mb-4">
+        A greve dos funcionários técnico-administrativos da USP, organizada pelo SINTUSP, foi encerrada na semana passada.
+      </p>
+      <p className="text-gray-300 leading-relaxed mb-8">
+        O CEFISMA registra que <Marked color="yellow">esse encerramento não implica o fim da greve estudantil.</Marked> As duas categorias seguem unidas em torno de pautas comuns relativas ao orçamento da Universidade e às condições de trabalho, estudo e permanência, e o SINTUSP já manifestou a possibilidade de construir novas paralisações em apoio à mobilização estudantil, conforme o desenvolvimento das negociações com a reitoria.
+      </p>
+
+      <SectionTitle id="pautas-locais">6. E as pautas locais do IFUSP</SectionTitle>
+      <p className="text-gray-300 leading-relaxed mb-4">
+        A lista final das pautas locais do IFUSP está <Marked color="yellow">sendo construída pelo Comando de Greve a partir das discussões realizadas nas plenárias abertas durante essa semana</Marked>. Será apresentada em breve.
+      </p>
+      <p className="text-gray-300 leading-relaxed mb-4">
+        A construção das pautas locais é feita coletivamente: as posições levadas pelo Comando refletem as discussões realizadas nas plenárias temáticas. Por isso, a participação nas plenárias da semana é o canal direto para incluir uma demanda na pauta local da greve.
+      </p>
+      <p className="text-gray-300 leading-relaxed mb-8">
+        Após a referendação na Assembleia da Física, será realizada uma eleição no Comando de Greve para definir o grupo que levará as pautas locais à direção e à Congregação do IFUSP. A partir desse momento, abre-se uma <Marked color="yellow">nova rodada de negociação, desta vez interna ao Instituto.</Marked>
+      </p>
+
+      <SectionDivider />
+
+      <SectionTitle id="faltas">7. Mas e as aulas, vão ter faltas, terá garantias?</SectionTitle>
+      <p className="text-gray-300 leading-relaxed mb-4">
+        A greve estudantil, deliberada em assembleia, é exercício de direito constitucional. A participação na paralisação não pode ensejar contagem de faltas. Não reconhecemos, para fins acadêmicos, a contagem de faltas em aulas ministradas durante o período de greve, nem a substituição da aula presencial por aula remota, gravada ou avaliação no mesmo período.
+      </p>
+      <p className="text-gray-300 leading-relaxed mb-6">
+        Estas práticas são reconhecidas como formas de esvaziar a mobilização e de penalizar quem dela participa, e a garantia de não-retaliação acadêmica, política e judicial sobre todas as pessoas envolvidas no movimento é uma das principais reivindicações desta greve. Esta garantia será mantida como pauta inegociável em qualquer mesa de negociação.
+      </p>
+      <p className="text-gray-300 leading-relaxed mb-4">
+        Para apoiar a aplicação dessa garantia, o CEFISMA está colocando em circulação, junto com esta nota, um formulário oficial de denúncias. Por meio dele, qualquer estudante, funcionária, funcionário ou docente solidária poderá registrar, com confidencialidade e respaldo institucional, ocorrências de aulas em descumprimento da deliberação coletiva, contagem indevida de faltas, avaliações marcadas no período de paralisação, pressão direta de docentes, ameaças de retaliação acadêmica, assédio em suas diversas formas e situações de coação (inclusive entre estudantes). O preenchimento pode ser feito de forma anônima, e a pessoa que denuncia decide expressamente como a informação poderá ser utilizada.
+      </p>
+      <p className="text-gray-300 leading-relaxed mb-8">
+        O registro das ocorrências é o instrumento que permite a contestação formal de práticas indevidas, tanto no acompanhamento individual de cada caso quanto no encaminhamento coletivo a instâncias da Universidade e à assessoria jurídica.
+      </p>
+
+      <SectionTitle id="participacao">8. Participação da semana</SectionTitle>
+      <p className="text-gray-300 leading-relaxed mb-4">
+        A participação efetiva da base nas plenárias temáticas e nas assembleias da semana é a condição para que as decisões tomadas reflitam a posição do conjunto da comunidade do IFUSP. As pautas levadas à mesa de negociação e as deliberações sobre os próximos passos da greve dependem das discussões realizadas nesses espaços.
+      </p>
+      <p className="text-gray-300 leading-relaxed mb-4">
+        O CEFISMA convoca os estudantes da graduação e da pós-graduação a comparecer às plenárias temáticas que ocorrem ao longo da semana no IFUSP, à Assembleia Geral da USP e, de forma especial, à Assembleia da Física, instância soberana onde o IFUSP delibera sobre os próximos passos do movimento.
+      </p>
+      <p className="text-gray-300 leading-relaxed mb-8 font-semibold">
+        E por fim, o calendário oficial sempre estará disponível no Instagram do CEFISMA (@cefisma).
+      </p>
+    </>
+  );
+}
+
+function RespostaComandoContent() {
+  return (
+    <>
+      <SectionTitle id="introducao">Resposta do Comando de greve ao email da direção do IFUSP</SectionTitle>
+      <p className="text-gray-300 leading-relaxed mb-6">
+        Dado a repercussão que ocorreu no dia de hoje, seja no boca a boca, ou até mesmo pela mídia, sobre as falas por parte da reitoria, somadas ao email enviado pela Kaline, nós do comando achamos importante conversarmos com vocês para esclarecermos alguns tópicos.
+      </p>
+
+      <p className="text-gray-300 leading-relaxed mb-6">
+        Como muitos andam questionando, já respondo de antemão:
+        <strong className="text-white block mt-2">
+          Sim, estamos em greve geral e greve na física, e essa decisão só se altera ao ser deliberada em uma nova assembleia.
+        </strong> 
+        Apesar das pressões, conflitos e falas, especialmente por parte da reitoria e da nossa diretoria, a greve continua em frente, com nossos atos, eventos e piquete.
+      </p>
+
+      <SectionDivider />
+
+      <SubSectionTitle id="dados">Sobre os dados da Paralisação</SubSectionTitle>
+      <p className="text-gray-300 leading-relaxed mb-6">
+        Sobre a fala da diretoria em seu email, em que afirma que <Marked color="gray">&quot;apenas 14% das unidades da USP ainda estão com as aulas paralisadas&quot;</Marked>, nos questionamos de onde esse dado foi retirado. Com base em um levantamento feito junto a outros comandos, <strong className="text-white">cerca de 57,5% permanecem em greve (23 unidades)</strong>, sendo que 27,5% já houveram assembleias com aprovação da greve, 20% terá assembleias ainda essa semana e 10% não apresentaram assembleias marcadas para essa semana. Por fim, 30% (12 unidades) ainda não tivemos notícias e 12,5% (5 unidades) aprovaram o fim de suas respectivas greves.
+      </p>
+
+      <div className="flex gap-4 bg-[#1a1f2e] p-4 rounded-lg border border-gray-800 mb-8">
+        <div className="w-8 h-8 rounded-full bg-secondary/20 flex items-center justify-center text-secondary font-bold shrink-0">!</div>
+        <p className="text-gray-300 text-sm">É perceptível que, apesar de circunstâncias as quais podemos não saber no momento, que podem se enquadrar como &quot;aulas não paralisadas&quot;, há uma diferença abismal entre 57,5% e 14%.</p>
+      </div>
+
+      <SectionDivider />
+
+      <SubSectionTitle id="consequencias">Greve como Metodologia</SubSectionTitle>
+      <p className="text-gray-300 leading-relaxed mb-6">
+        Greve é uma metodologia que apresenta sim consequências, por isso só é aprovada após esgotadas as outras formas de protesto. Da mesma forma que falta de assistência estudantil e comer larvas. Apesar das falas da reitoria, todas essas ameaças apresentam precedentes históricos, já que essas conversas para boi dormir já são feitas a muitas greves.
+      </p>
+      
+      <p className="text-primary font-bold text-lg mb-6 leading-relaxed">
+        Mobilizados e articulados, eles não podem reprovar todos os alunos. Mobilizados e articulados, eles terão que fazer uma nova mesa de negociação. Mobilizados e articulados, eles não podem nos ignorar.
+      </p>
+
+      <div className="mt-10 p-6 bg-gradient-to-r from-[#1a1f2e] to-gray-900/50 rounded-2xl border border-gray-800">
+        <p className="text-gray-300 leading-relaxed mb-6">
+          Imagino que tais mensagens ao longo do dia tenham gerado o descontentamento de muitos por aqui. Por isso, os convido a não deixar a poeira baixar. <strong className="text-white">Transformar esse descontentamento, essa raiva para com os ocorridos, em força e movimento para conquistarmos nossas demandas.</strong>
+        </p>
+
+        <div className="flex items-center gap-4 p-4 bg-primary/10 border border-primary/20 rounded-xl">
+          <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center shrink-0">
+            <svg className="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+            </svg>
+          </div>
+          <p className="text-gray-200 font-medium">
+            <strong className="text-primary">Nesta quinta-feira, dia 07/05</strong>, teremos um ato em frente à reitoria, às XXhXX. Os convido para participarem, para realizarmos mais um ato massificado, um ato que a reitoria não poderá só ignorar.
+          </p>
+        </div>
+      </div>
+    </>
+  );
+}
+
+
+
 export default function DocumentoPage({ params }: { params: { slug: string[] } }) {
   const slugKey = params.slug.join("/");
   const entry = DOCUMENT_MAP[slugKey];
@@ -828,6 +1078,8 @@ export default function DocumentoPage({ params }: { params: { slug: string[] } }
               {entry.key === "o-que-e-o-comando" && <OQueEComandoContent />}
               {entry.key === "influencers-de-direita" && <LidarInfluencersContent />}
               {entry.key === "glossario" && <GlossarioGreveContent />}
+              {entry.key === "a-semana-decisiva-da-greve" && <SemanaDecisivaContent />}
+              {entry.key === "resposta-do-comando-de-greve" && <RespostaComandoContent />}
               
               {![
                 "informacoes-sobre-a-greve",
@@ -838,7 +1090,9 @@ export default function DocumentoPage({ params }: { params: { slug: string[] } }
                 "documento-assinatura-kaline",
                 "o-que-e-o-comando",
                 "influencers-de-direita",
-                "glossario"
+                "glossario",
+                "a-semana-decisiva-da-greve",
+                "resposta-do-comando-de-greve"
               ].includes(entry.key) && (
                 <div className="py-16 mt-8 flex flex-col items-center text-center border border-dashed border-gray-800 rounded-2xl bg-gray-900/20">
                   <div className="w-16 h-16 rounded-full bg-gray-800/50 flex items-center justify-center mb-4">
