@@ -59,16 +59,26 @@ export default function DashboardHome() {
             </div>
           </section>
 
-          {/* 2. CALENDÁRIO */}
+          {/* 2. CALENDÁRIO UNIFICADO */}
           <section id="calendario" className="mb-20 scroll-mt-24">
-            <h2 className="text-xs font-black text-gray-500 uppercase tracking-[0.3em] mb-8 flex items-center gap-3">
+            <h2 className="text-xs font-black text-gray-500 uppercase tracking-[0.3em] mb-12 flex items-center gap-3">
               <span className="w-8 h-px bg-gray-800"></span>
-              Calendário de Atividades
+              Calendário Unificado
             </h2>
-            <Calendar limit={3} />
-            <div className="mt-6">
-              <Link href="/calendario" className="text-primary hover:text-white text-[10px] font-black uppercase tracking-widest flex items-center gap-2 transition-colors">
-                Ver calendário completo <ArrowRight size={12} />
+            
+            <div className="space-y-16">
+              <div>
+                <Calendar limit={3} type="atividades" />
+              </div>
+              
+              <div>
+                <Calendar limit={3} type="monitorias" />
+              </div>
+            </div>
+
+            <div className="mt-10">
+              <Link href="/calendario" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-primary/10 border border-primary/20 text-primary hover:bg-primary hover:text-white transition-all text-[10px] font-black uppercase tracking-widest shadow-lg">
+                Ver calendário completo <ArrowRight size={14} />
               </Link>
             </div>
           </section>

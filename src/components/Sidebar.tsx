@@ -2,7 +2,7 @@
 
 import { useSidebarStore } from '@/store/useSidebarStore';
 import { cn } from '@/lib/utils';
-import { Folder, FileText, ChevronRight, ChevronDown, Home, Calendar, Instagram, Upload, HelpCircle, Activity, BookOpen } from 'lucide-react';
+import { Folder, FileText, ChevronRight, ChevronDown, Home, Calendar, Instagram, Upload, HelpCircle, Activity, BookOpen, GraduationCap } from 'lucide-react';
 import { useEffect, useState, useRef } from 'react';
 import Link from 'next/link';
 import { DIRECTORY_DATA } from '@/data/directoryData';
@@ -21,6 +21,8 @@ export function Sidebar() {
     if (pathname !== '/') return;
 
     const sections = ['inicio', 'calendario', 'status', 'faq', 'posts', 'documentos'];
+
+
     const observers = new Map();
 
     const observerOptions = {
@@ -82,6 +84,8 @@ export function Sidebar() {
               isActive={isHome && activeSection === 'calendario'} 
               color="blue" 
             />
+
+
             <SidebarButton 
               href={isHome ? "#status" : "/#status"} 
               icon={<Activity size={18} />} 

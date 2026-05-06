@@ -4,13 +4,7 @@ import { useState } from "react";
 import { Instagram, Play, ExternalLink, Heart, MessageCircle, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-const SOCIAL_POSTS: { id: string; link: string }[] = [
-  { id: "5", link: "https://www.instagram.com/reel/DXuPlbujgJQ/" },
-  { id: "6", link: "https://www.instagram.com/reel/DXuhCxvDjG2/" },
-  { id: "2", link: "https://www.instagram.com/p/DXvS7tnjAe9/" },
-  { id: "3", link: "https://www.instagram.com/p/DXraMl5DiUs/" },
-  { id: "4", link: "https://www.instagram.com/p/DXp6ZVpjBgm/" },
-];
+const SOCIAL_POSTS: { id: string; link: string }[] = [];
 
 
 export function SocialFeed() {
