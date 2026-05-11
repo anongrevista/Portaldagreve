@@ -93,10 +93,22 @@ const rawEvents: TimelineEvent[] = [
     description: "Assembleia geral da USP.",
   },
   {
+    dateStr: "07 Mai",
+    dateObj: new Date("2026-05-07T00:00:00"),
+    title: "Ocupação da Reitoria",
+    description: "Estudantes ocupam o prédio da reitoria da USP.",
+  },
+  {
+    dateStr: "07 Mai",
+    dateObj: new Date("2026-05-07T00:00:00"),
+    title: "Assembleia Geral",
+    description: "Assembleia geral realizada na ocupação.",
+  },
+  {
     dateStr: "08 Mai",
     dateObj: new Date("2026-05-08T00:00:00"),
-    title: "Assembleia Geral IF",
-    description: "Assembleia geral no IF.",
+    title: "Assembleia Geral",
+    description: "Assembleia geral de continuidade da greve.",
   },
 ];
 
