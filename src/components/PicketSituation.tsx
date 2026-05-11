@@ -89,12 +89,15 @@ export function PicketSituation() {
             O <strong className="text-gray-300">Portal da Greve</strong> recomenda que você utilize os espaços comuns para estudos coletivos e mantenha-se informado sobre as decisões das assembleias para saber quando as atividades serão retomadas.
           </p>
         </div>
-        <div className="ml-12 border-t border-gray-700/30 pt-4">
+        <div className="ml-12 border-t border-gray-700/30 pt-4 flex flex-col gap-3">
+          <p className="text-xs text-gray-400 italic leading-relaxed">
+            Caso ocorram aulas ministradas / contagem de faltas / ameaças de retaliação acadêmicas / aplicações de provas, denuncie por este formulário:
+          </p>
           <a 
             href="https://forms.gle/hRVPps4ExWjQmXBy7" 
             target="_blank" 
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-secondary hover:text-secondary/80 transition-all font-black uppercase tracking-widest text-[10px] group bg-secondary/10 px-4 py-2 rounded-lg border border-secondary/20"
+            className="w-fit inline-flex items-center gap-2 text-secondary hover:text-secondary/80 transition-all font-black uppercase tracking-widest text-[10px] group bg-secondary/10 px-4 py-2 rounded-lg border border-secondary/20"
           >
             Acesse o Formulário de Denúncias
             <ArrowRight size={12} className="group-hover:translate-x-1 transition-transform" />
