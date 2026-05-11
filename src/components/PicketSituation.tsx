@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { ShieldCheck, Ban, GraduationCap, Info, Building2 } from "lucide-react";
+import { ShieldCheck, Ban, GraduationCap, Info, Building2, ArrowRight } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 
@@ -80,13 +80,26 @@ export function PicketSituation() {
 
 
 
-      <div className="mt-8 p-6 rounded-2xl bg-gradient-to-r from-gray-900/60 to-gray-800/40 border border-gray-700/50 flex items-start gap-4 shadow-lg backdrop-blur-sm">
-        <div className="p-2 rounded-full bg-gray-800/80 border border-gray-700 shrink-0">
-          <Info size={20} className="text-gray-400" />
+      <div className="mt-8 p-6 rounded-2xl bg-gradient-to-r from-gray-900/60 to-gray-800/40 border border-gray-700/50 flex flex-col gap-4 shadow-lg backdrop-blur-sm">
+        <div className="flex items-start gap-4">
+          <div className="p-2 rounded-full bg-gray-800/80 border border-gray-700 shrink-0">
+            <Info size={20} className="text-gray-400" />
+          </div>
+          <p className="text-sm text-gray-400 leading-relaxed pt-0.5">
+            O <strong className="text-gray-300">Portal da Greve</strong> recomenda que você utilize os espaços comuns para estudos coletivos e mantenha-se informado sobre as decisões das assembleias para saber quando as atividades serão retomadas.
+          </p>
         </div>
-        <p className="text-sm text-gray-400 leading-relaxed pt-0.5">
-          O <strong className="text-gray-300">Portal da Greve</strong> recomenda que você utilize os espaços comuns para estudos coletivos e mantenha-se informado sobre as decisões das assembleias para saber quando as atividades serão retomadas.
-        </p>
+        <div className="ml-12 border-t border-gray-700/30 pt-4">
+          <a 
+            href="https://forms.gle/hRVPps4ExWjQmXBy7" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 text-secondary hover:text-secondary/80 transition-all font-black uppercase tracking-widest text-[10px] group bg-secondary/10 px-4 py-2 rounded-lg border border-secondary/20"
+          >
+            Acesse o Formulário de Denúncias
+            <ArrowRight size={12} className="group-hover:translate-x-1 transition-transform" />
+          </a>
+        </div>
       </div>
     </section>
   );

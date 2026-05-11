@@ -5,15 +5,12 @@ import { Instagram, Play, ExternalLink, Heart, MessageCircle, X } from "lucide-r
 import { cn } from "@/lib/utils";
 
 const SOCIAL_POSTS: { id: string; link: string }[] = [
-  { id: "DX-X_HcgNiM", link: "https://www.instagram.com/p/DX-X_HcgNiM/" },
-  { id: "DXerEh4gO3d", link: "https://www.instagram.com/p/DXerEh4gO3d/" },
-  { id: "DX70zs5OA-O", link: "https://www.instagram.com/p/DX70zs5OA-O/" },
-  { id: "DX-uV0LFxL7", link: "https://www.instagram.com/p/DX-uV0LFxL7/" },
-  { id: "DYACoVJjr4x", link: "https://www.instagram.com/p/DYACoVJjr4x/" },
-  { id: "DX91heIOt2d", link: "https://www.instagram.com/p/DX91heIOt2d/" },
-  { id: "DXsn2AigFgV", link: "https://www.instagram.com/p/DXsn2AigFgV/" },
-  { id: "DYAL7yKBWBW", link: "https://www.instagram.com/reel/DYAL7yKBWBW/" },
-  { id: "DX7htfJIE2d", link: "https://www.instagram.com/reel/DX7htfJIE2d/" }
+  { id: "DYK8xG6yqwK", link: "https://www.instagram.com/reel/DYK8xG6yqwK/" },
+  { id: "DYLexv1DLqj", link: "https://www.instagram.com/p/DYLexv1DLqj/" },
+  { id: "DYLG6w8AMx_", link: "https://www.instagram.com/p/DYLG6w8AMx_/" },
+  { id: "DYJ61c0Frvf", link: "https://www.instagram.com/p/DYJ61c0Frvf/" },
+  { id: "DYKK88ng4Ld", link: "https://www.instagram.com/reel/DYKK88ng4Ld/" },
+  { id: "DYKM7uVA9Sv", link: "https://www.instagram.com/reel/DYKM7uVA9Sv/" }
 ];
 
 
